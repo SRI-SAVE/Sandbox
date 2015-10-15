@@ -26,12 +26,12 @@ uniform vec4 waves[9];
 
 
 vec3 sundir = vec3(.5, .5, .1);
-float L[numWaves];
-float A[numWaves];
-float S[numWaves];
-float W[numWaves];
-float Q[numWaves];
-vec2 D[numWaves];
+uniform float L[numWaves];
+uniform float A[numWaves];
+uniform float S[numWaves];
+uniform float W[numWaves];
+uniform float Q[numWaves];
+uniform vec2 D[numWaves];
 
 highp mat3 transpose(in highp mat3 inMatrix) {
       highp vec3 i0 = inMatrix[0];
@@ -48,29 +48,25 @@ highp mat3 transpose(in highp mat3 inMatrix) {
 }
 
 
-void setup() {
-      float Qa = uChop / uMag;
-      for (int i = 0; i < numWaves; i++)
-      {
-            L[i] = waves[i].x;
-            //L[i] *= uMag / 2.0;
-            D[i] = normalize(vec2(waves[i].y, waves[i].z));
+highp mat4 transpose(in highp mat4 inMatrix) {
+      highp vec4 i0 = inMatrix[0];
+      highp vec4 i1 = inMatrix[1];
+      highp vec4 i2 = inMatrix[2];
+      highp vec4 i3 = inMatrix[3];
 
-            float w =  2.0 * PI / L[i];
-            A[i] = 0.5 / (w * 2.718281828459045); //for ocean on Earth, A is ususally related to L
-            
-            //S[i] =     1.0 * uMag; //for ocean on Earth, S is ususally related to L
-            S[i] = sqrt(.98 * (2.0*PI/w));
-            W[i] = w;
-            Q[i] = Qa / (w * A[i] * float(numWaves));
-            
-      }
+
+      highp mat4 outMatrix = mat4(
+                                   vec4(i0.x, i1.x, i2.x,i3.x),
+                                   vec4(i0.y, i1.y, i2.y,i3.y),
+                                   vec4(i0.z, i1.z, i2.z,i3.z),
+                                   vec4(i0.w, i1.w, i2.w,i3.w)
+                             );
+      return outMatrix;
 }
 
 void main() {
 
-      setup();
-
+  
       float gA = .5;
 
       vec3 N = vec3(0.0, 0.0, 0.0);
@@ -107,28 +103,29 @@ void main() {
       for (int i = 0; i < numWaves; i++)
       {
            
-           float x = tPos.x + D[i].x * waves[i].w;
-      float y = tPos.y + D[i].y * waves[i].w;
+            float x = tPos.x + D[i].x * waves[i].w;
+            float y = tPos.y + D[i].y * waves[i].w;
             //if (L[i] > edgeLen2*4.0)
             {
                   float st = t;
                   
                   float w = W[i];
                   float q = S[i] * w;
-                  A[i] *= smoothstep(1.0, 0.0, pow(camDist, 1.3) / (uHalfGrid * L[i]));
-                 if(A[i] < .001) continue;
+                  float Ai = A[i] * smoothstep(1.0, 0.0, pow(camDist, 1.3) / (uHalfGrid * L[i]));
+                 
+                 if(Ai < .001) continue;
                   vec2 xy = vec2(x , y);
                   
                   float Qi = Q[i]; // *numWaves?
-                  float xi = Qi * A[i] * D[i].x * cos( dot(w * D[i], xy) + q * st);
-                  float yi = Qi * A[i] * D[i].y * cos( dot(w * D[i], xy) + q * st);
-                  float hi =  A[i] * sin( dot(w * D[i], xy) + q * st );
+                  float xi = Qi * Ai * D[i].x * cos( dot(w * D[i], xy) + q * st);
+                  float yi = Qi * Ai * D[i].y * cos( dot(w * D[i], xy) + q * st);
+                  float hi =  Ai * sin( dot(w * D[i], xy) + q * st );
 
                   tPos.x += xi * gA;
                   tPos.y += yi * gA;
                   tPos.z += hi * gA;
 
-                  float WA = w * A[i] * gA;
+                  float WA = w * Ai * gA;
                   float S0 = sin(w * dot(D[i], tPos.xy) + q * st);
                   float C0 = cos(w * dot(D[i], tPos.xy) + q * st);
 
@@ -159,7 +156,16 @@ void main() {
 
       gl_Position = projectionMatrix * modelViewMatrix * vec4(tPos , 1);
 
-      vCamLength = distance(oCamPos , tPos );
-      vCamDir =  normalize(oCamPos - (tPos ));
+      vec3 w_eye_pos = -transpose(mat3(modelViewMatrix)) * vec3(modelViewMatrix[2]);
 
+      vCamLength = distance(w_eye_pos , tPos );
+      vCamDir = (viewMatrix  * vec4(tPos,1.0)).xyz;
+      vCamDir = normalize(vCamDir);
+     // vCamDir[2] = 0.0;
+      vCamDir = normalize( vec4(vCamDir,0.0) * viewMatrix ).xyz;
+      
+
+
+
+     
 }

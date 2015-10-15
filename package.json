@@ -35,7 +35,7 @@
     "multer": "~0.1.7",
     "nedb": "~0.10.2",
     "node-minify": "~0.8.1",
-    "node-sass": "~3.2.0",
+    "node-sass": "~3.3.3",
     "node-uuid": "1.4.x",
     "nodemailer": "~0.6.0",
     "nstore": "~0.5.2",

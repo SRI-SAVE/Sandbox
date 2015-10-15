@@ -117,7 +117,7 @@
 * html .ddsmoothmenu ul li a {
   /*IE6 hack to get sub menu links to behave correctly*/
   display: inline-block; }
-	
+
 /* Holly Hack for IE \*/
 /* line 146, _menubar.scss */
 * html .ddsmoothmenu {
@@ -1184,6 +1184,11 @@
     float: none;
     margin: 0 auto;
     display: block; }
+/* line 34, _primitive.scss */
+#primitiveEditor .delete-button {
+  margin: 20px auto 0 auto;
+  float: none;
+  display: block; }
 
 /* line 5, _materialeditor.scss */
 .htmlPalette.extrawide {
@@ -1397,202 +1402,202 @@ input[type=button] {
 
 /* line 111, Editorview.scss */
 #GlobalProgressBar {
-		vertical-align: middle;
-		display: inline-block;
-		margin: 0px 0px 0px 10px;
-		padding: 0px;
-		line-height: 100%;
-		position: relative;
-		top: -2px;
-		width:200px;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0px 0px 0px 10px;
+  padding: 0px;
+  line-height: 100%;
+  position: relative;
+  top: -2px;
+  width: 200px;
   overflow: hidden; }
 
 /* line 123, Editorview.scss */
 #GlobalProgressBarInner {
   background: #82b8ff;
-display: block;
-position: relative;
-top: -9px;
-box-shadow: 0px 0px 3px inset;
-border-radius: 8px;
-font-size: 13px;
-font-family: 'Open Sans',sans-serif;
-font-weight: bold;
-height: 15px;
-padding-left: 5px;
-white-space: nowrap;
-line-height: initial;
+  display: block;
+  position: relative;
+  top: -9px;
+  box-shadow: 0px 0px 3px inset;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Open Sans',sans-serif;
+  font-weight: bold;
+  height: 15px;
+  padding-left: 5px;
+  white-space: nowrap;
+  line-height: initial;
   background-image: url("../images/ajax-loader.gif");
-background-size: 300px;
-background-position-y: -56px;
-background-position-x: -11px;
-background-blend-mode: multiply;
-background-origin: inherit;
+  background-size: 300px;
+  background-position-y: -56px;
+  background-position-x: -11px;
+  background-blend-mode: multiply;
+  background-origin: inherit;
   max-width: 190px; }
 
 /* This button was generated using CSSButtonGenerator.com */
 /* line 147, Editorview.scss */
 #GlobalProgressBarBack {
-		width: 200px;
-		background: gray;
-		position: relative;
-		top: 6px;
-		box-shadow: 0px 0px 3px inset;
-		border-radius: 5px;
-		font-size: 13px;
-		font-family: 'Open Sans',sans-serif;
-		font-weight: bold;
+  width: 200px;
+  background: gray;
+  position: relative;
+  top: 6px;
+  box-shadow: 0px 0px 3px inset;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: 'Open Sans',sans-serif;
+  font-weight: bold;
   height: 15px; }
-	
+
 /* line 160, Editorview.scss */
 #FunctionTip {
-		top: 804.1875px;
-		left: 295px;
-		position: absolute;
-		z-index: 10000;
-		font-size: 1.5em;
-		font-family: 'Open Sans',sans-serif;
-		background: black;
-		border: 1px solid gray;
-		/* box-shadow: 2px 2px 2px gray; */
-		font-style: italic;
-		color:white;
+  top: 804.1875px;
+  left: 295px;
+  position: absolute;
+  z-index: 10000;
+  font-size: 1.5em;
+  font-family: 'Open Sans',sans-serif;
+  background: black;
+  border: 1px solid gray;
+  /* box-shadow: 2px 2px 2px gray; */
+  font-style: italic;
+  color: white;
   margin: 0px; }
-	
+
 /* line 175, Editorview.scss */
 .AutoCompleteOption {
-		font-size: 1.5em;
+  font-size: 1.5em;
   font-family: Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;
-		padding: 0px 50px 0px 5px;
-		color: #FFF;
+  padding: 0px 50px 0px 5px;
+  color: #FFF;
   border-bottom: 1px dashed #ededed; }
-		
+
 /* line 183, Editorview.scss */
 .AutoCompleteOption:hover {
   color: #5ab4e6; }
-		
+
 /* line 187, Editorview.scss */
 .AutoCompleteOptionFunction {
-		font-style:italic;
+  font-style: italic;
   color: orange; }
-	
+
 /* line 192, Editorview.scss */
 #AutoComplete {
-		position: absolute;
-		z-index: 10000000;
-		background: black;
+  position: absolute;
+  z-index: 10000000;
+  background: black;
   border: 1px solid #888888;
-		/* box-shadow: 5px 5px 10px #888; */
-		/* border-radius: 5px; */
-		overflow-y: auto !important;
-		overflow-x: hidden !important;
+  /* box-shadow: 5px 5px 10px #888; */
+  /* border-radius: 5px; */
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   margin: 0px; }
 
 /* line 204, Editorview.scss */
 input[type="text"]:focus, input[type="password"]:focus {
   box-shadow: 0px 0px 5px #82b8ff; }
-	
+
 /* line 208, Editorview.scss */
 #alertify {
-		font-size: 1.7em;
+  font-size: 1.7em;
   top: 38%; }
-		
+
 /* line 213, Editorview.scss */
 #alertify-logs {
   font-size: 2em; }
 
 /* line 217, Editorview.scss */
 .playerlabel {
-		cursor: pointer;
+  cursor: pointer;
   font-size: 1.3em;
   margin: 1px 5px;
   padding: 3px;
-		/* border-radius: 7px; */
-		/* border: 1px solid #444; */
-		/* background: #222 url(images/ui-bg_glass_15_222222_1x400.png) 50% 50% repeat-x; */
+  /* border-radius: 7px; */
+  /* border: 1px solid #444; */
+  /* background: #222 url(images/ui-bg_glass_15_222222_1x400.png) 50% 50% repeat-x; */
   font-weight: 700;
   color: #eee;
   font-family: 'Open Sans'; }
-	
+
 /* line 230, Editorview.scss */
 .loadchoice {
-		background-color: #DDD;
-		border-radius: 3px;
-		padding: 2px;
-		box-shadow: 3px 3px 7px grey;
+  background-color: #DDD;
+  border-radius: 3px;
+  padding: 2px;
+  box-shadow: 3px 3px 7px grey;
   margin-bottom: 5px; }
 
 /* line 238, Editorview.scss */
 .SidePanelWindowTitle {
-		padding:3px 4px 3px 4px;
+  padding: 3px 4px 3px 4px;
   font: 1.5em sans-serif; }
-		
+
 /* line 243, Editorview.scss */
 .SidePanelWindowBottomBorder {
-		border-bottom:5px solid #444444;
+  border-bottom: 5px solid #444444;
   border-left: 2px solid #444444; }
-	
+
 /* line 248, Editorview.scss */
 .loadchoice:hover {
-		background-color: #DDF;
-		border-radius: 3px;
-		padding: 2px;
-		box-shadow: 3px 3px 7px grey;
+  background-color: #DDF;
+  border-radius: 3px;
+  padding: 2px;
+  box-shadow: 3px 3px 7px grey;
   margin-bottom: 5px; }
 
 /* line 256, Editorview.scss */
 .BigTextureThumb {
-		margin-left: auto;
-		margin-right: auto;
-		display: block;
-		border: 1px solid black;
-		width:128px;
-		height:128px;
-		margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 1px solid black;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 10px;
   cursor: pointer; }
 
 /* line 267, Editorview.scss */
 .BigTextureThumbSrc {
-		margin-left: auto;
-		margin-right: auto;
-		display: block;
-		border: 1px solid black;
-		margin-bottom: 10px;
-		cursor:pointer;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  cursor: pointer;
   word-break: break-all; }
 
 /* line 277, Editorview.scss */
 #ContextMenu {
-		position: fixed;
-		z-index: 10000000;
-		top: 142px;
-		left: 114px;
-		min-width: 144px;
-		max-width: 244px;
-		display: block;
-		background: #404040;
-		font-size: 1.5em;
-		color: white;
-		font-family: 'Open Sans',sans-serif;
-		box-shadow: 2px 2px 5px black;
-		border: 1px solid gray;
+  position: fixed;
+  z-index: 10000000;
+  top: 142px;
+  left: 114px;
+  min-width: 144px;
+  max-width: 244px;
+  display: block;
+  background: #404040;
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Open Sans',sans-serif;
+  box-shadow: 2px 2px 5px black;
+  border: 1px solid gray;
   cursor: default; }
 
 /* line 294, Editorview.scss */
 #ContextMenuName {
-		border-bottom: 1px solid gray;
-		height: 1em;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		padding-bottom: 2px;
-		padding-left: 6px;
+  border-bottom: 1px solid gray;
+  height: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  padding-left: 6px;
   color: lightblue; }
 
 /* line 305, Editorview.scss */
 .ContextMenuAction {
-		background: #404040;
-		padding-left:5px;
+  background: #404040;
+  padding-left: 5px;
   color: lightgreen; }
 
 /* line 311, Editorview.scss */
@@ -1601,7 +1606,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 /* line 315, Editorview.scss */
 .ContextMenuItem {
-		background: #404040;
+  background: #404040;
   padding-left: 5px; }
 
 /* line 320, Editorview.scss */
@@ -1610,95 +1615,95 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 /* line 324, Editorview.scss */
 .textureChoice {
-		width: 50px;
-		cursor: pointer;
-		height: 50px;
-		text-align: center;
-		vertical-align: middle;
-		line-height: 50px;
-		font-size: 0.85em;
-		display: inline-block;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		color: black;
+  width: 50px;
+  cursor: pointer;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-size: 0.85em;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
   text-shadow: 1px 1px 3px white; }
 
 /* line 339, Editorview.scss */
 .editorCheck {
-		margin: 0px 2px 0px 0px;
-		text-align: center;
-		vertical-align: middle;
+  margin: 0px 2px 0px 0px;
+  text-align: center;
+  vertical-align: middle;
   zoom: 1.5; }
 
 /* line 346, Editorview.scss */
 .editorSliderLabel {
-		display: inline-block;
-		margin-bottom: 3px;
-		margin-top: 3px;
-		font-size: 1.2em;
+  display: inline-block;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  font-size: 1.2em;
   text-shadow: 1px 1px 3px #aaaaaa; }
 
 /* line 354, Editorview.scss */
-	.nametagname {
+.nametagname {
   border-left: 2px ridge #6666ff;
-height: 100%;
+  height: 100%;
   border-right: 2px ridge #6666ff;
-padding-left: 10px;
-padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   cursor: pointer; }
 
 /* line 363, Editorview.scss */
-	.nametag {
-/* pointer-events: none; */
+.nametag {
+  /* pointer-events: none; */
   position: absolute;
   /*left: 612.7792636991876px;
   top: 350.056008871367px;*/
-color: white;
-text-shadow: 1px 1px 2px black;
-padding: 0px 18px 0px 18px;
-box-sizing: border-box;
-border-radius: 13px;
-font-size: 1.5em;
-font-family: 'Open Sans',sans-serif;
-opacity: .8;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  padding: 0px 18px 0px 18px;
+  box-sizing: border-box;
+  border-radius: 13px;
+  font-size: 1.5em;
+  font-family: 'Open Sans',sans-serif;
+  opacity: .8;
   transition: background 1s, opacity 1s; }
 
 /* line 379, Editorview.scss */
 .nametag:hover {
-	opacity: 1;
+  opacity: 1;
   background: #82b8ff;
   box-shadow: 3px 3px 3px rgba(52, 52, 52, 0.9), -3px -3px 3px #7777cc inset; }
 
 /* line 385, Editorview.scss */
 .glyph {
-		position:absolute;
-		left: 0px;
+  position: absolute;
+  left: 0px;
   right: 0px; }
 
 /* line 391, Editorview.scss */
 .textureChoice:hover {
-		background: #4040A0;
-		border: 1px inset blue;
-		width: 48px;
+  background: #4040A0;
+  border: 1px inset blue;
+  width: 48px;
   height: 48px; }
-		
+
 /* line 398, Editorview.scss */
 .TransformEditorInput {
   width: 4em; }
-		
+
 /* line 402, Editorview.scss */
 .usertable {
-		width: 100%;
+  width: 100%;
   margin-bottom: 5px;
   margin-left: 5px; }
 
 /* line 408, Editorview.scss */
 .headericon {
-		vertical-align: middle;
-		width: 25px;
-		height: 25px;
-		display:inline-block;
-		zoom:1.2;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  zoom: 1.2;
   padding-right: 5px; }
 
 /* line 416, Editorview.scss */
@@ -1707,81 +1712,81 @@ opacity: .8;
 
 /* line 420, Editorview.scss */
 .usertable tr {
-		display: block;
-		border-radius: 5px;
-		width: 100%;
+  display: block;
+  border-radius: 5px;
+  width: 100%;
   padding-bottom: 1px; }
 
 /* line 427, Editorview.scss */
 .EditorDataSectionTitle {
-		text-align: center;
-		margin: 3em 0px 0px 0px;
-		border-bottom: 1px solid #444444;
-		font-size: 1.3em;
+  text-align: center;
+  margin: 3em 0px 0px 0px;
+  border-bottom: 1px solid #444444;
+  font-size: 1.3em;
   text-shadow: 1px 1px 5px #888888; }
-		
+
 /* line 435, Editorview.scss */
 .EditorDataSectionTitle:first-child {
   margin: 1em 0px 0px 0px; }
-		
+
 /* line 441, Editorview.scss */
 .GLGEStat {
-		z-index: 999999;
-		background-color: black;
-		position: absolute;
-		border: 1px solid white;
-		border-radius: 10px;
+  z-index: 999999;
+  background-color: black;
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 10px;
   opacity: .8; }
-		
+
 /* line 450, Editorview.scss */
 .GLGEStat table tbody tr td {
   color: white; }
 
 /* line 454, Editorview.scss */
 .vectorinputfront {
-		display: inline;
-		padding: 0;
-		width: 50px;
-		border-radius: 6px 0px 0px 6px;
-		background: transparent;
-		text-align: center;
-		border-width: 1px;
-		color: grey;
-		height: 16px;
+  display: inline;
+  padding: 0;
+  width: 50px;
+  border-radius: 6px 0px 0px 6px;
+  background: transparent;
+  text-align: center;
+  border-width: 1px;
+  color: grey;
+  height: 16px;
   margin: 1px 0px 1px -2px; }
 
 /* line 467, Editorview.scss */
 .vectorinput {
-		display: inline;
-		padding: 0;
-		width: 50px;
-		border-radius: 0px 0px 0px 0px;
-		background: transparent;
-		text-align: center;
-		border-width: 1px;
-		color: grey;
-		height: 16px;
+  display: inline;
+  padding: 0;
+  width: 50px;
+  border-radius: 0px 0px 0px 0px;
+  background: transparent;
+  text-align: center;
+  border-width: 1px;
+  color: grey;
+  height: 16px;
   margin: 1px 0px 1px -2px; }
 
 /* line 480, Editorview.scss */
 .primeditorinputbox {
-		display: inline;
-		float: right;
-		padding: 0;
-		width: 50px;
-		border-radius: 6px;
-		background: transparent;
-		text-align: center;
-		border-width: 1px;
-		color:white;
+  display: inline;
+  float: right;
+  padding: 0;
+  width: 50px;
+  border-radius: 6px;
+  background: transparent;
+  text-align: center;
+  border-width: 1px;
+  color: white;
   height: 16px; }
-		
+
 @media only screen and (max-width: 800px) {
   /* line 495, Editorview.scss */
   .primeditorinputbox {
-			display: block;
-			float: none;
-			margin-top: 0px;
+    display: block;
+    float: none;
+    margin-top: 0px;
     margin-left: 0px; } }
 	/*
  * CSS Styles that are needed by jScrollPane for it to operate correctly.
@@ -1791,47 +1796,47 @@ opacity: .8;
  */
 /* line 508, Editorview.scss */
 .jspContainer {
-	overflow: hidden;
-	position: relative;
-	height:100%;
-	z-index: 5;
-	background: #515151 url(../../../../images/ui-bg_diagonals-thick_8_333333_40x40.png) 0% 0% repeat;
-	background-size: 5%;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  z-index: 5;
+  background: #515151 url(../../../../images/ui-bg_diagonals-thick_8_333333_40x40.png) 0% 0% repeat;
+  background-size: 5%;
   margin-top: 3px; }
 
 /* line 518, Editorview.scss */
 .jspPane {
-	position: absolute;
+  position: absolute;
   left: 0px !important; }
 
 /* line 523, Editorview.scss */
 .jspVerticalBar {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 8px;
-	height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
   background: #424242; }
 
 /* line 532, Editorview.scss */
 .jspHorizontalBar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 16px;
-	background: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: red;
   display: none; }
 
 /* line 542, Editorview.scss */
 .jspVerticalBar * {
-	margin: 0;
+  margin: 0;
   padding: 0; }
 
 /* line 547, Editorview.scss */
 .jspHorizontalBar * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
   display: none; }
 
 /* line 553, Editorview.scss */
@@ -1849,32 +1854,32 @@ opacity: .8;
 
 /* line 566, Editorview.scss */
 .jspDrag {
-box-shadow: 1px 1px 3px inset black;
+  box-shadow: 1px 1px 3px inset black;
   background: #3a8fff;
-position: relative;
-top: 0;
-left: 0;
-cursor: pointer;
-/* box-shadow: 0px 0px 3px black inset; */
-/* border-radius: 5px; */
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  /* box-shadow: 0px 0px 3px black inset; */
+  /* border-radius: 5px; */
   border-left: 1px solid black; }
 
 /* line 578, Editorview.scss */
 .jspHorizontalBar .jspTrack,
 .jspHorizontalBar .jspDrag {
-	float: left;
+  float: left;
   height: 100%; }
 
 /* line 584, Editorview.scss */
 .jspArrow {
-	background: #50506d;
-	text-indent: -20000px;
-	display: block;
+  background: #50506d;
+  text-indent: -20000px;
+  display: block;
   cursor: pointer; }
 
 /* line 591, Editorview.scss */
 .jspArrow.jspDisabled {
-	cursor: default;
+  cursor: default;
   background: #80808d; }
 
 /* line 596, Editorview.scss */
@@ -1883,8 +1888,8 @@ cursor: pointer;
 
 /* line 600, Editorview.scss */
 .jspHorizontalBar .jspArrow {
-	width: 16px;
-	float: left;
+  width: 16px;
+  float: left;
   height: 100%; }
 
 /* line 606, Editorview.scss */
@@ -1893,8 +1898,8 @@ cursor: pointer;
 
 /* line 610, Editorview.scss */
 .jspCorner {
-	background: #eeeef4;
-	float: left;
+  background: #eeeef4;
+  float: left;
   height: 100%; }
 
 /* Yuk! CSS Hack for IE6 3 pixel bug :( */
@@ -1905,24 +1910,24 @@ cursor: pointer;
 /* line 621, Editorview.scss */
 .PrivateMessageWindow {
   background-image: -webkit-linear-gradient(top, white 0%, #d9eeef 100%);
-	width: 99%;
-	top: 0%;
-	height:80%;
-	padding:0px;
-	margin:0px;
-	position: absolute;
+  width: 99%;
+  top: 0%;
+  height: 80%;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
   overflow-y: auto; }
 
 /* line 632, Editorview.scss */
 .PrivateMessageTable {
-width: 100%;
-background-color: transparent;
-overflow-y: hidden;
+  width: 100%;
+  background-color: transparent;
+  overflow-y: hidden;
   overflow-x: hidden; }
 
 /* line 639, Editorview.scss */
 .PrivateMessageWindowText {
-margin: 0px;
+  margin: 0px;
   padding: 0px;
   overflow: hidden;
   border: none;
@@ -1931,15 +1936,15 @@ margin: 0px;
   position: absolute;
   width: 98%;
   top: 0%; }
-  
+
 /* line 651, Editorview.scss */
 .PrivateMessageWindow input {
-right: 1%;
-position: absolute;
-padding: 5px 0 5px 10px;
-font-size: 1.5em;
-bottom: 0px;
-left: 1%;
+  right: 1%;
+  position: absolute;
+  padding: 5px 0 5px 10px;
+  font-size: 1.5em;
+  bottom: 0px;
+  left: 1%;
   box-shadow: 3px 2px 10px lightgrey inset;
   width: calc(98% - 1em); }
 
@@ -1982,7 +1987,7 @@ left: 1%;
 
 /* line 699, Editorview.scss */
 .ChatFromMeLabel {
-vertical-align: middle;
+  vertical-align: middle;
   color: #6ea1c0;
   /* text-align: right; */
   /* right: -3%; */
@@ -2013,28 +2018,28 @@ vertical-align: middle;
 
 /* line 730, Editorview.scss */
 .GlobalChatLabel {
-	vertical-align: top;
-	width: 25%;
-	min-width: 25%;
-	margin-right: 1em;
-	color:darkred;
+  vertical-align: top;
+  width: 25%;
+  min-width: 25%;
+  margin-right: 1em;
+  color: darkred;
   display: table-cell; }
 
 /* line 739, Editorview.scss */
 .GlobalChatText {
-	color:darkred;
-	width: 75%;
+  color: darkred;
+  width: 75%;
   max-width: 75%; }
 
 /* line 745, Editorview.scss */
 #ChatInput {
-bottom: 0px;
-position: absolute;
-padding: 5px 0px 5px 10px;
-font-size: 1.5em;
-left: 1%;
-/* box-shadow: 3px 2px 10px lightgray inset; */
-width: 97%;
+  bottom: 0px;
+  position: absolute;
+  padding: 5px 0px 5px 10px;
+  font-size: 1.5em;
+  left: 1%;
+  /* box-shadow: 3px 2px 10px lightgray inset; */
+  width: 97%;
   box-sizing: border-box; }
 
 /* line 756, Editorview.scss */
@@ -2044,24 +2049,24 @@ width: 97%;
 
 /* line 761, Editorview.scss */
 #ChatLog {
-	width:100%;
+  width: 100%;
   background-color: transparent; }
-	
+
 /* line 766, Editorview.scss */
 #ChatBodyInner {
-width: 99%;
-top: 0%;
-padding: 0px;
-margin: 0px;
-position: absolute;
-overflow-y: hidden;
-bottom: 38px;
+  width: 99%;
+  top: 0%;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  overflow-y: hidden;
+  bottom: 38px;
   border: none; }
 
 /* line 777, Editorview.scss */
 #ChatWindow {
-	width: 100%;
-	margin:0px;
+  width: 100%;
+  margin: 0px;
   padding: 0px; }
 
 /* line 783, Editorview.scss */
@@ -2070,9 +2075,9 @@ bottom: 38px;
 
 /* line 787, Editorview.scss */
 .ChatFromMe {
-width: 95%;
-border-radius: 10px;
-margin: 5px 5px 9px 5px;
+  width: 95%;
+  border-radius: 10px;
+  margin: 5px 5px 9px 5px;
   right: 1%; }
 
 /* line 794, Editorview.scss */
@@ -2085,122 +2090,122 @@ margin: 5px 5px 9px 5px;
 
 /* line 802, Editorview.scss */
 .targetpropchoice {
-padding-left: 1em;
-cursor:pointer;
-color:gray;
+  padding-left: 1em;
+  cursor: pointer;
+  color: gray;
   border-bottom: 1px solid #eeeeee; }
 
 /* line 809, Editorview.scss */
 .sourcepropchoice {
-padding-left: 1em;
-cursor:pointer;
+  padding-left: 1em;
+  cursor: pointer;
   border-bottom: 1px solid #eeeeee; }
 
 /* line 815, Editorview.scss */
 .wirepropselected {
-font-weight: bold;
+  font-weight: bold;
   text-shadow: 1px 1px 1px #aaaaaa;
-color:blue;
+  color: blue;
   background: #DDF; }
 
 /* line 822, Editorview.scss */
 #WireEditorSelectedName {
-height: 1em;
-background: #EFEFEF;
+  height: 1em;
+  background: #EFEFEF;
   padding: 0.5em 0em 0.5em 1em;
-margin: 1em 1em 1em 1em;
-border-radius: 15px;
+  margin: 1em 1em 1em 1em;
+  border-radius: 15px;
   border: 1px outset #aaaaaa;
   box-shadow: 3px 3px 3px #cccccc, -3px -3px 3px #cccccc inset;
-white-space: nowrap;
-overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer; }
 
 /* line 835, Editorview.scss */
 #WireEditorSourceName {
-height: 1em;
-background: #EFEFEF;
+  height: 1em;
+  background: #EFEFEF;
   padding: 0.5em 0em 0.5em 1em;
-margin: 1em 1em 1em 1em;
-border-radius: 15px;
+  margin: 1em 1em 1em 1em;
+  border-radius: 15px;
   border: 1px outset #aaaaaa;
   box-shadow: 3px 3px 3px #cccccc, -3px -3px 3px #cccccc inset;
-white-space: nowrap;
-overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer; }
 
 /* line 848, Editorview.scss */
 #WireEditorSelectedProps {
-margin-left: 1em;
-overflow: auto;
-bottom: 18px;
-position: absolute;
-top: 5em;
+  margin-left: 1em;
+  overflow: auto;
+  bottom: 18px;
+  position: absolute;
+  top: 5em;
   width: 94%; }
 
 /* line 857, Editorview.scss */
 #WireEditorSourceProps {
-margin-left: 1em;
-overflow: auto;
-bottom: 18px;
-position: absolute;
-top: 5em;
+  margin-left: 1em;
+  overflow: auto;
+  bottom: 18px;
+  position: absolute;
+  top: 5em;
   width: 94%; }
 
 /* line 866, Editorview.scss */
 #WireEditor {
-padding: 0px;
-margin: 0px;
+  padding: 0px;
+  margin: 0px;
   font-size: 1.2em; }
 
 /* line 872, Editorview.scss */
 .wireeditorleft {
-position: absolute;
-top: 0%;
-width: 50%;
-background: #FFF;
-height: 80%;
-padding: 0em 0em 0em 0em;
+  position: absolute;
+  top: 0%;
+  width: 50%;
+  background: #FFF;
+  height: 80%;
+  padding: 0em 0em 0em 0em;
   border-right: 1px solid #aaaaaa;
-z-index: 1;
-border-radius: 6px;
+  z-index: 1;
+  border-radius: 6px;
   box-shadow: 0px 0px 10px #cccccc inset; }
 
 /* line 885, Editorview.scss */
 .wireeditorright {
-position: absolute;
-width: 50%;
-left: 50%;
-background: #FFF;
-height: 80%;
-top: 0%;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  background: #FFF;
+  height: 80%;
+  top: 0%;
   box-shadow: 0px 0px 10px #cccccc inset;
-padding: 0em 0em 0em 0em;
+  padding: 0em 0em 0em 0em;
   border-radius: 6px; }
 
 /* line 897, Editorview.scss */
 #wireeditorbuttons {
-position: absolute;
-top: 80%;
-width: 100%;
+  position: absolute;
+  top: 80%;
+  width: 100%;
   text-align: center; }
 
 /* line 904, Editorview.scss */
 #wireeditorLink {
-height: 1em;
-background: #EFEFEF;
-padding: 1.5em 0em 1.5em 0em;
-margin: 1em 0em 1em 0em;
-border-radius: 15px;
+  height: 1em;
+  background: #EFEFEF;
+  padding: 1.5em 0em 1.5em 0em;
+  margin: 1em 0em 1em 0em;
+  border-radius: 15px;
   border: 1px outset #aaaaaa;
   box-shadow: 3px 3px 3px #cccccc, -3px -3px 3px #cccccc inset;
-white-space: nowrap;
-overflow: hidden;
-margin-left: auto;
-margin-right: auto;
-width: 33%;
-text-align: center;
-cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33%;
+  text-align: center;
+  cursor: pointer;
   display: inline-block; }
 
 /* line 922, Editorview.scss */
@@ -2209,96 +2214,96 @@ cursor: pointer;
 
 /* line 926, Editorview.scss */
 #wireeditordisable {
-position:absolute;
-top:0%;
-bottom:0%;
-left:0%;
-right:0;
-background: black;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0;
+  background: black;
   opacity: .05; }
 
 /* line 936, Editorview.scss */
 .wirepropwired {
-text-shadow: 1px 1px 1px gray;
+  text-shadow: 1px 1px 1px gray;
   color: darkblue; }
 
 /* line 941, Editorview.scss */
 #SubExp2 {
-height: 1em;
-background: #EFEFEF;
-padding: 1.5em 0em 1.5em 0em;
-margin: 1em 0em 1em 0em;
-border-radius: 15px;
+  height: 1em;
+  background: #EFEFEF;
+  padding: 1.5em 0em 1.5em 0em;
+  margin: 1em 0em 1em 0em;
+  border-radius: 15px;
   border: 1px outset #aaaaaa;
   box-shadow: 3px 3px 3px #cccccc, -3px -3px 3px #cccccc inset;
-white-space: nowrap;
-overflow: hidden;
-margin-left: auto;
-margin-right: auto;
-width: 33%;
-text-align: center;
-cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33%;
+  text-align: center;
+  cursor: pointer;
   display: inline-block; }
 
 /* line 959, Editorview.scss */
 #SubExp1 {
-height: 1em;
-background: #EFEFEF;
-padding: 1.5em 0em 1.5em 0em;
-margin: 1em 0em 1em 0em;
-border-radius: 15px;
+  height: 1em;
+  background: #EFEFEF;
+  padding: 1.5em 0em 1.5em 0em;
+  margin: 1em 0em 1em 0em;
+  border-radius: 15px;
   border: 1px outset #aaaaaa;
   box-shadow: 3px 3px 3px #cccccc, -3px -3px 3px #cccccc inset;
-white-space: nowrap;
-overflow: hidden;
-margin-left: auto;
-margin-right: auto;
-width: 33%;
-text-align: center;
-cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33%;
+  text-align: center;
+  cursor: pointer;
   display: inline-block; }
 
 /* line 977, Editorview.scss */
 #preloadGUI {
-position: absolute;
-width: 30%;
-height: 15%;
-background: white;
-border: 1px solid gray;
-border-radius: 6px;
-margin-left: auto;
-vertical-align: middle;
-text-align: center;
-left: 35%;
-top: 42.5%;
-overflow: hidden;
+  position: absolute;
+  width: 30%;
+  height: 15%;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 6px;
+  margin-left: auto;
+  vertical-align: middle;
+  text-align: center;
+  left: 35%;
+  top: 42.5%;
+  overflow: hidden;
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-font-family: 'Open Sans',sans-serif;
+  font-family: 'Open Sans',sans-serif;
   font-size: 17px; }
 
 /* line 995, Editorview.scss */
 #preloadGUI .preloadCenter {
-	height: 60%;
-	-webkit-margin-after: 0;
+  height: 60%;
+  -webkit-margin-after: 0;
   -webkit-margin-before: 0; }
 
 /* line 1001, Editorview.scss */
 #preloadguiText {
-background: #F5F5F5;
-height: 40%;
-border-bottom-left-radius: 6px;
-border-bottom-right-radius: 6px;
+  background: #F5F5F5;
+  height: 40%;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   border-top-color: #dddddd;
-border-top-left-radius: 0px;
-border-top-right-radius: 0px;
-border-top-style: solid;
-border-top-width: 1px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-style: solid;
+  border-top-width: 1px;
   box-shadow: white 0px 1px 0px 0px inset;
-display: block;
-margin: -1px;
-position: absolute;
-width: 100%;
-color: #ccc;
+  display: block;
+  margin: -1px;
+  position: absolute;
+  width: 100%;
+  color: #ccc;
   font-size: .7em; }
 
 /* line 1020, Editorview.scss */
@@ -2311,38 +2316,38 @@ color: #ccc;
 
 /* line 1028, Editorview.scss */
 #preloadprogress {
-	vertical-align: middle;
-margin-top: auto;
-margin-bottom: auto;
-position: absolute;
-height: 28%;
-width: 95%;
-top: 16%;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: absolute;
+  height: 28%;
+  width: 95%;
+  top: 16%;
   left: 2.5%; }
 
 /* line 1039, Editorview.scss */
 .progress-label {
-    position: absolute;
-font-weight: bold;
+  position: absolute;
+  font-weight: bold;
   text-shadow: 1px 1px 3px white;
-width: 100%;
-margin-left: auto;
-text-align: center;
-height: 100%;
+  width: 100%;
+  margin-left: auto;
+  text-align: center;
+  height: 100%;
   margin: 0px; }
 
 /* line 1050, Editorview.scss */
 #preloadGUIBack {
-position: absolute;
-width: 100%;
-height: 100%;
-left: 0%;
-top: 0%;
-background: white;
-z-index: 100000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  background: white;
+  z-index: 100000;
   box-shadow: 0px 0px 300px #666666 inset;
-text-align: center;
-font-size: 1.5em;
+  text-align: center;
+  font-size: 1.5em;
   font-family: 'Open Sans',sans-serif; }
 
 /* line 1064, Editorview.scss */
@@ -2364,17 +2369,17 @@ font-size: 1.5em;
 /* Let's get this party started */
 /* line 1080, Editorview.scss */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
   height: 8px; }
- 
+
 /* Handle */
 /* line 1086, Editorview.scss */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   background: #5284c7; }
   /* line 1092, Editorview.scss */
-::-webkit-scrollbar-thumb:window-inactive {
+  ::-webkit-scrollbar-thumb:window-inactive {
     background: #82b8ff; }
 
 /* line 1097, Editorview.scss */
@@ -2383,7 +2388,7 @@ font-size: 1.5em;
 
 /* line 1101, Editorview.scss */
 .libraryAsset img:hover {
-/* box-shadow: 2px 2px 10px rgb(130, 184, 255), 9px 9px 10px black inset; */
+  /* box-shadow: 2px 2px 10px rgb(130, 184, 255), 9px 9px 10px black inset; */
   border: 3px solid #3a8fff; }
 
 /* line 1106, Editorview.scss */
@@ -2392,66 +2397,66 @@ font-size: 1.5em;
 
 /* line 1110, Editorview.scss */
 #loadingSplash {
-position: absolute;
-align-content: center;
-text-align: center;
-width: 80%;
-left: 10%;
-top: 10%;
-border: 1px solid grey;
-box-shadow: 10px 10px 30px;
+  position: absolute;
+  align-content: center;
+  text-align: center;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  border: 1px solid grey;
+  box-shadow: 10px 10px 30px;
   border-radius: 15px; }
 
 /* line 1122, Editorview.scss */
 #GuestLogin {
-	position: absolute;
-left: 20px;
+  position: absolute;
+  left: 20px;
   top: 20px; }
 
 /* line 1128, Editorview.scss */
 #JSONViewButtonBar {
-height: 2.5em;
+  height: 2.5em;
   margin-left: -1em; }
 
 /* line 1133, Editorview.scss */
 #JSONViewButtonBarOk, #JSONViewButtonBarCancel, #JSONViewButtonBarLoad, #JSONViewButtonBarSave {
   border: 1px solid #444444;
   background: #222222 url(images/ui-bg_glass_15_222222_1x400.png) 50% 50% repeat-x;
-font-weight: 700;
-color: #eee;
-margin: 1px;
-padding: 3px 10px;
-border-radius: 5px;
-cursor: pointer;
+  font-weight: 700;
+  color: #eee;
+  margin: 1px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  cursor: pointer;
   display: inline; }
 
 /* line 1145, Editorview.scss */
 #JSONViewButtonBarOk:hover, #JSONViewButtonBarCancel:hover, #JSONViewButtonBarLoad:hover, #JSONViewButtonBarSave:hover {
-border: 1px solid #26b3f7;
-background: #3a8fff url(images/ui-bg_glass_20_3a8fff_1x400.png) 50% 50% repeat-x;
-font-weight: 700;
-color: #fff;
+  border: 1px solid #26b3f7;
+  background: #3a8fff url(images/ui-bg_glass_20_3a8fff_1x400.png) 50% 50% repeat-x;
+  font-weight: 700;
+  color: #fff;
   display: inline; }
 
 /* line 1153, Editorview.scss */
 #JSONLoadInput {
-	position: absolute;
-opacity: 0;
-top: 0;
-left: 0;
-clip: auto;
-margin: 0px;
-padding: 0px;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  clip: auto;
+  margin: 0px;
+  padding: 0px;
   width: 5em; }
 
 /* line 1164, Editorview.scss */
-.playerlabelID{
-	  font-size: .6em;
+.playerlabelID {
+  font-size: .6em;
   color: gray; }
 
 /* line 1169, Editorview.scss */
 .playerlabel .glyphicon {
-	float: right;
+  float: right;
   margin: 0px;
   border: 0;
   padding: 2px;
@@ -2480,15 +2485,15 @@ div#Translation .ui-spinner, div#Rotation .ui-spinner, div#Scale .ui-spinner {
 
 /* line 1198, Editorview.scss */
 div#otherprops input[type=text] {
-/* border-radius: 5px; */
+  /* border-radius: 5px; */
   margin: 2px; }
 
 /* line 1203, Editorview.scss */
 .ui-selectmenu-button {
-	float:right;
-	margin-top: 2px;
-	clear:both;
-	border-radius: 3px;
+  float: right;
+  margin-top: 2px;
+  clear: both;
+  border-radius: 3px;
   width: 30px; }
 
 /* line 1211, Editorview.scss */
@@ -2497,7 +2502,7 @@ div#otherprops input[type=text] {
 
 /* line 1215, Editorview.scss */
 .ui-spinner {
-	border-radius: 3px;
+  border-radius: 3px;
   margin-top: 2px; }
 
 /* line 1220, Editorview.scss */
@@ -2510,8 +2515,8 @@ div#otherprops input[type=text] {
 
 /* line 1228, Editorview.scss */
 .ui-button-text-only img {
-	width:50px;
-	height: 50px;
+  width: 50px;
+  height: 50px;
   display: inline-block; }
 
 /* line 1234, Editorview.scss */
@@ -2534,14 +2539,14 @@ div#otherprops input[type=text] {
 .jstree-default .jstree-wholerow-hovered {
   background: #5b89b6;
   /* color: black !important; */ }
- 
+
 /* line 1255, Editorview.scss */
 #guioverlay_index-vwf {
   outline: none !important; }
 
 /* line 1259, Editorview.scss */
 #entitylibrarytray {
-	  margin-left: 1em;
+  margin-left: 1em;
   font-size: 22.2px;
   vertical-align: middle;
   margin-bottom: 6px;
@@ -2568,19 +2573,19 @@ ul li a .glyphicon {
   width: 100%;
   z-index: 1000;
   opacity: .3;
-  	  cursor: not-allowed;
+  cursor: not-allowed;
   display: none; }
 
 /* line 1291, Editorview.scss */
 .editorPanelDisable {
   color: #5e5e5e !important;
   cursor: not-allowed;
-  	  pointer-events: none;
+  pointer-events: none;
   opacity: 0.45; }
 
 /* line 1298, Editorview.scss */
 .sidetab-editor-title {
-	background: #3a8fff  50% 50% repeat-x;
+  background: #3a8fff 50% 50% repeat-x;
   cursor: pointer;
   border-radius: 2px; }
 
@@ -2590,7 +2595,7 @@ ul li a .glyphicon {
 
 /* line 1308, Editorview.scss */
 .sidetab-editor-title-active {
-background: #3a8fff  50% 50% repeat-x;}
+  background: #3a8fff 50% 50% repeat-x; }
 
 /* line 1312, Editorview.scss */
 .sidetab-editor-title-active:hover {
@@ -2598,31 +2603,6 @@ background: #3a8fff  50% 50% repeat-x;}
 
 /* line 1316, Editorview.scss */
 .downarrowclass {
-display:none;
-}
+  display: none; }
 
-.SAVEMenu
-{
-position: fixed;
-    z-index: 100;
-    background-color: white;
-    width: 200px;
-    font-size: 18px;
-    text-align: center;
-
-}
-.tooltrayItem
-{
-
-cursor:pointer;
-}
-.tooltrayItem:hover
-{
-
-text-decoration: underline;
-}
-
-.tooltraytitle
-{
-	background-color: lightblue;
-}
+/*# sourceMappingURL=Editorview.css.map */
