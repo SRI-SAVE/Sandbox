@@ -152,7 +152,7 @@ void main() {
 	float dist = 0.3;
 	vec3 ref_vec = reflect(-camdir, texNormal);
 	ref_vec = mix(-ref_vec, ref_vec, sign(ref_vec.z));
-	sky = uReflectPow * textureCube(texture, ref_vec).xyz;
+	sky = uReflectPow *.333 * textureCube(texture, ref_vec).xyz;
 	
 	
 
