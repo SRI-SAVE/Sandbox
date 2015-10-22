@@ -53,6 +53,8 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
+	/*global SAVE2*/
+
 	'use strict';
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -63,13 +65,23 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _componentsEUI = __webpack_require__(162);
+	__webpack_require__(162);
+
+	var _componentsEUI = __webpack_require__(163);
+
+	var _componentsCAT = __webpack_require__(270);
 
 	var elemDiv = document.createElement('div');
 
 	elemDiv.style.cssText = 'position:fixed;top:5px;left:5px;';
 	elemDiv.id = 'save-react-components';
-	_react2['default'].render(_react2['default'].createElement(_componentsEUI.EUI, null), elemDiv);
+
+	if (SAVE2.isCAT()) {
+	  _react2['default'].render(_react2['default'].createElement(_componentsCAT.CAT, null), elemDiv);
+	} else {
+	  _react2['default'].render(_react2['default'].createElement(_componentsEUI.EUI, null), elemDiv);
+	}
+
 	document.body.appendChild(elemDiv);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -20780,6 +20792,31 @@
 	/*global __WEBPACK_DEV_SERVER_DEBUG__*/
 	'use strict';
 
+	if (false) {
+	  require('./webpack-dev-server-util');
+	  require('./webpack-dev-server-fetch');
+	}
+
+	window.SAVE2 = {
+	  VERSION: '2.0.1',
+	  vwf: { view: window._dSAVE },
+	  isCAT: function isCAT() {
+	    return window._EntityLibrary != null;
+	  }
+	};
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "sandbox.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/*global SAVE2*/
+
+	'use strict';
+
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
@@ -20790,79 +20827,75 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ControlsJsx = __webpack_require__(163);
+	var _ControlsJsx = __webpack_require__(164);
 
 	var _ControlsJsx2 = _interopRequireDefault(_ControlsJsx);
 
-	var _ComponentDialogJsx = __webpack_require__(236);
+	var _ComponentDialogJsx = __webpack_require__(237);
 
 	var _ComponentDialogJsx2 = _interopRequireDefault(_ComponentDialogJsx);
 
-	var _mixinsMaterialUiTheme = __webpack_require__(243);
+	var _mixinsMaterialUiTheme = __webpack_require__(244);
 
 	var _mixinsMaterialUiTheme2 = _interopRequireDefault(_mixinsMaterialUiTheme);
 
-	var _materialUiLibCircularProgress = __webpack_require__(248);
+	var _materialUiLibCircularProgress = __webpack_require__(249);
 
 	var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircularProgress);
 
-	var _materialUiLibDropDownMenu = __webpack_require__(249);
+	var _materialUiLibDropDownMenu = __webpack_require__(250);
 
 	var _materialUiLibDropDownMenu2 = _interopRequireDefault(_materialUiLibDropDownMenu);
 
-	var _materialUiLibPaper = __webpack_require__(193);
+	var _materialUiLibPaper = __webpack_require__(194);
 
 	var _materialUiLibPaper2 = _interopRequireDefault(_materialUiLibPaper);
 
-	var _materialUiLibIconButton = __webpack_require__(211);
+	var _materialUiLibIconButton = __webpack_require__(212);
 
 	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
 
-	var _materialUiLibSnackbar = __webpack_require__(260);
+	var _materialUiLibSnackbar = __webpack_require__(261);
 
 	var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
 
-	var _materialUiLibStyles = __webpack_require__(229);
+	var _materialUiLibStyles = __webpack_require__(230);
 
 	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
 
-	var _materialUiLibTextField = __webpack_require__(232);
+	var _materialUiLibTextField = __webpack_require__(233);
 
 	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 
-	var _materialUiLibToggle = __webpack_require__(254);
+	var _materialUiLibToggle = __webpack_require__(255);
 
 	var _materialUiLibToggle2 = _interopRequireDefault(_materialUiLibToggle);
 
-	var _materialUiLibToolbarToolbar = __webpack_require__(261);
+	var _materialUiLibToolbarToolbar = __webpack_require__(262);
 
 	var _materialUiLibToolbarToolbar2 = _interopRequireDefault(_materialUiLibToolbarToolbar);
 
-	var _materialUiLibToolbarToolbarGroup = __webpack_require__(262);
+	var _materialUiLibToolbarToolbarGroup = __webpack_require__(263);
 
 	var _materialUiLibToolbarToolbarGroup2 = _interopRequireDefault(_materialUiLibToolbarToolbarGroup);
 
-	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(263);
+	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(264);
 
 	var _materialUiLibToolbarToolbarSeparator2 = _interopRequireDefault(_materialUiLibToolbarToolbarSeparator);
 
-	var _materialUiLibToolbarToolbarTitle = __webpack_require__(264);
+	var _materialUiLibToolbarToolbarTitle = __webpack_require__(265);
 
 	var _materialUiLibToolbarToolbarTitle2 = _interopRequireDefault(_materialUiLibToolbarToolbarTitle);
 
-	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(265);
+	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(266);
 
 	var _materialUiLibSvgIconsNavigationMenu2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationMenu);
 
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(195);
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
 
 	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
 
 	// import ReactRenderVisualizer from 'react-render-visualizer';
-
-	if (false) {
-	  require('../webpack-dev-server-fetch');
-	}
 
 	var Colors = _materialUiLibStyles2['default'].Colors;
 	var Spacing = _materialUiLibStyles2['default'].Spacing;
@@ -20905,7 +20938,13 @@
 	  },
 
 	  componentDidMount: function componentDidMount() {
-	    this.refs.snackbarSimulateBackend.show();
+	    var _this = this;
+
+	    // this.fetchExercises().catch(() => this.refs.snackbarSimulateBackend.show());
+	    this.fetchExercises()['catch'](function (e) {
+	      console.error(e);
+	      _this.refs.snackbarSimulateBackend.show();
+	    });
 	  },
 
 	  setBase: function setBase(options) {
@@ -20916,31 +20955,26 @@
 	    this.baseServerAddress = this.baseServer + exercise;
 
 	    if (exercise !== '') {
-	      window._dSAVE.setBaseServerAddress(this.baseServerAddress);
-	      // call window._dSAVE.issueautoloads...
+	      SAVE2.vwf.view.setBaseServerAddress(this.baseServerAddress);
+	      // call issueautoloads...
 	    }
 	  },
 
-	  dismissedSimulateBackend: function dismissedSimulateBackend() {
-	    if (!this.simulatedBackend) this.fetchExercises();
-
-	    this.setState({ noSnackbarSimulateBackend: true });
-	  },
-
 	  simulateBackend: function simulateBackend() {
-	    this.simulatedBackend = true;
 	    this.refs.snackbarSimulateBackend.dismiss();
-	    __webpack_require__(266);
-	    this.fetchExercises();
+	    __webpack_require__(267);
+	    this.fetchExercises()['catch'](function (e) {
+	      return console.error(e);
+	    });
 	  },
 
 	  processFetchedExercises: function processFetchedExercises(json) {
-	    var _this = this;
+	    var _this2 = this;
 
 	    var list = this.state.exerciseList;
 
 	    json.forEach(function (e /*, i */) {
-	      var pathName = e.replace(_this.baseServer, '');
+	      var pathName = e.replace(_this2.baseServer, '');
 
 	      list.push({
 	        payload: pathName,
@@ -20952,7 +20986,7 @@
 	  },
 
 	  saveSolution: function saveSolution() {
-	    var _this2 = this;
+	    var _this3 = this;
 
 	    var _refs = this.refs;
 	    var controlsComponentDialog = _refs.controlsComponentDialog;
@@ -20962,7 +20996,7 @@
 	    fetch(this.baseServerAddress + '/generateSolution', { mode: 'cors' }).then(function () {
 	      if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
 
-	      _this2.setState({
+	      _this3.setState({
 	        reloadTray: true,
 	        instructorToggle: false
 	      });
@@ -20974,15 +21008,14 @@
 	  },
 
 	  fetchExercises: function fetchExercises() {
-	    var _this3 = this;
+	    var _this4 = this;
 
-	    fetch(this.baseServer + '/listfiles/exercise/json', { mode: 'cors' }).then(function (response) {
+	    return fetch(this.baseServer + '/listfiles/exercise/json', { mode: 'cors' }).then(function (response) {
 	      return response.json();
 	    }).then(function (json) {
-	      _this3.processFetchedExercises(json);
-	    })['catch'](function (e) {
-	      return console.error(e);
+	      _this4.processFetchedExercises(json);
 	    });
+	    // .catch(e => console.error(e));
 	  },
 
 	  setExerciseListWidth: function setExerciseListWidth() {
@@ -21211,10 +21244,9 @@
 	        ref: 'snackbarStudentMode' }),
 	      !this.state.noSnackbarSimulateBackend ? _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
 	        action: 'Simulate',
-	        autoHideDuration: 10000,
+	        autoHideDuration: 0,
 	        message: 'Backend',
 	        onActionTouchTap: this.simulateBackend,
-	        onDismiss: this.dismissedSimulateBackend,
 	        ref: 'snackbarSimulateBackend' }) : null
 	    );
 	  }
@@ -21227,12 +21259,13 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "EUI.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	/*global __WEBPACK_DEV_SERVER_DEBUG__*/
+	/*global SAVE2*/
+
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -21245,43 +21278,39 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(164);
+	__webpack_require__(165);
 
-	var _materialUiLibListsList = __webpack_require__(165);
+	var _materialUiLibListsList = __webpack_require__(166);
 
 	var _materialUiLibListsList2 = _interopRequireDefault(_materialUiLibListsList);
 
-	var _materialUiLibListsListItem = __webpack_require__(200);
+	var _materialUiLibListsListItem = __webpack_require__(201);
 
 	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
 
-	var _materialUiLibLinearProgress = __webpack_require__(220);
+	var _materialUiLibLinearProgress = __webpack_require__(221);
 
 	var _materialUiLibLinearProgress2 = _interopRequireDefault(_materialUiLibLinearProgress);
 
-	var _materialUiLibSvgIconsActionRestore = __webpack_require__(221);
+	var _materialUiLibSvgIconsActionRestore = __webpack_require__(222);
 
 	var _materialUiLibSvgIconsActionRestore2 = _interopRequireDefault(_materialUiLibSvgIconsActionRestore);
 
-	var _materialUiLibSvgIconsActionBackup = __webpack_require__(222);
+	var _materialUiLibSvgIconsActionBackup = __webpack_require__(223);
 
 	var _materialUiLibSvgIconsActionBackup2 = _interopRequireDefault(_materialUiLibSvgIconsActionBackup);
 
-	var _materialUiLibMenusMenuDivider = __webpack_require__(223);
+	var _materialUiLibMenusMenuDivider = __webpack_require__(224);
 
 	var _materialUiLibMenusMenuDivider2 = _interopRequireDefault(_materialUiLibMenusMenuDivider);
 
-	var _TooltrayList = __webpack_require__(225);
+	var _TooltrayList = __webpack_require__(226);
 
 	var _TooltrayList2 = _interopRequireDefault(_TooltrayList);
 
-	var _ExerciseNameField = __webpack_require__(228);
+	var _ExerciseNameField = __webpack_require__(229);
 
 	var _ExerciseNameField2 = _interopRequireDefault(_ExerciseNameField);
-
-	if (false) {
-	  require('../webpack-dev-server-util');
-	}
 
 	var tooltrayItems = null;
 
@@ -21340,14 +21369,14 @@
 
 	  componentDidMount: function componentDidMount() {
 	    if (tooltrayItems == null) {
-	      setTimeout(this.fetchTooltray, 1000);
+	      this.fetchTooltray();
 	    }
 	  },
 
 	  fetchTooltray: function fetchTooltray() {
 	    var _this = this;
 
-	    fetch(this.props.baseServerAddress + '/inventory', { mode: 'cors' }).then(function (response) {
+	    fetch('' + this.props.baseServerAddress + (this.isCAT() ? '/CAT' : '') + '/inventory', { mode: 'cors' }).then(function (response) {
 	      return response.json();
 	    }).then(function (json) {
 	      tooltrayItems = json.tooltray;
@@ -21398,7 +21427,7 @@
 
 	    tooltrayItems.splice(itemIdx, 1);
 	    this.setState({ tooltrayItems: tooltrayItems });
-	    window._dSAVE.createSemanticAsset(name, assetURL, KbId, grouping);
+	    SAVE2.vwf.view.createSemanticAsset(name, assetURL, KbId, grouping);
 	    this.props.onToolTrayItemClick(itemIdx);
 	  },
 
@@ -21455,7 +21484,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Controls.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -21791,7 +21820,7 @@
 
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21800,14 +21829,14 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var PropTypes = __webpack_require__(184);
-	var StylePropable = __webpack_require__(185);
-	var Typography = __webpack_require__(191);
-	var Paper = __webpack_require__(193);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var PropTypes = __webpack_require__(185);
+	var StylePropable = __webpack_require__(186);
+	var Typography = __webpack_require__(192);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var List = React.createClass({
 	  displayName: 'List',
@@ -21884,7 +21913,7 @@
 
 	    var subheaderElement = undefined;
 	    if (subheader) {
-	      var mergedSubheaderStyles = this.mergeAndPrefix(styles.subheader, subheaderStyle);
+	      var mergedSubheaderStyles = this.prepareStyles(styles.subheader, subheaderStyle);
 	      subheaderElement = React.createElement(
 	        'div',
 	        { style: mergedSubheaderStyles },
@@ -21906,14 +21935,14 @@
 	module.exports = List;
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(167);
+	module.exports = __webpack_require__(168);
 
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21936,18 +21965,18 @@
 
 	'use strict';
 
-	var LinkedStateMixin = __webpack_require__(168);
+	var LinkedStateMixin = __webpack_require__(169);
 	var React = __webpack_require__(7);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(171);
-	var ReactCSSTransitionGroup = __webpack_require__(172);
+	  __webpack_require__(172);
+	var ReactCSSTransitionGroup = __webpack_require__(173);
 	var ReactFragment = __webpack_require__(15);
-	var ReactTransitionGroup = __webpack_require__(173);
+	var ReactTransitionGroup = __webpack_require__(174);
 	var ReactUpdates = __webpack_require__(31);
 
-	var cx = __webpack_require__(181);
-	var cloneWithProps = __webpack_require__(175);
-	var update = __webpack_require__(182);
+	var cx = __webpack_require__(182);
+	var cloneWithProps = __webpack_require__(176);
+	var update = __webpack_require__(183);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -21964,7 +21993,7 @@
 
 	if ("production" !== process.env.NODE_ENV) {
 	  React.addons.Perf = __webpack_require__(155);
-	  React.addons.TestUtils = __webpack_require__(183);
+	  React.addons.TestUtils = __webpack_require__(184);
 	}
 
 	module.exports = React;
@@ -21972,7 +22001,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21989,8 +22018,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(169);
-	var ReactStateSetters = __webpack_require__(170);
+	var ReactLink = __webpack_require__(170);
+	var ReactStateSetters = __webpack_require__(171);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -22017,7 +22046,7 @@
 
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22094,7 +22123,7 @@
 
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/**
@@ -22204,7 +22233,7 @@
 
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22257,7 +22286,7 @@
 
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22279,10 +22308,10 @@
 	var assign = __webpack_require__(18);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(173)
+	  __webpack_require__(174)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(178)
+	  __webpack_require__(179)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -22331,7 +22360,7 @@
 
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22348,10 +22377,10 @@
 	'use strict';
 
 	var React = __webpack_require__(7);
-	var ReactTransitionChildMapping = __webpack_require__(174);
+	var ReactTransitionChildMapping = __webpack_require__(175);
 
 	var assign = __webpack_require__(18);
-	var cloneWithProps = __webpack_require__(175);
+	var cloneWithProps = __webpack_require__(176);
 	var emptyFunction = __webpack_require__(21);
 
 	var ReactTransitionGroup = React.createClass({
@@ -22565,7 +22594,7 @@
 
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22674,7 +22703,7 @@
 
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22692,7 +22721,7 @@
 	'use strict';
 
 	var ReactElement = __webpack_require__(16);
-	var ReactPropTransferer = __webpack_require__(176);
+	var ReactPropTransferer = __webpack_require__(177);
 
 	var keyOf = __webpack_require__(44);
 	var warning = __webpack_require__(20);
@@ -22736,7 +22765,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22754,7 +22783,7 @@
 
 	var assign = __webpack_require__(18);
 	var emptyFunction = __webpack_require__(21);
-	var joinClasses = __webpack_require__(177);
+	var joinClasses = __webpack_require__(178);
 
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -22850,7 +22879,7 @@
 
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports) {
 
 	/**
@@ -22895,7 +22924,7 @@
 
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22914,8 +22943,8 @@
 
 	var React = __webpack_require__(7);
 
-	var CSSCore = __webpack_require__(179);
-	var ReactTransitionEvents = __webpack_require__(180);
+	var CSSCore = __webpack_require__(180);
+	var ReactTransitionEvents = __webpack_require__(181);
 
 	var onlyChild = __webpack_require__(161);
 	var warning = __webpack_require__(20);
@@ -23046,7 +23075,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23161,7 +23190,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23276,7 +23305,7 @@
 
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23335,7 +23364,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23509,7 +23538,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24027,7 +24056,7 @@
 
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24047,14 +24076,14 @@
 	};
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var ImmutabilityHelper = __webpack_require__(186);
-	var Styles = __webpack_require__(187);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var Styles = __webpack_require__(188);
 
 	// This mixin isn't necessary and will be removed in v0.11
 
@@ -24077,16 +24106,27 @@
 	  //Moved this function to /utils/styles.js
 	  mergeAndPrefix: function mergeAndPrefix() {
 	    return Styles.mergeAndPrefix.apply(this, arguments);
+	  },
+
+	  // prepareStyles is used to merge multiple styles, make sure they are flipped to rtl
+	  // if needed, and then autoprefix them. It should probably always be used instead of
+	  // mergeAndPrefix.
+	  //
+	  // Never call this on the same style object twice. As a rule of thumb,
+	  //   only call it when passing style attribute to html elements.
+	  // If you call it twice you'll get a warning anyway.
+	  prepareStyles: function prepareStyles() {
+	    return Styles.prepareStyles.apply(Styles, [this.state && this.state.muiTheme || this.context.muiTheme].concat([].slice.apply(arguments)));
 	  }
 	};
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var update = React.addons.update;
 
 	function mergeSingle(objA, objB) {
@@ -24127,32 +24167,123 @@
 	};
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var AutoPrefix = __webpack_require__(188);
-	var ImmutabilityHelper = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var ImmutabilityHelper = __webpack_require__(187);
+
+	var reTranslate = /((^|\s)translate(3d|X)?\()(\-?[\d]+)/;
+
+	var reSkew = /((^|\s)skew(x|y)?\()\s*(\-?[\d]+)(deg|rad|grad)(,\s*(\-?[\d]+)(deg|rad|grad))?/;
 
 	module.exports = {
 
 	  mergeAndPrefix: function mergeAndPrefix() {
 	    var mergedStyles = ImmutabilityHelper.merge.apply(this, arguments);
 	    return AutoPrefix.all(mergedStyles);
-	  }
+	  },
 
+	  // This function ensures that `style` supports both ltr and rtl directions by checking
+	  //   `styleConstants` in `muiTheme` and replacing attribute keys if necessary.
+	  ensureDirection: function ensureDirection(muiTheme, style) {
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (style.didFlip) {
+	        console.warn(new Error('You\'re calling `ensureDirection` on the same style object twice.'));
+	      }
+	      style = ImmutabilityHelper.merge({
+	        didFlip: 'true'
+	      }, style);
+	    }
+
+	    // Left to right is the default. No need to flip anything.
+	    if (!muiTheme.isRtl) return style;
+
+	    var flippedAttributes = {
+	      // Keys and their replacements.
+	      right: 'left',
+	      left: 'right',
+	      marginRight: 'marginLeft',
+	      marginLeft: 'marginRight',
+	      paddingRight: 'paddingLeft',
+	      paddingLeft: 'paddingRight',
+	      borderRight: 'borderLeft',
+	      borderLeft: 'borderRight'
+	    };
+
+	    var newStyle = {};
+
+	    Object.keys(style).forEach(function (attribute) {
+	      var value = style[attribute];
+	      var key = attribute;
+
+	      if (flippedAttributes.hasOwnProperty(attribute)) {
+	        key = flippedAttributes[attribute];
+	      }
+
+	      switch (attribute) {
+	        case 'float':
+	        case 'textAlign':
+	          if (value === 'right') {
+	            value = 'left';
+	          } else if (value === 'left') {
+	            value = 'right';
+	          }
+	          break;
+	        case 'direction':
+	          if (value === 'ltr') {
+	            value = 'rtl';
+	          } else if (value === 'rtl') {
+	            value = 'ltr';
+	          }
+	          break;
+	        case 'transform':
+	          var matches = undefined;
+	          if (matches = value.match(reTranslate)) {
+	            value = value.replace(matches[0], matches[1] + -parseFloat(matches[4]));
+	          }
+	          if (matches = value.match(reSkew)) {
+	            value = value.replace(matches[0], matches[1] + -parseFloat(matches[4]) + matches[5] + matches[6] ? ',' + -parseFloat(matches[7]) + matches[8] : '');
+	          }
+	          break;
+	        case 'transformOrigin':
+	          if (value.indexOf('right') > -1) {
+	            value = value.replace('right', 'left');
+	          } else if (value.indexOf('left') > -1) {
+	            value = value.replace('left', 'right');
+	          }
+	          break;
+	      }
+
+	      newStyle[key] = value;
+	    });
+
+	    return newStyle;
+	  },
+
+	  prepareStyles: function prepareStyles(muiTheme) {
+	    for (var _len = arguments.length, styles = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	      styles[_key - 1] = arguments[_key];
+	    }
+
+	    styles = styles.length > 1 ? ImmutabilityHelper.merge.apply(this, styles) : styles[0] || {};
+	    var flipped = this.ensureDirection(muiTheme, styles);
+	    return AutoPrefix.all(flipped);
+	  }
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var isBrowser = __webpack_require__(189);
+	var isBrowser = __webpack_require__(190);
 
-	var Modernizr = isBrowser ? __webpack_require__(190) : undefined;
+	var Modernizr = isBrowser ? __webpack_require__(191) : undefined;
 
 	//Keep track of already prefixed keys so we can skip Modernizr prefixing
 	var prefixedKeys = {};
@@ -24203,7 +24334,7 @@
 	};
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24211,7 +24342,7 @@
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/* Modernizr 2.8.3 (Custom Build) | MIT & BSD
@@ -24475,14 +24606,14 @@
 	})(window, window.document);
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var Colors = __webpack_require__(192);
+	var Colors = __webpack_require__(193);
 
 	var Typography = function Typography() {
 	  _classCallCheck(this, Typography);
@@ -24507,7 +24638,7 @@
 	module.exports = new Typography();
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports) {
 
 	// To include this file in your project:
@@ -24807,7 +24938,7 @@
 	};
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24816,13 +24947,13 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(185);
-	var PropTypes = __webpack_require__(184);
-	var Transitions = __webpack_require__(194);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var PropTypes = __webpack_require__(185);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Paper = React.createClass({
 	  displayName: 'Paper',
@@ -24896,7 +25027,7 @@
 
 	    return React.createElement(
 	      'div',
-	      _extends({}, other, { style: this.mergeAndPrefix(styles, style) }),
+	      _extends({}, other, { style: this.prepareStyles(styles, style) }),
 	      children
 	    );
 	  },
@@ -24912,12 +25043,12 @@
 	module.exports = Paper;
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AutoPrefix = __webpack_require__(188);
+	var AutoPrefix = __webpack_require__(189);
 
 	module.exports = {
 
@@ -24952,14 +25083,14 @@
 	};
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(192);
-	var ColorManipulator = __webpack_require__(196);
-	var Spacing = __webpack_require__(197);
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Spacing = __webpack_require__(198);
 
 	/*
 	 *  Light Theme is the default theme used in material-ui. It is guaranteed to
@@ -24986,7 +25117,7 @@
 	};
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25165,7 +25296,7 @@
 	};
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25186,15 +25317,15 @@
 	};
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(192);
-	var ColorManipulator = __webpack_require__(196);
-	var Extend = __webpack_require__(199);
-	var update = __webpack_require__(182);
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Extend = __webpack_require__(200);
+	var update = __webpack_require__(183);
 
 	module.exports = {
 
@@ -25383,7 +25514,8 @@
 	        focusColor: rawTheme.palette.primary1Color,
 	        backgroundColor: 'transparent',
 	        borderColor: rawTheme.palette.borderColor
-	      }
+	      },
+	      isRtl: false
 	    };
 
 	    //add properties to objects inside 'returnObj' that depend on existing properties
@@ -25431,7 +25563,7 @@
 	};
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25485,7 +25617,7 @@
 	module.exports = extend;
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25494,20 +25626,20 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var ColorManipulator = __webpack_require__(196);
-	var StylePropable = __webpack_require__(185);
-	var Colors = __webpack_require__(192);
-	var Transitions = __webpack_require__(194);
-	var Typography = __webpack_require__(191);
-	var EnhancedButton = __webpack_require__(201);
-	var IconButton = __webpack_require__(211);
-	var OpenIcon = __webpack_require__(216);
-	var CloseIcon = __webpack_require__(218);
-	var NestedList = __webpack_require__(219);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var ColorManipulator = __webpack_require__(197);
+	var StylePropable = __webpack_require__(186);
+	var Colors = __webpack_require__(193);
+	var Transitions = __webpack_require__(195);
+	var Typography = __webpack_require__(192);
+	var EnhancedButton = __webpack_require__(202);
+	var IconButton = __webpack_require__(212);
+	var OpenIcon = __webpack_require__(217);
+	var CloseIcon = __webpack_require__(219);
+	var NestedList = __webpack_require__(220);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ListItem = React.createClass({
 	  displayName: 'ListItem',
@@ -25820,10 +25952,10 @@
 	          onTouchStart: this._handleTouchStart,
 	          onTouchTap: onTouchTap,
 	          ref: 'enhancedButton',
-	          style: this.mergeAndPrefix(styles.root, style) }),
+	          style: this.mergeStyles(styles.root, style) }),
 	        React.createElement(
 	          'div',
-	          { style: this.mergeAndPrefix(styles.innerDiv, innerDivStyle) },
+	          { style: this.prepareStyles(styles.innerDiv, innerDivStyle) },
 	          contentChildren
 	        )
 	      ),
@@ -25856,7 +25988,7 @@
 	    var innerDivStyle = _props2.innerDivStyle;
 	    var style = _props2.style;
 
-	    var mergedDivStyles = this.mergeAndPrefix(styles.root, styles.innerDiv, innerDivStyle, style);
+	    var mergedDivStyles = this.prepareStyles(styles.root, styles.innerDiv, innerDivStyle, style);
 
 	    return React.createElement('div', { style: mergedDivStyles }, contentChildren);
 	  },
@@ -25866,21 +25998,21 @@
 	    var innerDivStyle = _props3.innerDivStyle;
 	    var style = _props3.style;
 
-	    var mergedLabelStyles = this.mergeAndPrefix(styles.root, styles.innerDiv, innerDivStyle, styles.label, style);
+	    var mergedLabelStyles = this.prepareStyles(styles.root, styles.innerDiv, innerDivStyle, styles.label, style);
 
 	    return React.createElement('label', { style: mergedLabelStyles }, contentChildren);
 	  },
 
 	  _createTextElement: function _createTextElement(styles, data, key) {
 	    var isAnElement = React.isValidElement(data);
-	    var mergedStyles = isAnElement ? this.mergeStyles(styles, data.props.style) : null;
+	    var mergedStyles = isAnElement ? this.prepareStyles(styles, data.props.style) : null;
 
 	    return isAnElement ? React.cloneElement(data, {
 	      key: key,
 	      style: mergedStyles
 	    }) : React.createElement(
 	      'div',
-	      { key: key, style: styles },
+	      { key: key, style: this.prepareStyles(styles) },
 	      data
 	    );
 	  },
@@ -25969,7 +26101,7 @@
 	module.exports = ListItem;
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25978,17 +26110,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(185);
-	var Colors = __webpack_require__(192);
-	var Children = __webpack_require__(202);
-	var Events = __webpack_require__(203);
-	var KeyCode = __webpack_require__(204);
-	var FocusRipple = __webpack_require__(205);
-	var TouchRipple = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Colors = __webpack_require__(193);
+	var Children = __webpack_require__(203);
+	var Events = __webpack_require__(204);
+	var KeyCode = __webpack_require__(205);
+	var FocusRipple = __webpack_require__(206);
+	var TouchRipple = __webpack_require__(209);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var styleInjected = false;
 	var listening = false;
@@ -26119,7 +26251,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['centerRipple', 'children', 'containerElement', 'disabled', 'disableFocusRipple', 'disableKeyboardFocus', 'disableTouchRipple', 'focusRippleColor', 'focusRippleOpacity', 'linkButton', 'touchRippleColor', 'touchRippleOpacity', 'onBlur', 'onFocus', 'onKeyUp', 'onKeyDown', 'onTouchTap', 'style', 'tabIndex', 'type']);
 
-	    var mergedStyles = this.mergeAndPrefix({
+	    var mergedStyles = this.prepareStyles({
 	      border: 10,
 	      background: 'none',
 	      boxSizing: 'border-box',
@@ -26274,12 +26406,12 @@
 	module.exports = EnhancedButton;
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var createFragment = React.addons.createFragment;
 
 	module.exports = {
@@ -26320,7 +26452,7 @@
 	};
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26328,7 +26460,7 @@
 	module.exports = {
 
 	  once: function once(el, type, callback) {
-	    var typeArray = type.split(' ');
+	    var typeArray = type ? type.split(' ') : [];
 	    var recursiveFunction = function recursiveFunction(e) {
 	      e.target.removeEventListener(e.type, recursiveFunction);
 	      return callback(e);
@@ -26365,7 +26497,7 @@
 	};
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -26382,18 +26514,18 @@
 	};
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
-	var Colors = __webpack_require__(192);
-	var Transitions = __webpack_require__(194);
-	var ScaleInTransitionGroup = __webpack_require__(206);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Colors = __webpack_require__(193);
+	var Transitions = __webpack_require__(195);
+	var ScaleInTransitionGroup = __webpack_require__(207);
 
 	var pulsateDuration = 750;
 
@@ -26511,7 +26643,7 @@
 	module.exports = FocusRipple;
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26520,16 +26652,46 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
 	var ReactTransitionGroup = React.addons.TransitionGroup;
-	var StylePropable = __webpack_require__(185);
-	var ScaleInChild = __webpack_require__(207);
+	var StylePropable = __webpack_require__(186);
+	var ScaleInChild = __webpack_require__(208);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ScaleIn = React.createClass({
 	  displayName: 'ScaleIn',
 
 	  mixins: [PureRenderMixin, StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
 
 	  propTypes: {
 	    childStyle: React.PropTypes.object,
@@ -26555,7 +26717,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['children', 'childStyle', 'enterDelay', 'maxScale', 'minScale', 'style']);
 
-	    var mergedRootStyles = this.mergeAndPrefix({
+	    var mergedRootStyles = this.prepareStyles({
 	      position: 'relative',
 	      overflow: 'hidden',
 	      height: '100%'
@@ -26588,7 +26750,7 @@
 	module.exports = ScaleIn;
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26597,16 +26759,46 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
-	var Transitions = __webpack_require__(194);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ScaleInChild = React.createClass({
 	  displayName: 'ScaleInChild',
 
 	  mixins: [PureRenderMixin, StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
 
 	  propTypes: {
 	    enterDelay: React.PropTypes.number,
@@ -26659,7 +26851,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['children', 'enterDelay', 'style']);
 
-	    var mergedRootStyles = this.mergeAndPrefix({
+	    var mergedRootStyles = this.prepareStyles({
 	      position: 'absolute',
 	      height: '100%',
 	      width: '100%',
@@ -26700,18 +26892,18 @@
 	module.exports = ScaleInChild;
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
 	var ReactTransitionGroup = React.addons.TransitionGroup;
-	var StylePropable = __webpack_require__(185);
-	var Dom = __webpack_require__(209);
-	var ImmutabilityHelper = __webpack_require__(186);
-	var CircleRipple = __webpack_require__(210);
+	var StylePropable = __webpack_require__(186);
+	var Dom = __webpack_require__(210);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var CircleRipple = __webpack_require__(211);
 
 	var TouchRipple = React.createClass({
 	  displayName: 'TouchRipple',
@@ -26865,7 +27057,7 @@
 	module.exports = TouchRipple;
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26942,7 +27134,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26951,12 +27143,12 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
-	var Transitions = __webpack_require__(194);
-	var Colors = __webpack_require__(192);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
 
 	var CircleRipple = React.createClass({
 	  displayName: 'CircleRipple',
@@ -27045,7 +27237,7 @@
 	module.exports = CircleRipple;
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27055,16 +27247,16 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var ContextPure = __webpack_require__(212);
-	var Transitions = __webpack_require__(194);
-	var PropTypes = __webpack_require__(184);
-	var EnhancedButton = __webpack_require__(201);
-	var FontIcon = __webpack_require__(214);
-	var Tooltip = __webpack_require__(215);
-	var Children = __webpack_require__(202);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var ContextPure = __webpack_require__(213);
+	var Transitions = __webpack_require__(195);
+	var PropTypes = __webpack_require__(185);
+	var EnhancedButton = __webpack_require__(202);
+	var FontIcon = __webpack_require__(215);
+	var Tooltip = __webpack_require__(216);
+	var Children = __webpack_require__(203);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var IconButton = React.createClass({
 	  displayName: 'IconButton',
@@ -27290,12 +27482,12 @@
 	module.exports = IconButton;
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var shallowEqual = __webpack_require__(213);
+	var shallowEqual = __webpack_require__(214);
 
 	function relevantContextKeysEqual(classObject, currentContext, nextContext) {
 
@@ -27351,7 +27543,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27391,7 +27583,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27401,10 +27593,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var FontIcon = React.createClass({
 	  displayName: 'FontIcon',
@@ -27461,7 +27653,7 @@
 	    var offColor = color ? color : style && style.color ? style.color : this.state.muiTheme.rawTheme.palette.textColor;
 	    var onColor = hoverColor ? hoverColor : offColor;
 
-	    var mergedStyles = this.mergeAndPrefix({
+	    var mergedStyles = this.prepareStyles({
 	      position: 'relative',
 	      fontSize: spacing.iconSize,
 	      display: 'inline-block',
@@ -27497,7 +27689,7 @@
 	module.exports = FontIcon;
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27507,11 +27699,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var Colors = __webpack_require__(192);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Tooltip = React.createClass({
 	  displayName: 'Tooltip',
@@ -27634,13 +27826,13 @@
 	    return React.createElement(
 	      'div',
 	      _extends({}, other, {
-	        style: this.mergeAndPrefix(styles.root, this.props.show && styles.rootWhenShown, this.props.touch && styles.rootWhenTouched, this.props.style) }),
+	        style: this.prepareStyles(styles.root, this.props.show && styles.rootWhenShown, this.props.touch && styles.rootWhenTouched, this.props.style) }),
 	      React.createElement('div', {
 	        ref: 'ripple',
-	        style: this.mergeAndPrefix(styles.ripple, this.props.show && styles.rippleWhenShown) }),
+	        style: this.prepareStyles(styles.ripple, this.props.show && styles.rippleWhenShown) }),
 	      React.createElement(
 	        'span',
-	        { style: this.mergeAndPrefix(styles.label) },
+	        { style: this.prepareStyles(styles.label) },
 	        this.props.label
 	      )
 	    );
@@ -27672,14 +27864,14 @@
 	module.exports = Tooltip;
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationArrowDropUp = React.createClass({
 	  displayName: 'NavigationArrowDropUp',
@@ -27699,7 +27891,7 @@
 	module.exports = NavigationArrowDropUp;
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27709,10 +27901,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var SvgIcon = React.createClass({
 	  displayName: 'SvgIcon',
@@ -27779,7 +27971,7 @@
 	    var offColor = color ? color : style && style.fill ? style.fill : this.state.muiTheme.rawTheme.palette.textColor;
 	    var onColor = hoverColor ? hoverColor : offColor;
 
-	    var mergedStyles = this.mergeAndPrefix({
+	    var mergedStyles = this.prepareStyles({
 	      display: 'inline-block',
 	      height: 24,
 	      width: 24,
@@ -27818,14 +28010,14 @@
 	module.exports = SvgIcon;
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationArrowDropDown = React.createClass({
 	  displayName: 'NavigationArrowDropDown',
@@ -27845,14 +28037,14 @@
 	module.exports = NavigationArrowDropDown;
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var ImmutabilityHelper = __webpack_require__(186);
-	var List = __webpack_require__(165);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var List = __webpack_require__(166);
 
 	var NestedList = React.createClass({
 	  displayName: 'NestedList',
@@ -27898,7 +28090,7 @@
 	module.exports = NestedList;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27908,10 +28100,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var LinearProgress = React.createClass({
 	  displayName: 'LinearProgress',
@@ -27984,14 +28176,17 @@
 	    if (!this.isMounted()) return;
 	    if (this.props.mode !== "indeterminate") return;
 
+	    var right = this.state.muiTheme.isRtl ? 'left' : 'right';
+	    var left = this.state.muiTheme.isRtl ? 'right' : 'left';
+
 	    if (step === 0) {
-	      barElement.style.left = stepValues[0][0] + "%";
-	      barElement.style.right = stepValues[0][1] + "%";
+	      barElement.style[left] = stepValues[0][0] + "%";
+	      barElement.style[right] = stepValues[0][1] + "%";
 	    } else if (step === 1) {
 	      barElement.style.transitionDuration = "840ms";
 	    } else if (step === 2) {
-	      barElement.style.left = stepValues[1][0] + "%";
-	      barElement.style.right = stepValues[1][1] + "%";
+	      barElement.style[left] = stepValues[1][0] + "%";
+	      barElement.style[right] = stepValues[1][1] + "%";
 	    } else if (step === 3) {
 	      barElement.style.transitionDuration = "0ms";
 	    }
@@ -28066,12 +28261,12 @@
 
 	    return React.createElement(
 	      'div',
-	      _extends({}, other, { style: this.mergeAndPrefix(styles.root, style) }),
+	      _extends({}, other, { style: this.prepareStyles(styles.root, style) }),
 	      React.createElement(
 	        'div',
-	        { style: this.mergeAndPrefix(styles.bar) },
-	        React.createElement('div', { ref: 'bar1', style: this.mergeAndPrefix(styles.barFragment1) }),
-	        React.createElement('div', { ref: 'bar2', style: this.mergeAndPrefix(styles.barFragment2) })
+	        { style: this.prepareStyles(styles.bar) },
+	        React.createElement('div', { ref: 'bar1', style: this.prepareStyles(styles.barFragment1) }),
+	        React.createElement('div', { ref: 'bar2', style: this.prepareStyles(styles.barFragment2) })
 	      )
 	    );
 	  }
@@ -28080,14 +28275,14 @@
 	module.exports = LinearProgress;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionRestore = React.createClass({
 	  displayName: 'ActionRestore',
@@ -28107,14 +28302,14 @@
 	module.exports = ActionRestore;
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionBackup = React.createClass({
 	  displayName: 'ActionBackup',
@@ -28134,7 +28329,7 @@
 	module.exports = ActionBackup;
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28143,11 +28338,11 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
-	var StylePropable = __webpack_require__(185);
-	var ListDivider = __webpack_require__(224);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var React = __webpack_require__(167);
+	var StylePropable = __webpack_require__(186);
+	var ListDivider = __webpack_require__(225);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var MenuDivider = React.createClass({
 	  displayName: 'MenuDivider',
@@ -28188,7 +28383,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['style']);
 
-	    var mergedStyles = this.mergeAndPrefix({
+	    var mergedStyles = this.mergeStyles({
 	      marginTop: 7,
 	      marginBottom: 8
 	    }, style);
@@ -28200,7 +28395,7 @@
 	module.exports = MenuDivider;
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28209,10 +28404,10 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var React = __webpack_require__(167);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ListDivider = React.createClass({
 	  displayName: 'ListDivider',
@@ -28258,7 +28453,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['inset', 'style']);
 
-	    var mergedStyles = this.mergeAndPrefix({
+	    var mergedStyles = this.mergeStyles({
 	      margin: 0,
 	      marginTop: -1,
 	      marginLeft: inset ? 72 : 0,
@@ -28267,14 +28462,14 @@
 	      backgroundColor: this.state.muiTheme.rawTheme.palette.borderColor
 	    }, style);
 
-	    return React.createElement('hr', _extends({}, other, { style: mergedStyles }));
+	    return React.createElement('hr', _extends({}, other, { style: this.prepareStyles(mergedStyles) }));
 	  }
 	});
 
 	module.exports = ListDivider;
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -28291,23 +28486,23 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibListsList = __webpack_require__(165);
+	var _materialUiLibListsList = __webpack_require__(166);
 
 	var _materialUiLibListsList2 = _interopRequireDefault(_materialUiLibListsList);
 
-	var _materialUiLibListsListItem = __webpack_require__(200);
+	var _materialUiLibListsListItem = __webpack_require__(201);
 
 	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
 
-	var _materialUiLibSvgIconsMapsTerrain = __webpack_require__(226);
+	var _materialUiLibSvgIconsMapsTerrain = __webpack_require__(227);
 
 	var _materialUiLibSvgIconsMapsTerrain2 = _interopRequireDefault(_materialUiLibSvgIconsMapsTerrain);
 
-	var _BottomTear = __webpack_require__(227);
+	var _BottomTear = __webpack_require__(228);
 
 	var _BottomTear2 = _interopRequireDefault(_BottomTear);
 
-	__webpack_require__(164);
+	__webpack_require__(165);
 
 	var TooltrayList = _react2['default'].createClass({
 	  displayName: 'TooltrayList',
@@ -28404,14 +28599,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltrayList.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var MapsTerrain = React.createClass({
 	  displayName: 'MapsTerrain',
@@ -28431,7 +28626,7 @@
 	module.exports = MapsTerrain;
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -28487,7 +28682,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "BottomTear.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -28504,15 +28699,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibStyles = __webpack_require__(229);
+	var _materialUiLibStyles = __webpack_require__(230);
 
 	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
 
-	var _materialUiLibTextField = __webpack_require__(232);
+	var _materialUiLibTextField = __webpack_require__(233);
 
 	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 
-	var _materialUiLibSvgIconsActionInput = __webpack_require__(235);
+	var _materialUiLibSvgIconsActionInput = __webpack_require__(236);
 
 	var _materialUiLibSvgIconsActionInput2 = _interopRequireDefault(_materialUiLibSvgIconsActionInput);
 
@@ -28578,32 +28773,32 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ExerciseNameField.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	  AutoPrefix: __webpack_require__(188),
-	  Colors: __webpack_require__(192),
-	  Spacing: __webpack_require__(197),
-	  ThemeManager: __webpack_require__(198),
-	  Transitions: __webpack_require__(194),
-	  Typography: __webpack_require__(191),
-	  LightRawTheme: __webpack_require__(195),
-	  DarkRawTheme: __webpack_require__(230),
-	  ThemeDecorator: __webpack_require__(231)
-	};
-
-/***/ },
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(192);
-	var ColorManipulator = __webpack_require__(196);
-	var Spacing = __webpack_require__(197);
+	module.exports = {
+	  AutoPrefix: __webpack_require__(189),
+	  Colors: __webpack_require__(193),
+	  Spacing: __webpack_require__(198),
+	  ThemeManager: __webpack_require__(199),
+	  Transitions: __webpack_require__(195),
+	  Typography: __webpack_require__(192),
+	  LightRawTheme: __webpack_require__(196),
+	  DarkRawTheme: __webpack_require__(231),
+	  ThemeDecorator: __webpack_require__(232)
+	};
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Spacing = __webpack_require__(198);
 
 	module.exports = {
 	  spacing: Spacing,
@@ -28624,7 +28819,7 @@
 	};
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28648,14 +28843,14 @@
 	      },
 
 	      render: function render() {
-	        return React.createElement(Component, null);
+	        return React.createElement(Component, this.props);
 	      }
 	    });
 	  };
 	};
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -28665,14 +28860,14 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var ColorManipulator = __webpack_require__(196);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var UniqueId = __webpack_require__(233);
-	var EnhancedTextarea = __webpack_require__(234);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
-	var ContextPure = __webpack_require__(212);
+	var ColorManipulator = __webpack_require__(197);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var UniqueId = __webpack_require__(234);
+	var EnhancedTextarea = __webpack_require__(235);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
+	var ContextPure = __webpack_require__(213);
 
 	/**
 	 * Check if a value is valid to be displayed inside an input.
@@ -28748,8 +28943,7 @@
 	        disabledTextColor: textFieldTheme.disabledTextColor,
 	        backgroundColor: textFieldTheme.backgroundColor,
 	        hintColor: textFieldTheme.hintColor,
-	        errorColor: textFieldTheme.errorColor,
-	        isRtl: muiTheme.isRtl
+	        errorColor: textFieldTheme.errorColor
 	      };
 	    },
 	    getChildrenClasses: function getChildrenClasses() {
@@ -28808,7 +29002,6 @@
 	    var backgroundColor = _constructor$getRelevantContextKeys.backgroundColor;
 	    var hintColor = _constructor$getRelevantContextKeys.hintColor;
 	    var errorColor = _constructor$getRelevantContextKeys.errorColor;
-	    var isRtl = _constructor$getRelevantContextKeys.isRtl;
 
 	    var styles = {
 	      root: {
@@ -28887,7 +29080,7 @@
 	      bottom: 'none',
 	      opacity: 1,
 	      transform: 'scale(1) translate3d(0, 0, 0)',
-	      transformOrigin: isRtl ? 'right top' : 'left top'
+	      transformOrigin: 'left top'
 	    });
 
 	    styles.textarea = this.mergeStyles(styles.input, {
@@ -28958,20 +29151,20 @@
 
 	    var errorTextElement = this.state.errorText ? React.createElement(
 	      'div',
-	      { style: styles.error },
+	      { style: this.prepareStyles(styles.error) },
 	      this.state.errorText
 	    ) : null;
 
 	    var hintTextElement = hintText ? React.createElement(
 	      'div',
-	      { style: this.mergeAndPrefix(styles.hint, hintStyle) },
+	      { style: this.prepareStyles(styles.hint, hintStyle) },
 	      hintText
 	    ) : null;
 
 	    var floatingLabelTextElement = floatingLabelText ? React.createElement(
 	      'label',
 	      {
-	        style: this.mergeAndPrefix(styles.floatingLabel, this.props.floatingLabelStyle),
+	        style: this.prepareStyles(styles.floatingLabel, this.props.floatingLabelStyle),
 	        htmlFor: inputId },
 	      floatingLabelText
 	    ) : null;
@@ -28982,12 +29175,12 @@
 	    inputProps = {
 	      id: inputId,
 	      ref: this._getRef(),
-	      style: this.mergeAndPrefix(styles.input, this.props.inputStyle),
 	      onBlur: this._handleInputBlur,
 	      onFocus: this._handleInputFocus,
 	      disabled: this.props.disabled,
 	      onKeyDown: this._handleInputKeyDown
 	    };
+	    var inputStyle = this.mergeStyles(styles.input, this.props.inputStyle);
 
 	    if (!this.props.hasOwnProperty('valueLink')) {
 	      inputProps.onChange = this._handleInputChange;
@@ -28996,19 +29189,21 @@
 	      inputElement = React.cloneElement(this.props.children, _extends({}, inputProps, this.props.children.props));
 	    } else {
 	      inputElement = multiLine ? React.createElement(EnhancedTextarea, _extends({}, other, inputProps, {
+	        style: inputStyle,
 	        rows: rows,
 	        rowsMax: rowsMax,
 	        onHeightChange: this._handleTextAreaHeightChange,
 	        textareaStyle: this.mergeAndPrefix(styles.textarea) })) : React.createElement('input', _extends({}, other, inputProps, {
+	        style: this.prepareStyles(inputStyle),
 	        type: type }));
 	    }
 
-	    var underlineElement = this.props.disabled ? React.createElement('div', { style: this.mergeAndPrefix(styles.underlineAfter) }) : React.createElement('hr', { style: this.mergeAndPrefix(styles.underline) });
-	    var focusUnderlineElement = React.createElement('hr', { style: this.mergeAndPrefix(styles.focusUnderline) });
+	    var underlineElement = this.props.disabled ? React.createElement('div', { style: this.prepareStyles(styles.underlineAfter) }) : React.createElement('hr', { style: this.prepareStyles(styles.underline) });
+	    var focusUnderlineElement = React.createElement('hr', { style: this.prepareStyles(styles.focusUnderline) });
 
 	    return React.createElement(
 	      'div',
-	      { className: className, style: this.mergeAndPrefix(styles.root, this.props.style) },
+	      { className: className, style: this.prepareStyles(styles.root, this.props.style) },
 	      floatingLabelTextElement,
 	      hintTextElement,
 	      inputElement,
@@ -29101,7 +29296,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -29115,7 +29310,7 @@
 	};
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29125,8 +29320,9 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var rowsHeight = 24;
 
@@ -29155,6 +29351,21 @@
 
 	  mixins: [StylePropable],
 
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
 	  propTypes: {
 	    onChange: React.PropTypes.func,
 	    onHeightChange: React.PropTypes.func,
@@ -29171,7 +29382,8 @@
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      height: this.props.rows * rowsHeight
+	      height: this.props.rows * rowsHeight,
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
 	    };
 	  },
 
@@ -29190,11 +29402,11 @@
 
 	    var other = _objectWithoutProperties(_props, ['onChange', 'onHeightChange', 'rows', 'style', 'textareaStyle', 'valueLink']);
 
-	    var textareaStyles = this.mergeAndPrefix(styles.textarea, textareaStyle, {
+	    var textareaStyles = this.mergeStyles(styles.textarea, textareaStyle, {
 	      height: this.state.height
 	    });
 
-	    var shadowStyles = this.mergeAndPrefix(styles.shadow);
+	    var shadowStyles = styles.shadow;
 
 	    if (this.props.hasOwnProperty('valueLink')) {
 	      other.value = this.props.valueLink.value;
@@ -29206,10 +29418,10 @@
 
 	    return React.createElement(
 	      'div',
-	      { style: this.props.style },
+	      { style: this.prepareStyles(this.props.style) },
 	      React.createElement('textarea', {
 	        ref: 'shadow',
-	        style: AutoPrefix.all(shadowStyles),
+	        style: this.prepareStyles(shadowStyles),
 	        tabIndex: '-1',
 	        rows: this.props.rows,
 	        defaultValue: this.props.defaultValue,
@@ -29219,7 +29431,7 @@
 	      React.createElement('textarea', _extends({}, other, {
 	        ref: 'input',
 	        rows: this.props.rows,
-	        style: AutoPrefix.all(textareaStyles),
+	        style: this.prepareStyles(textareaStyles),
 	        onChange: this._handleChange }))
 	    );
 	  },
@@ -29269,24 +29481,26 @@
 	    }
 	  },
 
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
 	    if (nextProps.value !== this.props.value) {
 	      this._syncHeightWithShadow(nextProps.value);
 	    }
+	    var newState = {};
+	    newState.muiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
 	  }
 	});
 
 	module.exports = EnhancedTextarea;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionInput = React.createClass({
 	  displayName: 'ActionInput',
@@ -29306,7 +29520,7 @@
 	module.exports = ActionInput;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -29323,7 +29537,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibDialog = __webpack_require__(237);
+	var _materialUiLibDialog = __webpack_require__(238);
 
 	var _materialUiLibDialog2 = _interopRequireDefault(_materialUiLibDialog);
 
@@ -29391,7 +29605,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ComponentDialog.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29400,17 +29614,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
-	var WindowListenable = __webpack_require__(238);
-	var CssEvent = __webpack_require__(239);
-	var KeyCode = __webpack_require__(204);
-	var Transitions = __webpack_require__(194);
-	var StylePropable = __webpack_require__(185);
-	var FlatButton = __webpack_require__(240);
-	var Overlay = __webpack_require__(242);
-	var Paper = __webpack_require__(193);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var React = __webpack_require__(167);
+	var WindowListenable = __webpack_require__(239);
+	var CssEvent = __webpack_require__(240);
+	var KeyCode = __webpack_require__(205);
+	var Transitions = __webpack_require__(195);
+	var StylePropable = __webpack_require__(186);
+	var FlatButton = __webpack_require__(241);
+	var Overlay = __webpack_require__(243);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ReactTransitionGroup = React.addons.TransitionGroup;
 
@@ -29484,7 +29698,7 @@
 
 	    return React.createElement(
 	      'div',
-	      _extends({}, other, { style: this.mergeAndPrefix(this.state.style, style) }),
+	      _extends({}, other, { style: this.prepareStyles(this.state.style, style) }),
 	      this.props.children
 	    );
 	  }
@@ -29610,15 +29824,15 @@
 	    };
 
 	    if (this.state.open) {
-	      main = this.mergeAndPrefix(main, {
+	      main = this.mergeStyles(main, {
 	        left: 0,
 	        transition: Transitions.easeOut('0ms', 'left', '0ms')
 	      });
 	    }
 
 	    return {
-	      main: this.mergeAndPrefix(main, this.props.style),
-	      content: this.mergeAndPrefix(content, this.props.contentStyle),
+	      main: this.mergeStyles(main, this.props.style),
+	      content: this.mergeStyles(content, this.props.contentStyle),
 	      paper: {
 	        background: this.state.muiTheme.rawTheme.palette.canvasColor
 	      },
@@ -29636,14 +29850,14 @@
 	      // If not, just use it as a node.
 	      title = Object.prototype.toString.call(this.props.title) === '[object String]' ? React.createElement(
 	        'h3',
-	        { style: styles.title },
+	        { style: this.prepareStyles(styles.title) },
 	        this.props.title
 	      ) : this.props.title;
 	    }
 
 	    return React.createElement(
 	      'div',
-	      { ref: 'container', style: styles.main },
+	      { ref: 'container', style: this.prepareStyles(styles.main) },
 	      React.createElement(
 	        ReactTransitionGroup,
 	        { component: 'div', ref: 'dialogWindow' },
@@ -29660,7 +29874,7 @@
 	            title,
 	            React.createElement(
 	              'div',
-	              { ref: 'dialogContent', style: styles.body },
+	              { ref: 'dialogContent', style: this.prepareStyles(styles.body) },
 	              this.props.children
 	            ),
 	            actions
@@ -29751,7 +29965,7 @@
 
 	      actionContainer = React.createElement(
 	        'div',
-	        { style: actionStyle },
+	        { style: this.prepareStyles(actionStyle) },
 	        actionObjects
 	      );
 	    }
@@ -29822,12 +30036,12 @@
 	module.exports = Dialog;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Events = __webpack_require__(203);
+	var Events = __webpack_require__(204);
 
 	module.exports = {
 
@@ -29852,12 +30066,12 @@
 	};
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Events = __webpack_require__(203);
+	var Events = __webpack_require__(204);
 
 	module.exports = {
 
@@ -29909,7 +30123,7 @@
 	};
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29918,17 +30132,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(166);
-	var ContextPure = __webpack_require__(212);
-	var Transitions = __webpack_require__(194);
-	var Children = __webpack_require__(202);
-	var ColorManipulator = __webpack_require__(196);
-	var ImmutabilityHelper = __webpack_require__(186);
-	var Typography = __webpack_require__(191);
-	var EnhancedButton = __webpack_require__(201);
-	var FlatButtonLabel = __webpack_require__(241);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var React = __webpack_require__(167);
+	var ContextPure = __webpack_require__(213);
+	var Transitions = __webpack_require__(195);
+	var Children = __webpack_require__(203);
+	var ColorManipulator = __webpack_require__(197);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var Typography = __webpack_require__(192);
+	var EnhancedButton = __webpack_require__(202);
+	var FlatButtonLabel = __webpack_require__(242);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	function validateLabel(props, propName, componentName) {
 	  if (!props.children && !props.label) {
@@ -30126,21 +30340,22 @@
 	module.exports = FlatButton;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
-	var ContextPure = __webpack_require__(212);
-	var Styles = __webpack_require__(187);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var React = __webpack_require__(167);
+	var ContextPure = __webpack_require__(213);
+	var StylePropable = __webpack_require__(186);
+	var Styles = __webpack_require__(188);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var FlatButtonLabel = React.createClass({
 	  displayName: 'FlatButtonLabel',
 
-	  mixins: [ContextPure],
+	  mixins: [ContextPure, StylePropable],
 
 	  contextTypes: {
 	    muiTheme: React.PropTypes.object
@@ -30190,14 +30405,14 @@
 
 	    var contextKeys = this.constructor.getRelevantContextKeys(this.state.muiTheme);
 
-	    var mergedRootStyles = Styles.mergeAndPrefix({
+	    var mergedRootStyles = this.mergeStyles({
 	      position: 'relative',
 	      padding: '0 ' + contextKeys.spacingDesktopGutterLess + 'px'
 	    }, style);
 
 	    return React.createElement(
 	      'span',
-	      { style: mergedRootStyles },
+	      { style: this.prepareStyles(mergedRootStyles) },
 	      label
 	    );
 	  }
@@ -30207,7 +30422,7 @@
 	module.exports = FlatButtonLabel;
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30217,9 +30432,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var Colors = __webpack_require__(192);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Overlay = React.createClass({
 	  displayName: 'Overlay',
@@ -30227,6 +30444,34 @@
 	  _originalBodyOverflow: '',
 
 	  mixins: [StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
 
 	  propTypes: {
 	    autoLockScrolling: React.PropTypes.bool,
@@ -30299,7 +30544,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['show', 'style']);
 
-	    var styles = this.mergeAndPrefix(this.getStyles().root, this.props.style, this.props.show && this.getStyles().rootWhenShown);
+	    var styles = this.prepareStyles(this.getStyles().root, this.props.style, this.props.show && this.getStyles().rootWhenShown);
 
 	    return React.createElement('div', _extends({}, other, { style: styles }));
 	  },
@@ -30327,7 +30572,7 @@
 	module.exports = Overlay;
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -30342,7 +30587,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _reactTapEventPlugin = __webpack_require__(244);
+	var _reactTapEventPlugin = __webpack_require__(245);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -30355,11 +30600,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibStylesThemeManager = __webpack_require__(198);
+	var _materialUiLibStylesThemeManager = __webpack_require__(199);
 
 	var _materialUiLibStylesThemeManager2 = _interopRequireDefault(_materialUiLibStylesThemeManager);
 
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(195);
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
 
 	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
 
@@ -30380,7 +30625,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "material-ui-theme.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function injectTapEventPlugin () {
@@ -30388,14 +30633,14 @@
 	  React.initializeTouchEvents(true);
 
 	  __webpack_require__(74).injection.injectEventPluginsByName({
-	    "ResponderEventPlugin": __webpack_require__(245),
-	    "TapEventPlugin":       __webpack_require__(246)
+	    "ResponderEventPlugin": __webpack_require__(246),
+	    "TapEventPlugin":       __webpack_require__(247)
 	  });
 	};
 
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30710,7 +30955,7 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30738,7 +30983,7 @@
 	var EventPluginUtils = __webpack_require__(9);
 	var EventPropagators = __webpack_require__(98);
 	var SyntheticUIEvent = __webpack_require__(111);
-	var TouchEventUtils = __webpack_require__(247);
+	var TouchEventUtils = __webpack_require__(248);
 	var ViewportMetrics = __webpack_require__(79);
 
 	var keyOf = __webpack_require__(44);
@@ -30882,7 +31127,7 @@
 
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports) {
 
 	/**
@@ -30930,7 +31175,7 @@
 
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30940,11 +31185,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
-	var Transitions = __webpack_require__(194);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var CircularProgress = React.createClass({
 	  displayName: 'CircularProgress',
@@ -31125,14 +31370,14 @@
 
 	    return React.createElement(
 	      'div',
-	      _extends({}, other, { style: this.mergeAndPrefix(styles.root, style) }),
+	      _extends({}, other, { style: this.prepareStyles(styles.root, style) }),
 	      React.createElement(
 	        'div',
-	        { ref: 'wrapper', style: this.mergeAndPrefix(styles.wrapper, innerStyle) },
+	        { ref: 'wrapper', style: this.prepareStyles(styles.wrapper, innerStyle) },
 	        React.createElement(
 	          'svg',
-	          { style: this.mergeAndPrefix(styles.svg) },
-	          React.createElement('circle', { ref: 'path', style: this.mergeAndPrefix(styles.path), cx: '25', cy: '25',
+	          { style: this.prepareStyles(styles.svg) },
+	          React.createElement('circle', { ref: 'path', style: this.prepareStyles(styles.path), cx: '25', cy: '25',
 	            r: '20', fill: 'none', strokeWidth: '2.5', strokeMiterlimit: '10' })
 	        )
 	      )
@@ -31143,21 +31388,25 @@
 	module.exports = CircularProgress;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var KeyCode = __webpack_require__(204);
-	var DropDownArrow = __webpack_require__(218);
-	var Paper = __webpack_require__(193);
-	var Menu = __webpack_require__(250);
-	var ClearFix = __webpack_require__(256);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var KeyCode = __webpack_require__(205);
+	var DropDownArrow = __webpack_require__(219);
+	var Paper = __webpack_require__(194);
+	var Menu = __webpack_require__(251);
+	var ClearFix = __webpack_require__(257);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var DropDownMenu = React.createClass({
 	  displayName: 'DropDownMenu',
@@ -31318,7 +31567,22 @@
 	  },
 
 	  render: function render() {
-	    var _this = this;
+	    var _props = this.props;
+	    var autoWidth = _props.autoWidth;
+	    var className = _props.className;
+	    var onFocus = _props.onFocus;
+	    var onBlur = _props.onBlur;
+	    var style = _props.style;
+	    var displayMember = _props.displayMember;
+	    var valueMember = _props.valueMember;
+	    var valueLink = _props.valueLink;
+	    var labelStyle = _props.labelStyle;
+	    var iconStyle = _props.iconStyle;
+	    var underlineStyle = _props.underlineStyle;
+	    var menuItemStyle = _props.menuItemStyle;
+
+	    var other = _objectWithoutProperties(_props, ['autoWidth', 'className', 'onFocus', 'onBlur', 'style', 'displayMember', 'valueMember', 'valueLink', 'labelStyle', 'iconStyle', 'underlineStyle', 'menuItemStyle']);
+
 	    var styles = this.getStyles();
 	    var selectedIndex = this._isControlled() ? null : this.state.selectedIndex;
 	    var displayValue = "";
@@ -31326,14 +31590,12 @@
 	      if (process.env.NODE_ENV !== 'production') {
 	        console.assert(!!this.props.menuItems[selectedIndex], 'SelectedIndex of ' + selectedIndex + ' does not exist in menuItems.');
 	      }
-	    } else {
-	      if (this.props.valueMember && this._isControlled()) {
-	        var value = this.props.hasOwnProperty('value') ? this.props.value : this.props.valueLink.value;
-	        if (value !== null && value !== undefined) {
-	          for (var i = 0; i < this.props.menuItems.length; i++) {
-	            if (this.props.menuItems[i][this.props.valueMember] === value) {
-	              selectedIndex = i;
-	            }
+	    } else if (valueMember && this._isControlled()) {
+	      var value = this.props.hasOwnProperty('value') ? this.props.value : valueLink.value;
+	      if (value !== null && value !== undefined) {
+	        for (var i = 0; i < this.props.menuItems.length; i++) {
+	          if (this.props.menuItems[i][valueMember] === value) {
+	            selectedIndex = i;
 	          }
 	        }
 	      }
@@ -31341,48 +31603,48 @@
 
 	    var selectedItem = this.props.menuItems[selectedIndex];
 	    if (selectedItem) {
-	      displayValue = selectedItem[this.props.displayMember];
+	      displayValue = selectedItem[displayMember];
 	    }
 
 	    var menuItems = this.props.menuItems.map(function (item) {
-	      item.text = item[_this.props.displayMember];
-	      item.payload = item[_this.props.valueMember];
+	      item.text = item[displayMember];
+	      item.payload = item[valueMember];
 	      return item;
 	    });
 
 	    return React.createElement(
 	      'div',
-	      {
+	      _extends({}, other, {
 	        ref: 'root',
 	        onKeyDown: this._onKeyDown,
-	        onFocus: this.props.onFocus,
-	        onBlur: this.props.onBlur,
-	        className: this.props.className,
-	        style: this.mergeAndPrefix(styles.root, this.state.open && styles.rootWhenOpen, this.props.style) },
+	        onFocus: onFocus,
+	        onBlur: onBlur,
+	        className: className,
+	        style: this.prepareStyles(styles.root, this.state.open && styles.rootWhenOpen, style) }),
 	      React.createElement(
 	        ClearFix,
-	        { style: this.mergeAndPrefix(styles.control), onTouchTap: this._onControlClick },
-	        React.createElement(Paper, { style: this.mergeAndPrefix(styles.controlBg), zDepth: 0 }),
+	        { style: this.mergeStyles(styles.control), onTouchTap: this._onControlClick },
+	        React.createElement(Paper, { style: this.mergeStyles(styles.controlBg), zDepth: 0 }),
 	        React.createElement(
 	          'div',
-	          { style: this.mergeAndPrefix(styles.label, this.state.open && styles.labelWhenOpen, this.props.labelStyle) },
+	          { style: this.prepareStyles(styles.label, this.state.open && styles.labelWhenOpen, labelStyle) },
 	          displayValue
 	        ),
-	        React.createElement(DropDownArrow, { style: this.mergeAndPrefix(styles.icon, this.props.iconStyle) }),
-	        React.createElement('div', { style: this.mergeAndPrefix(styles.underline, this.props.underlineStyle) })
+	        React.createElement(DropDownArrow, { style: this.mergeStyles(styles.icon, iconStyle) }),
+	        React.createElement('div', { style: this.prepareStyles(styles.underline, underlineStyle) })
 	      ),
 	      React.createElement(Menu, {
 	        ref: 'menuItems',
-	        autoWidth: this.props.autoWidth,
+	        autoWidth: autoWidth,
 	        selectedIndex: selectedIndex,
 	        menuItems: menuItems,
 	        style: styles.menu,
-	        menuItemStyle: this.mergeAndPrefix(styles.menuItem, this.props.menuItemStyle),
+	        menuItemStyle: this.mergeStyles(styles.menuItem, menuItemStyle),
 	        hideable: true,
 	        visible: this.state.open,
 	        onRequestClose: this._onMenuRequestClose,
 	        onItemTap: this._onMenuItemClick }),
-	      this.state.open && React.createElement('div', { style: styles.overlay, onTouchTap: this._handleOverlayTouchTap })
+	      this.state.open && React.createElement('div', { style: this.prepareStyles(styles.overlay), onTouchTap: this._handleOverlayTouchTap })
 	    );
 	  },
 
@@ -31490,7 +31752,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31500,18 +31762,18 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var CssEvent = __webpack_require__(239);
-	var KeyLine = __webpack_require__(251);
-	var KeyCode = __webpack_require__(204);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var ClickAwayable = __webpack_require__(252);
-	var Paper = __webpack_require__(193);
-	var MenuItem = __webpack_require__(253);
-	var LinkMenuItem = __webpack_require__(258);
-	var SubheaderMenuItem = __webpack_require__(259);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var CssEvent = __webpack_require__(240);
+	var KeyLine = __webpack_require__(252);
+	var KeyCode = __webpack_require__(205);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var ClickAwayable = __webpack_require__(253);
+	var Paper = __webpack_require__(194);
+	var MenuItem = __webpack_require__(254);
+	var LinkMenuItem = __webpack_require__(259);
+	var SubheaderMenuItem = __webpack_require__(260);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	/***********************
 	* Nested Menu Component
@@ -31618,7 +31880,7 @@
 
 	  render: function render() {
 	    var styles = this.getStyles();
-	    styles = this.mergeAndPrefix(styles.root, this.props.active && !this.props.disabled && styles.rootWhenHovered, {
+	    styles = this.prepareStyles(styles.root, this.props.active && !this.props.disabled && styles.rootWhenHovered, {
 	      position: 'relative'
 	    }, this.props.style);
 
@@ -31835,7 +32097,7 @@
 	        tabIndex: '0',
 	        onKeyDown: this._onKeyDown,
 	        zDepth: this.props.zDepth,
-	        style: this.mergeAndPrefix(styles.root, this.props.hideable && styles.hideable, this.props.style) },
+	        style: this.mergeStyles(styles.root, this.props.hideable && styles.hideable, this.props.style) },
 	      this._getChildren()
 	    );
 	  },
@@ -31885,7 +32147,7 @@
 	            key: i,
 	            index: i,
 	            className: this.props.menuItemClassNameSubheader,
-	            style: this.mergeAndPrefix(styles.subheader, this.props.menuItemStyleSubheader),
+	            style: this.mergeStyles(styles.subheader, this.props.menuItemStyleSubheader),
 	            firstChild: i === 0,
 	            text: menuItem.text });
 	          break;
@@ -32136,7 +32398,7 @@
 	module.exports = Menu;
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32156,14 +32418,14 @@
 	};
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var Events = __webpack_require__(203);
-	var Dom = __webpack_require__(209);
+	var Events = __webpack_require__(204);
+	var Dom = __webpack_require__(210);
 
 	module.exports = {
 
@@ -32202,7 +32464,7 @@
 	};
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32211,12 +32473,14 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var FontIcon = __webpack_require__(214);
-	var Toggle = __webpack_require__(254);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var FontIcon = __webpack_require__(215);
+	var Toggle = __webpack_require__(255);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Types = {
 	  LINK: 'LINK',
@@ -32296,6 +32560,16 @@
 	  },
 
 	  getStyles: function getStyles() {
+	    var _data;
+
+	    var isRtl = this.context.muiTheme.isRtl;
+
+	    var right = isRtl ? 'left' : 'right';
+	    var left = isRtl ? 'right' : 'left';
+
+	    var marginRight = isRtl ? 'marginLeft' : 'marginRight';
+	    var paddingLeft = isRtl ? 'paddingRight' : 'paddingLeft';
+
 	    var styles = {
 	      root: {
 	        userSelect: 'none',
@@ -32306,36 +32580,27 @@
 	        color: this.state.muiTheme.rawTheme.palette.textColor
 	      },
 	      number: {
-	        float: 'right',
+	        float: right,
 	        width: 24,
 	        textAlign: 'center'
 	      },
 	      attribute: {
-	        float: 'right'
+	        float: right
 	      },
 	      iconRight: {
 	        lineHeight: this.getTheme().height + 'px',
-	        float: 'right'
+	        float: right
 	      },
-	      icon: {
-	        float: 'left',
-	        lineHeight: this.getTheme().height + 'px',
-	        marginRight: this.getSpacing().desktopGutter
-	      },
-	      data: {
-	        display: 'block',
-	        paddingLeft: this.getSpacing().desktopGutter * 2,
-	        lineHeight: this.getTheme().dataHeight + 'px',
-	        height: this.getTheme().dataHeight + 'px',
-	        verticalAlign: 'top',
-	        top: -12,
-	        position: 'relative',
-	        fontWeight: 300,
-	        color: this.state.muiTheme.rawTheme.palette.textColor
-	      },
+	      icon: _defineProperty({
+	        float: left,
+	        lineHeight: this.getTheme().height + 'px'
+	      }, marginRight, this.getSpacing().desktopGutter),
+	      data: (_data = {
+	        display: 'block'
+	      }, _defineProperty(_data, paddingLeft, this.getSpacing().desktopGutter * 2), _defineProperty(_data, 'lineHeight', this.getTheme().dataHeight + 'px'), _defineProperty(_data, 'height', this.getTheme().dataHeight + 'px'), _defineProperty(_data, 'verticalAlign', 'top'), _defineProperty(_data, 'top', -12), _defineProperty(_data, 'position', 'relative'), _defineProperty(_data, 'fontWeight', 300), _defineProperty(_data, 'color', this.state.muiTheme.rawTheme.palette.textColor), _data),
 	      toggle: {
 	        marginTop: (this.getTheme().height - this.state.muiTheme.radioButton.size) / 2,
-	        float: 'right',
+	        float: right,
 	        width: 42
 	      },
 	      rootWhenHovered: {
@@ -32362,21 +32627,21 @@
 	    var toggleElement = undefined;
 	    var styles = this.getStyles();
 
-	    if (this.props.iconClassName) icon = React.createElement(FontIcon, { style: this.mergeAndPrefix(styles.icon, this.props.iconStyle, this.props.selected && styles.rootWhenSelected), className: this.props.iconClassName });
-	    if (this.props.iconRightClassName) iconRight = React.createElement(FontIcon, { style: this.mergeAndPrefix(styles.iconRight, this.props.iconRightStyle), className: this.props.iconRightClassName });
+	    if (this.props.iconClassName) icon = React.createElement(FontIcon, { style: this.mergeStyles(styles.icon, this.props.iconStyle, this.props.selected && styles.rootWhenSelected), className: this.props.iconClassName });
+	    if (this.props.iconRightClassName) iconRight = React.createElement(FontIcon, { style: this.mergeStyles(styles.iconRight, this.props.iconRightStyle), className: this.props.iconRightClassName });
 	    if (this.props.data) data = React.createElement(
 	      'span',
-	      { style: this.mergeAndPrefix(styles.data) },
+	      { style: this.prepareStyles(styles.data) },
 	      this.props.data
 	    );
 	    if (this.props.number !== undefined) number = React.createElement(
 	      'span',
-	      { style: this.mergeAndPrefix(styles.number) },
+	      { style: this.prepareStyles(styles.number) },
 	      this.props.number
 	    );
 	    if (this.props.attribute !== undefined) attribute = React.createElement(
 	      'span',
-	      { style: this.mergeAndPrefix(styles.style) },
+	      { style: this.prepareStyles(styles.style) },
 	      this.props.attribute
 	    );
 	    if (this.props.icon) icon = this.props.icon;
@@ -32405,7 +32670,7 @@
 	        onTouchTap: this._handleTouchTap,
 	        onMouseEnter: this._handleMouseEnter,
 	        onMouseLeave: this._handleMouseLeave,
-	        style: this.mergeAndPrefix(styles.root, this.props.selected && styles.rootWhenSelected, this.props.active && !this.props.disabled && styles.rootWhenHovered, this.props.style, this.props.disabled && styles.rootWhenDisabled) },
+	        style: this.prepareStyles(styles.root, this.props.selected && styles.rootWhenSelected, this.props.active && !this.props.disabled && styles.rootWhenHovered, this.props.style, this.props.disabled && styles.rootWhenDisabled) },
 	      icon,
 	      this.props.children,
 	      number,
@@ -32436,7 +32701,7 @@
 	module.exports = MenuItem;
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32446,12 +32711,12 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var Paper = __webpack_require__(193);
-	var EnhancedSwitch = __webpack_require__(255);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Paper = __webpack_require__(194);
+	var EnhancedSwitch = __webpack_require__(256);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Toggle = React.createClass({
 	  displayName: 'Toggle',
@@ -32557,33 +32822,33 @@
 
 	    var styles = this.getStyles();
 
-	    var trackStyles = this.mergeAndPrefix(styles.track, this.props.trackStyle, this.state.switched && styles.trackWhenSwitched, this.props.disabled && styles.trackWhenDisabled);
+	    var trackStyles = this.mergeStyles(styles.track, this.props.trackStyle, this.state.switched && styles.trackWhenSwitched, this.props.disabled && styles.trackWhenDisabled);
 
-	    var thumbStyles = this.mergeAndPrefix(styles.thumb, this.props.thumbStyle, this.state.switched && styles.thumbWhenSwitched, this.props.disabled && styles.thumbWhenDisabled);
+	    var thumbStyles = this.mergeStyles(styles.thumb, this.props.thumbStyle, this.state.switched && styles.thumbWhenSwitched, this.props.disabled && styles.thumbWhenDisabled);
 
 	    if (this.state.switched) {
 	      thumbStyles.marginLeft = '-' + thumbStyles.width;
 	    }
 
-	    var toggleElementStyles = this.mergeAndPrefix(styles.toggleElement, this.props.elementStyle);
+	    var toggleElementStyles = this.mergeStyles(styles.toggleElement, this.props.elementStyle);
 
 	    var toggleElement = React.createElement(
 	      'div',
-	      { style: toggleElementStyles },
-	      React.createElement('div', { style: trackStyles }),
+	      { style: this.prepareStyles(toggleElementStyles) },
+	      React.createElement('div', { style: this.prepareStyles(trackStyles) }),
 	      React.createElement(Paper, { style: thumbStyles, circle: true, zDepth: 1 })
 	    );
 
-	    var customRippleStyle = this.mergeAndPrefix({
+	    var customRippleStyle = this.mergeStyles({
 	      top: -10,
 	      left: -10
 	    }, this.props.rippleStyle);
 
 	    var rippleColor = this.state.switched ? this.getTheme().thumbOnColor : this.state.muiTheme.textColor;
 
-	    var iconStyle = this.mergeAndPrefix(styles.icon, this.props.iconStyle);
+	    var iconStyle = this.mergeStyles(styles.icon, this.props.iconStyle);
 
-	    var labelStyle = this.mergeAndPrefix(styles.label, this.props.labelStyle);
+	    var labelStyle = this.mergeStyles(styles.label, this.props.labelStyle);
 
 	    var enhancedSwitchProps = {
 	      ref: "enhancedSwitch",
@@ -32628,7 +32893,7 @@
 	module.exports = Toggle;
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -32638,17 +32903,17 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var KeyCode = __webpack_require__(204);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var UniqueId = __webpack_require__(233);
-	var WindowListenable = __webpack_require__(238);
-	var ClearFix = __webpack_require__(256);
-	var FocusRipple = __webpack_require__(205);
-	var TouchRipple = __webpack_require__(208);
-	var Paper = __webpack_require__(193);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var KeyCode = __webpack_require__(205);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var UniqueId = __webpack_require__(234);
+	var WindowListenable = __webpack_require__(239);
+	var ClearFix = __webpack_require__(257);
+	var FocusRipple = __webpack_require__(206);
+	var TouchRipple = __webpack_require__(209);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var EnhancedSwitch = React.createClass({
 	  displayName: 'EnhancedSwitch',
@@ -32835,8 +33100,8 @@
 	    var other = _objectWithoutProperties(_props, ['type', 'name', 'value', 'label', 'onSwitch', 'defaultSwitched', 'onBlur', 'onFocus', 'onMouseUp', 'onMouseDown', 'onMouseLeave', 'onTouchStart', 'onTouchEnd', 'disableTouchRipple', 'disableFocusRipple', 'className']);
 
 	    var styles = this.getStyles();
-	    var wrapStyles = this.mergeAndPrefix(styles.wrap, this.props.iconStyle);
-	    var rippleStyle = this.mergeAndPrefix(styles.ripple, this.props.rippleStyle);
+	    var wrapStyles = this.prepareStyles(styles.wrap, this.props.iconStyle);
+	    var rippleStyle = this.prepareStyles(styles.ripple, this.props.rippleStyle);
 	    var rippleColor = this.props.hasOwnProperty('rippleColor') ? this.props.rippleColor : this.getTheme().primary1Color;
 
 	    if (this.props.thumbStyle) {
@@ -32846,7 +33111,7 @@
 
 	    var inputId = this.props.id || UniqueId.generate();
 
-	    var labelStyle = this.mergeAndPrefix(styles.label, this.props.labelStyle);
+	    var labelStyle = this.prepareStyles(styles.label, this.props.labelStyle);
 	    var labelElement = this.props.label ? React.createElement(
 	      'label',
 	      { style: labelStyle, htmlFor: inputId },
@@ -32856,7 +33121,7 @@
 	    var inputProps = {
 	      ref: "checkbox",
 	      type: this.props.inputType,
-	      style: this.mergeAndPrefix(styles.input),
+	      style: this.prepareStyles(styles.input),
 	      name: this.props.name,
 	      value: this.props.value,
 	      defaultChecked: this.props.defaultSwitched,
@@ -32905,7 +33170,7 @@
 	    ) : React.createElement(
 	      'div',
 	      { style: wrapStyles },
-	      React.createElement('div', { style: this.props.trackStyle }),
+	      React.createElement('div', { style: this.prepareStyles(this.props.trackStyle) }),
 	      React.createElement(
 	        Paper,
 	        { style: this.props.thumbStyle, zDepth: 1, circle: true },
@@ -32920,19 +33185,19 @@
 	    // Position is left if not defined or invalid.
 	    var elementsInOrder = labelPositionExist && this.props.labelPosition.toUpperCase() === "RIGHT" ? React.createElement(
 	      ClearFix,
-	      { style: this.mergeAndPrefix(styles.controls) },
+	      { style: styles.controls },
 	      switchElement,
 	      labelElement
 	    ) : React.createElement(
 	      ClearFix,
-	      { style: this.mergeAndPrefix(styles.controls) },
+	      { style: styles.controls },
 	      labelElement,
 	      switchElement
 	    );
 
 	    return React.createElement(
 	      'div',
-	      { ref: 'root', className: className, style: this.mergeAndPrefix(styles.root, this.props.style) },
+	      { ref: 'root', className: className, style: this.prepareStyles(styles.root, this.props.style) },
 	      inputElement,
 	      elementsInOrder
 	    );
@@ -33061,7 +33326,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33071,10 +33336,43 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var BeforeAfterWrapper = __webpack_require__(257);
+	var BeforeAfterWrapper = __webpack_require__(258);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ClearFix = React.createClass({
 	  displayName: 'ClearFix',
+
+	  mixins: [StylePropable],
+
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
 
 	  render: function render() {
 	    var _props = this.props;
@@ -33097,7 +33395,7 @@
 	      _extends({}, other, {
 	        beforeStyle: before(),
 	        afterStyle: after,
-	        style: this.props.style }),
+	        style: style }),
 	      this.props.children
 	    );
 	  }
@@ -33106,7 +33404,7 @@
 	module.exports = ClearFix;
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33114,8 +33412,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var AutoPrefix = __webpack_require__(188);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	/**
 	 *  BeforeAfterWrapper
@@ -33156,6 +33456,10 @@
 
 	  mixins: [StylePropable],
 
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
 	  propTypes: {
 	    beforeStyle: React.PropTypes.object,
 	    afterStyle: React.PropTypes.object,
@@ -33170,6 +33474,30 @@
 	      afterElementType: 'div',
 	      elementType: 'div'
 	    };
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
+	  },
+
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
 	  },
 
 	  render: function render() {
@@ -33189,18 +33517,18 @@
 	    afterStyle = AutoPrefix.all({ boxSizing: 'border-box' });
 
 	    if (this.props.beforeStyle) beforeElement = React.createElement(this.props.beforeElementType, {
-	      style: this.mergeAndPrefix(beforeStyle, this.props.beforeStyle),
+	      style: this.prepareStyles(beforeStyle, this.props.beforeStyle),
 	      key: "::before"
 	    });
 	    if (this.props.afterStyle) afterElement = React.createElement(this.props.afterElementType, {
-	      style: this.mergeAndPrefix(afterStyle, this.props.afterStyle),
+	      style: this.prepareStyles(afterStyle, this.props.afterStyle),
 	      key: "::after"
 	    });
 
 	    var children = [beforeElement, this.props.children, afterElement];
 
 	    var props = other;
-	    props.style = this.props.style;
+	    props.style = this.prepareStyles(this.props.style);
 
 	    return React.createElement(this.props.elementType, props, children);
 	  }
@@ -33210,7 +33538,7 @@
 	module.exports = BeforeAfterWrapper;
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33218,9 +33546,9 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var LinkMenuItem = React.createClass({
 	  displayName: 'LinkMenuItem',
@@ -33311,7 +33639,7 @@
 
 	    var styles = this.getStyles();
 
-	    var linkStyles = this.mergeAndPrefix(styles.root, this.props.selected && styles.rootWhenSelected, this.props.selected && styles.rootWhenSelected, this.props.active && !this.props.disabled && styles.rootWhenHovered, this.props.style, this.props.disabled && styles.rootWhenDisabled);
+	    var linkStyles = this.prepareStyles(styles.root, this.props.selected && styles.rootWhenSelected, this.props.selected && styles.rootWhenSelected, this.props.active && !this.props.disabled && styles.rootWhenHovered, this.props.style, this.props.disabled && styles.rootWhenDisabled);
 
 	    return React.createElement(
 	      'a',
@@ -33345,16 +33673,16 @@
 	module.exports = LinkMenuItem;
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var Typography = __webpack_require__(191);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var Typography = __webpack_require__(192);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var SubheaderMenuItem = React.createClass({
 	  displayName: 'SubheaderMenuItem',
@@ -33438,7 +33766,7 @@
 	      {
 	        key: this.props.index,
 	        className: this.props.className,
-	        style: this.mergeAndPrefix(this.getStyles().root, this.props.firstChild && this.getStyles().rootWhenFirstChild, this.props.style) },
+	        style: this.prepareStyles(this.getStyles().root, this.props.firstChild && this.getStyles().rootWhenFirstChild, this.props.style) },
 	      this.props.text
 	    );
 	  }
@@ -33448,7 +33776,7 @@
 	module.exports = SubheaderMenuItem;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33458,13 +33786,13 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var CssEvent = __webpack_require__(239);
-	var StylePropable = __webpack_require__(185);
-	var Transitions = __webpack_require__(194);
-	var ClickAwayable = __webpack_require__(252);
-	var FlatButton = __webpack_require__(240);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var CssEvent = __webpack_require__(240);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var ClickAwayable = __webpack_require__(253);
+	var FlatButton = __webpack_require__(241);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Snackbar = React.createClass({
 	  displayName: 'Snackbar',
@@ -33609,7 +33937,7 @@
 
 	    var styles = this.getStyles();
 
-	    var rootStyles = this.state.open ? this.mergeStyles(styles.root, styles.rootWhenOpen, style) : this.mergeStyles(styles.root, style);
+	    var rootStyles = this.state.open ? this.prepareStyles(styles.root, styles.rootWhenOpen, style) : this.prepareStyles(styles.root, style);
 
 	    var actionButton = undefined;
 	    if (action) {
@@ -33664,15 +33992,15 @@
 	module.exports = Snackbar;
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Toolbar = React.createClass({
 	  displayName: 'Toolbar',
@@ -33717,7 +34045,7 @@
 	  },
 
 	  getStyles: function getStyles() {
-	    return this.mergeAndPrefix({
+	    return this.mergeStyles({
 	      boxSizing: 'border-box',
 	      WebkitTapHighlightColor: 'rgba(0,0,0,0)',
 	      backgroundColor: this.getTheme().backgroundColor,
@@ -33730,7 +34058,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { className: this.props.className, style: this.getStyles() },
+	      { className: this.props.className, style: this.prepareStyles(this.getStyles()) },
 	      this.props.children
 	    );
 	  }
@@ -33740,16 +34068,16 @@
 	module.exports = Toolbar;
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var Colors = __webpack_require__(192);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var Colors = __webpack_require__(193);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarGroup = React.createClass({
 	  displayName: 'ToolbarGroup',
@@ -33900,7 +34228,7 @@
 
 	    return React.createElement(
 	      'div',
-	      { className: this.props.className, style: this.mergeAndPrefix(styles.root, this.props.style) },
+	      { className: this.props.className, style: this.prepareStyles(styles.root, this.props.style) },
 	      newChildren
 	    );
 	  },
@@ -33929,15 +34257,15 @@
 	module.exports = ToolbarGroup;
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarSeparator = React.createClass({
 	  displayName: 'ToolbarSeparator',
@@ -33981,7 +34309,7 @@
 	  },
 
 	  render: function render() {
-	    var styles = this.mergeAndPrefix({
+	    var styles = this.prepareStyles({
 	      backgroundColor: this.getTheme().separatorColor,
 	      display: 'inline-block',
 	      height: this.getSpacing().desktopGutterMore,
@@ -33999,7 +34327,7 @@
 	module.exports = ToolbarSeparator;
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34009,9 +34337,9 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(185);
-	var DefaultRawTheme = __webpack_require__(195);
-	var ThemeManager = __webpack_require__(198);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarTitle = React.createClass({
 	  displayName: 'ToolbarTitle',
@@ -34061,7 +34389,7 @@
 
 	    var other = _objectWithoutProperties(_props, ['style', 'text']);
 
-	    var styles = this.mergeAndPrefix({
+	    var styles = this.prepareStyles({
 	      paddingRight: this.state.muiTheme.rawTheme.spacing.desktopGutterLess,
 	      lineHeight: this.getTheme().height + 'px',
 	      fontSize: this.getTheme().titleFontSize + 'px',
@@ -34081,14 +34409,14 @@
 	module.exports = ToolbarTitle;
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(166);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(217);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationMenu = React.createClass({
 	  displayName: 'NavigationMenu',
@@ -34108,7 +34436,7 @@
 	module.exports = NavigationMenu;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34124,13 +34452,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	__webpack_require__(164);
+	__webpack_require__(165);
 
-	var _webpackDevServerM4s3dMeta = __webpack_require__(267);
+	var _webpackDevServerM4s3dMeta = __webpack_require__(268);
 
 	var _webpackDevServerM4s3dMeta2 = _interopRequireDefault(_webpackDevServerM4s3dMeta);
 
-	var _webpackDevServerRanges3dMeta = __webpack_require__(268);
+	var _webpackDevServerRanges3dMeta = __webpack_require__(269);
 
 	var _webpackDevServerRanges3dMeta2 = _interopRequireDefault(_webpackDevServerRanges3dMeta);
 
@@ -34140,11 +34468,11 @@
 	var routeHandler = function routeHandler(route, options) {
 	  switch (route) {
 	    case 'http://localhost:3001/CAT/inventory':
-	      return inventoryCATFetch();
+	      return delayResponse(500, inventoryCATFetch());
 	    case 'http://localhost:3001/inventory':
 	    case 'http://localhost:3001/PutExercise/inventory':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/inventory':
-	      return inventoryEUIFetch();
+	      return delayResponse(1500, inventoryEUIFetch());
 	    case 'http://localhost:3001/query':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/query':
 	      return queryEUIFetch(options);
@@ -34156,7 +34484,7 @@
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/generateSolution':
 	      return generateSolutionEUIFetch();
 	    case 'http://localhost:3001/listfiles/exercise/json':
-	      return exerciseFetch();
+	      return delayResponse(1000, exerciseFetch());
 	    default:
 	      return Promise.reject(new Error('fakeFetch has no handler for: ' + route));
 	  }
@@ -34165,10 +34493,20 @@
 	var saveFetch = window.fetch;
 	var httpResponse = { status: 200, headers: { 'Content-type': 'application/json' } };
 
+	var delayResponse = function delayResponse(delay, response) {
+	  var executor = function executor(resolve /*, reject */) {
+	    return setTimeout(function () {
+	      return resolve(response);
+	    }, delay);
+	  };
+
+	  return new Promise(executor);
+	};
+
 	var exerciseFetch = function exerciseFetch() {
 	  var exercises = ['http://localhost:3001/PutExercise', 'http://localhost:3001/exercises/071-100-0032/step01/m4_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear_exer_ese'];
 
-	  return Promise.resolve(new window.Response(JSON.stringify(exercises), httpResponse));
+	  return new window.Response(JSON.stringify(exercises), httpResponse);
 	};
 
 	var inventoryCATFetch = function inventoryCATFetch() {
@@ -34180,7 +34518,7 @@
 	    ID: 'myM4'
 	  }]);
 
-	  return Promise.resolve(new window.Response('{ "tooltray": ' + fakeData + ' }', httpResponse));
+	  return new window.Response('{ "tooltray": ' + fakeData + ' }', httpResponse);
 	};
 
 	var inventoryEUIFetch = function inventoryEUIFetch() {
@@ -34190,7 +34528,7 @@
 	  }]);
 	  var jsonData = '{ "instructorMode": ' + instructorMode + ', "tooltray": ' + fakeData + ' }';
 
-	  return Promise.resolve(new window.Response(jsonData, httpResponse));
+	  return new window.Response(jsonData, httpResponse);
 	};
 
 	var generateSolutionEUIFetch = function generateSolutionEUIFetch() {
@@ -34268,7 +34606,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-fetch.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34347,7 +34685,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-m4s3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -34372,6 +34710,392 @@
 	module.exports = exports['default'];
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-ranges3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/*global SAVE2*/
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ControlsJsx = __webpack_require__(164);
+
+	var _ControlsJsx2 = _interopRequireDefault(_ControlsJsx);
+
+	var _ComponentDialogJsx = __webpack_require__(237);
+
+	var _ComponentDialogJsx2 = _interopRequireDefault(_ComponentDialogJsx);
+
+	var _mixinsMaterialUiTheme = __webpack_require__(244);
+
+	var _mixinsMaterialUiTheme2 = _interopRequireDefault(_mixinsMaterialUiTheme);
+
+	var _materialUiLibCircularProgress = __webpack_require__(249);
+
+	var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircularProgress);
+
+	var _materialUiLibDropDownMenu = __webpack_require__(250);
+
+	var _materialUiLibDropDownMenu2 = _interopRequireDefault(_materialUiLibDropDownMenu);
+
+	var _materialUiLibPaper = __webpack_require__(194);
+
+	var _materialUiLibPaper2 = _interopRequireDefault(_materialUiLibPaper);
+
+	var _materialUiLibIconButton = __webpack_require__(212);
+
+	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
+
+	var _materialUiLibSnackbar = __webpack_require__(261);
+
+	var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
+
+	var _materialUiLibStyles = __webpack_require__(230);
+
+	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
+
+	var _materialUiLibTextField = __webpack_require__(233);
+
+	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
+
+	var _materialUiLibToolbarToolbar = __webpack_require__(262);
+
+	var _materialUiLibToolbarToolbar2 = _interopRequireDefault(_materialUiLibToolbarToolbar);
+
+	var _materialUiLibToolbarToolbarGroup = __webpack_require__(263);
+
+	var _materialUiLibToolbarToolbarGroup2 = _interopRequireDefault(_materialUiLibToolbarToolbarGroup);
+
+	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(264);
+
+	var _materialUiLibToolbarToolbarSeparator2 = _interopRequireDefault(_materialUiLibToolbarToolbarSeparator);
+
+	var _materialUiLibToolbarToolbarTitle = __webpack_require__(265);
+
+	var _materialUiLibToolbarToolbarTitle2 = _interopRequireDefault(_materialUiLibToolbarToolbarTitle);
+
+	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(266);
+
+	var _materialUiLibSvgIconsNavigationMenu2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationMenu);
+
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
+
+	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
+
+	var Colors = _materialUiLibStyles2['default'].Colors;
+	var Spacing = _materialUiLibStyles2['default'].Spacing;
+	var CAT = _react2['default'].createClass({
+	  displayName: 'CAT',
+
+	  mixins: [_mixinsMaterialUiTheme2['default']],
+
+	  propTypes: {
+	    baseServerHost: _react2['default'].PropTypes.string
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      exerciseList: [],
+	      loadedExerciseList: false,
+	      reloadTray: false,
+	      selectedExerciseListIndex: null,
+	      serverErrorText: ''
+	    };
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      baseServerHost: 'http://localhost:3001'
+	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    var _state = this.state;
+	    var selectedExerciseListIndex = _state.selectedExerciseListIndex;
+	    var exerciseList = _state.exerciseList;
+
+	    var exercisePathname = exerciseList.length ? exerciseList[selectedExerciseListIndex].payload : '';
+
+	    this.setBase({ host: this.props.baseServerHost, exercise: exercisePathname });
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
+	    // this.fetchExercises().catch(() => this.refs.snackbarSimulateBackend.show());
+	    this.fetchExercises()['catch'](function (e) {
+	      console.error(e);
+	      _this.refs.snackbarSimulateBackend.show();
+	    });
+	  },
+
+	  setBase: function setBase(options) {
+	    var host = options.host;
+	    var exercise = options.exercise;
+
+	    this.baseServer = host || this.baseServer;
+	    this.baseServerAddress = this.baseServer + exercise;
+
+	    if (exercise !== '') {
+	      SAVE2.vwf.view.setBaseServerAddress(this.baseServerAddress);
+	      // call issueautoloads...
+	    }
+	  },
+
+	  simulateBackend: function simulateBackend() {
+	    this.refs.snackbarSimulateBackend.dismiss();
+	    __webpack_require__(267);
+	    this.fetchExercises()['catch'](function (e) {
+	      return console.error(e);
+	    });
+	  },
+
+	  processFetchedExercises: function processFetchedExercises(json) {
+	    var _this2 = this;
+
+	    var list = this.state.exerciseList;
+
+	    json.forEach(function (e /*, i */) {
+	      var pathName = e.replace(_this2.baseServer, '');
+
+	      list.push({
+	        payload: pathName,
+	        text: pathName
+	      });
+	    });
+	    this.setState({ loadedExerciseList: true });
+	    this.setExerciseListWidth();
+	  },
+
+	  saveExercise: function saveExercise() {
+	    // let { controlsComponentDialog, snackbarStudentMode, snackbarInstructorMode } = this.refs;
+	    //
+	    // fetch(`${ this.baseServerAddress }/generateSolution`, { mode: 'cors' })
+	    // .then(() => {
+	    //   if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
+	    //
+	    //   this.setState({
+	    //     reloadTray: true,
+	    //   });
+	    //   snackbarStudentMode.show();
+	    // })
+	    // .catch(e => {
+	    //   snackbarInstructorMode.show();
+	    //   console.error(e);
+	    // });
+	  },
+
+	  fetchExercises: function fetchExercises() {
+	    var _this3 = this;
+
+	    return fetch(this.baseServer + '/listfiles/exercise/json', { mode: 'cors' }).then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      _this3.processFetchedExercises(json);
+	    });
+	    // .catch(e => console.error(e));
+	  },
+
+	  setExerciseListWidth: function setExerciseListWidth() {
+	    var el = _react2['default'].findDOMNode(this.refs.exerciseList);
+	    var menuItemsDom = _react2['default'].findDOMNode(this.refs.exerciseList.refs.menuItems);
+
+	    el.style.width = menuItemsDom.offsetWidth + 'px';
+	  },
+
+	  reset: function reset() {
+	    this.refs.controlsComponentDialog.dismiss();
+	  },
+
+	  dialogDismiss: function dialogDismiss() {
+	    if (this.state.reloadTray) this.setState({ reloadTray: false });
+	  },
+
+	  handleControlsClick: function handleControlsClick() {
+	    this.refs.controlsComponentDialog.show();
+	  },
+
+	  handleExerciseSelectChange: function handleExerciseSelectChange(e, selectedIndex /*, menuItem */) {
+	    this.setState({
+	      reloadTray: true,
+	      selectedExerciseListIndex: selectedIndex
+	    });
+
+	    this.setBase({ exercise: this.state.exerciseList[selectedIndex].payload });
+	    this.refs.snackbarInstructorMode.dismiss();
+	  },
+
+	  handleServerInputChange: function handleServerInputChange(e) {
+	    var value = e.target.value;
+	    var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
+	    var missingProtocol = value.match(/^(http|https):\/\//) == null;
+	    var serverErrorText = '';
+
+	    if (isNumeric) {
+	      serverErrorText = 'This field must be a string';
+	    } else if (missingProtocol) {
+	      serverErrorText = 'Field example http://<host>:<port>';
+	    }
+
+	    if (isNumeric || missingProtocol) {
+	      this.setState({ serverErrorText: serverErrorText });
+	      return;
+	    }
+
+	    if (value !== this.baseServer) {
+	      this.setState({
+	        exerciseList: [],
+	        loadedExerciseList: false,
+	        reloadTray: true,
+	        selectedExerciseListIndex: null,
+	        serverErrorText: serverErrorText
+	      });
+	      this.setBase({ host: value, exercise: '' });
+	      this.fetchExercises();
+	    }
+	  },
+
+	  handleToolTrayItemClick: function handleToolTrayItemClick() /* itemIdx */{
+	    this.refs.controlsComponentDialog.dismiss();
+	  },
+
+	  render: function render() {
+	    var canvasColor = _materialUiLibStylesRawThemesLightRawTheme2['default'].palette.canvasColor;
+	    var styles = {
+	      assessment: {
+	        border: 0,
+	        height: 600,
+	        width: '100%'
+	      },
+
+	      paper: {
+	        backgroundColor: canvasColor,
+	        fontFamily: '"Roboto", sans-serif',
+	        marginBottom: 32
+	      },
+
+	      exerciseDropdown: {
+	        float: 'right',
+	        width: 200
+	      },
+
+	      exerciseProgress: {
+	        width: 80
+	      },
+
+	      textfield: {
+	        top: '-15'
+	      },
+
+	      toolbarBlock: {
+	        borderRadius: '0 0 2px 0',
+	        padding: Spacing.desktopGutter,
+	        margin: 0
+	      },
+
+	      toolbarTitle: {
+	        textTransform: 'uppercase'
+	      }
+	    };
+	    var _state2 = this.state;
+	    var exerciseList = _state2.exerciseList;
+	    var loadedExerciseList = _state2.loadedExerciseList;
+	    var reloadTray = _state2.reloadTray;
+	    var selectedExerciseListIndex = _state2.selectedExerciseListIndex;
+	    var serverErrorText = _state2.serverErrorText;
+
+	    var controlsProps = {
+	      baseServerAddress: this.baseServerAddress,
+	      forceUpdate: reloadTray,
+	      onReset: this.reset,
+	      onSave: this.saveExercise,
+	      onToolTrayItemClick: this.handleToolTrayItemClick,
+	      savePrimaryText: 'Save Exercise',
+	      type: 'CAT'
+	    };
+	    var controlsIconButtonProps = {
+	      disabled: !loadedExerciseList,
+	      onClick: this.handleControlsClick,
+	      tooltip: 'Controls'
+	    };
+
+	    return _react2['default'].createElement(
+	      _materialUiLibPaper2['default'],
+	      { style: styles.paper },
+	      _react2['default'].createElement(
+	        'div',
+	        { style: styles.toolbarBlock },
+	        _react2['default'].createElement(
+	          _materialUiLibToolbarToolbar2['default'],
+	          { style: { backgroundColor: canvasColor } },
+	          _react2['default'].createElement(
+	            _materialUiLibToolbarToolbarGroup2['default'],
+	            { float: 'left', key: 0 },
+	            _react2['default'].createElement(_materialUiLibToolbarToolbarTitle2['default'], { style: styles.toolbarTitle, text: 'exercise' }),
+	            _react2['default'].createElement(_materialUiLibTextField2['default'], {
+	              defaultValue: this.props.baseServerHost,
+	              errorStyle: { color: Colors.red600 },
+	              errorText: serverErrorText,
+	              floatingLabelText: 'Exercise Server',
+	              hintText: 'http://<host>:<port>',
+	              onChange: this.handleServerInputChange,
+	              ref: 'exerciseServer',
+	              style: styles.textfield }),
+	            loadedExerciseList ? _react2['default'].createElement(_materialUiLibDropDownMenu2['default'], {
+	              menuItems: exerciseList,
+	              onChange: this.handleExerciseSelectChange,
+	              ref: 'exerciseList',
+	              selectedIndex: selectedExerciseListIndex,
+	              style: styles.exerciseDropdown }) : _react2['default'].createElement(_materialUiLibCircularProgress2['default'], { mode: 'indeterminate', size: .5, style: styles.exerciseProgress })
+	          ),
+	          _react2['default'].createElement(
+	            _materialUiLibToolbarToolbarGroup2['default'],
+	            { float: 'right', key: 1 },
+	            _react2['default'].createElement(_materialUiLibToolbarToolbarSeparator2['default'], null),
+	            _react2['default'].createElement(
+	              'div',
+	              { style: { width: 116 } },
+	              _react2['default'].createElement(
+	                _materialUiLibIconButton2['default'],
+	                controlsIconButtonProps,
+	                _react2['default'].createElement(_materialUiLibSvgIconsNavigationMenu2['default'], null)
+	              )
+	            )
+	          )
+	        )
+	      ),
+	      _react2['default'].createElement(
+	        _ComponentDialogJsx2['default'],
+	        { onDismiss: this.dialogDismiss, ref: 'controlsComponentDialog', title: 'EUI Controls' },
+	        _react2['default'].createElement(_ControlsJsx2['default'], controlsProps)
+	      ),
+	      !this.state.noSnackbarSimulateBackend ? _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
+	        action: 'Simulate',
+	        autoHideDuration: 0,
+	        message: 'Backend',
+	        onActionTouchTap: this.simulateBackend,
+	        ref: 'snackbarSimulateBackend' }) : null
+	    );
+	  }
+	});
+
+	exports.CAT = CAT;
+	exports['default'] = CAT;
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CAT.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);
