@@ -143,8 +143,9 @@ define(["module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle"], func
 		},
 		initialize: function()
 		{
-          
 			window._dSAVE = this;
+			window.SAVE2.lib.view = this; // SAVE2 is for react components access to this module
+
 			this.nodes = {};
 			var self = this;
 			$(document).on('setstatecomplete', function()

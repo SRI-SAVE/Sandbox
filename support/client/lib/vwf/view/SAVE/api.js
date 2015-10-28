@@ -1,6 +1,6 @@
 define([ ], function() {
 	return {
-		create: function(ID, auto, done) {
+		create: function(ID, auto, done, fail) {
 			var data = JSON.stringify({
 				type: 'create',
 				auto: auto,
@@ -23,7 +23,7 @@ define([ ], function() {
       });
 		},
 
-		action: function(action, arguments, names, done) {
+		action: function(action, arguments, names, done, fail) {
 			var data = JSON.stringify({
 				action: action,
 				arguments: arguments,
