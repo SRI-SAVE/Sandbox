@@ -67,21 +67,9 @@
 
 	__webpack_require__(162);
 
-	var _componentsEUI = __webpack_require__(168);
+	var _componentsEUI = __webpack_require__(163);
 
-	var _componentsCAT = __webpack_require__(284);
-
-	// let steps = [{
-	//     text: 'React components.<br/><br/>SAVE Semantic 3D UI for content assembly and exercises',
-	//     selector: '.rc-cat-main',
-	//     position: 'bottom',
-	//   }, {
-	//     title: 'CAT Controls',
-	//     text: 'Controls and tooltray items',
-	//     selector: '.rc-cat-controls',
-	//     position: 'bottom',
-	//   },
-	// ];
+	var _componentsCAT = __webpack_require__(274);
 
 	var elemDiv = document.createElement('div');
 
@@ -89,7 +77,6 @@
 	elemDiv.id = 'save-react-components';
 
 	if (SAVE2.isCAT()) {
-	  // React.render(<CAT steps={ steps }/>, elemDiv);
 	  _react2['default'].render(_react2['default'].createElement(_componentsCAT.CAT, null), elemDiv);
 	} else {
 	  _react2['default'].render(_react2['default'].createElement(_componentsEUI.EUI, null), elemDiv);
@@ -20808,27 +20795,18 @@
 	'use strict';
 
 	var SAVE = undefined;
-	var hostn = window.location.hostname;
 
 	if (false) {
-	  // for webpack-dev-server auto simulate
 	  SAVE = require('./webpack-dev-server-util');
 
 	  if (!__WEBPACK_DEV_SERVER_NO_FF__) require('./webpack-dev-server-fetch');
-	} else if (hostn === 'sri-save.github.io' || hostn === '') {
-	  // for gh-pages and file:/// uri's ('') we want the simulated (stubbed) sandbox
-	  SAVE = __webpack_require__(163);
 	}
 
 	window.SAVE2 = {
 	  VERSION: '2.0.1',
 	  lib: { view: SAVE },
 	  isCAT: function isCAT() {
-	    return window._EntityLibrary != null || hostn === 'sri-save.github.io' || hostn === '';
-	  }, // '' => file:/// uri's
-	  simulate: function simulate() {
-	    // window.SAVE2.lib.view = require('./webpack-dev-server-util');
-	    __webpack_require__(164);
+	    return window._EntityLibrary != null;
 	  }
 	};
 
@@ -20840,47 +20818,7 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	/*global __WEBPACK_SAVE_MODE__*/
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	if (true) window._EntityLibrary = {};
-
-	exports['default'] = {
-	  createSemanticAsset: function createSemanticAsset() {
-	    console.group('SAVE2.lib.view.createSemanticAsset()');
-	    console.table([arguments]);
-	    // console.dir(arguments);
-	    console.groupEnd();
-	  },
-
-	  installAutoLoads: function installAutoLoads() {
-	    console.group('SAVE2.lib.view.installAutoLoads()');
-	    console.table([arguments]);
-	    console.groupEnd();
-	  },
-
-	  setBaseServerAddress: function setBaseServerAddress() {
-	    console.group('SAVE2.lib.view.setBaseServerAddress()');
-	    console.table([arguments]);
-	    // console.dir(arguments);
-	    console.groupEnd();
-	  }
-	};
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-util.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-
-	// fetch('/foo').catch((e) => { console.log(e.message); });
+	/*global SAVE2*/
 
 	'use strict';
 
@@ -20890,170 +20828,687 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ControlsJsx = __webpack_require__(164);
+
+	var _ControlsJsx2 = _interopRequireDefault(_ControlsJsx);
+
+	var _ComponentDialogJsx = __webpack_require__(245);
+
+	var _ComponentDialogJsx2 = _interopRequireDefault(_ComponentDialogJsx);
+
+	var _mixinsMaterialUiTheme = __webpack_require__(251);
+
+	var _mixinsMaterialUiTheme2 = _interopRequireDefault(_mixinsMaterialUiTheme);
+
+	var _materialUiLibCircularProgress = __webpack_require__(256);
+
+	var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircularProgress);
+
+	var _materialUiLibDropDownMenu = __webpack_require__(257);
+
+	var _materialUiLibDropDownMenu2 = _interopRequireDefault(_materialUiLibDropDownMenu);
+
+	var _materialUiLibPaper = __webpack_require__(194);
+
+	var _materialUiLibPaper2 = _interopRequireDefault(_materialUiLibPaper);
+
+	var _materialUiLibIconButton = __webpack_require__(212);
+
+	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
+
+	var _materialUiLibSnackbar = __webpack_require__(265);
+
+	var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
+
+	var _materialUiLibStyles = __webpack_require__(230);
+
+	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
+
+	var _materialUiLibTextField = __webpack_require__(233);
+
+	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
+
+	var _materialUiLibToggle = __webpack_require__(262);
+
+	var _materialUiLibToggle2 = _interopRequireDefault(_materialUiLibToggle);
+
+	var _materialUiLibToolbarToolbar = __webpack_require__(266);
+
+	var _materialUiLibToolbarToolbar2 = _interopRequireDefault(_materialUiLibToolbarToolbar);
+
+	var _materialUiLibToolbarToolbarGroup = __webpack_require__(267);
+
+	var _materialUiLibToolbarToolbarGroup2 = _interopRequireDefault(_materialUiLibToolbarToolbarGroup);
+
+	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(268);
+
+	var _materialUiLibToolbarToolbarSeparator2 = _interopRequireDefault(_materialUiLibToolbarToolbarSeparator);
+
+	var _materialUiLibToolbarToolbarTitle = __webpack_require__(269);
+
+	var _materialUiLibToolbarToolbarTitle2 = _interopRequireDefault(_materialUiLibToolbarToolbarTitle);
+
+	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(270);
+
+	var _materialUiLibSvgIconsNavigationMenu2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationMenu);
+
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
+
+	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
+
+	// import ReactRenderVisualizer from 'react-render-visualizer';
+
+	var Colors = _materialUiLibStyles2['default'].Colors;
+	var Spacing = _materialUiLibStyles2['default'].Spacing;
+	var EUI = _react2['default'].createClass({
+	  displayName: 'EUI',
+
+	  mixins: [
+	  // ReactRenderVisualizer,
+	  _mixinsMaterialUiTheme2['default']],
+
+	  propTypes: {
+	    baseServerHost: _react2['default'].PropTypes.string
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      exerciseList: [],
+	      instructorToggle: false,
+	      loadedExerciseList: false,
+	      reloadTray: false,
+	      selectedExerciseListIndex: null,
+	      serverErrorText: ''
+	    };
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      baseServerHost: 'http://localhost:3001'
+	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    var _state = this.state;
+	    var selectedExerciseListIndex = _state.selectedExerciseListIndex;
+	    var exerciseList = _state.exerciseList;
+
+	    var exercisePathname = exerciseList.length ? exerciseList[selectedExerciseListIndex].payload : '';
+
+	    this.setBase({ host: this.props.baseServerHost, exercise: exercisePathname });
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
+	    this.fetchExercises()['catch'](function (e) {
+	      console.error(e);
+	      _this.refs.snackbarSimulateBackend.show();
+	    });
+	  },
+
+	  setBase: function setBase(options) {
+	    var host = options.host;
+	    var exercise = options.exercise;
+
+	    this.baseServer = host || this.baseServer;
+	    this.baseServerAddress = this.baseServer + exercise;
+	    // SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
+	    // call issueautoloads...
+	  },
+
+	  simulateBackend: function simulateBackend() {
+	    this.refs.snackbarSimulateBackend.dismiss();
+	    __webpack_require__(271);
+	    this.fetchExercises()['catch'](function (e) {
+	      return console.error(e);
+	    });
+	  },
+
+	  processFetchedExercises: function processFetchedExercises(json) {
+	    var _this2 = this;
+
+	    var list = this.state.exerciseList;
+
+	    json.forEach(function (e /*, i */) {
+	      var pathName = e.replace(_this2.baseServer, '');
+
+	      list.push({
+	        payload: pathName,
+	        text: pathName
+	      });
+	    });
+	    this.setState({ loadedExerciseList: true });
+	    this.setExerciseListWidth();
+	  },
+
+	  saveSolution: function saveSolution() {
+	    var _this3 = this;
+
+	    var _refs = this.refs;
+	    var controlsComponentDialog = _refs.controlsComponentDialog;
+	    var snackbarStudentMode = _refs.snackbarStudentMode;
+	    var snackbarInstructorMode = _refs.snackbarInstructorMode;
+
+	    fetch(this.baseServerAddress + '/generateSolution', { mode: 'cors' }).then(function () {
+	      if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
+
+	      _this3.setState({
+	        reloadTray: true,
+	        instructorToggle: false
+	      });
+	      snackbarStudentMode.show();
+	    })['catch'](function (e) {
+	      snackbarInstructorMode.show();
+	      console.error(e);
+	    });
+	  },
+
+	  fetchExercises: function fetchExercises() {
+	    var _this4 = this;
+
+	    return fetch(this.baseServer + '/listfiles/exercise/json', { mode: 'cors' }).then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      return _this4.processFetchedExercises(json);
+	    });
+	  },
+
+	  setExerciseListWidth: function setExerciseListWidth() {
+	    var el = _react2['default'].findDOMNode(this.refs.exerciseList);
+	    var menuItemsDom = _react2['default'].findDOMNode(this.refs.exerciseList.refs.menuItems);
+
+	    el.style.width = menuItemsDom.offsetWidth + 'px';
+	  },
+
+	  showAssessment: function showAssessment() {
+	    this.refs.controlsComponentDialog.dismiss();
+	    this.refs.assessmentComponentDialog.show();
+	  },
+
+	  reset: function reset() {
+	    this.setState({ instructorToggle: false });
+	    this.refs.controlsComponentDialog.dismiss();
+	  },
+
+	  dialogDismiss: function dialogDismiss() {
+	    if (this.state.reloadTray) this.setState({ reloadTray: false });
+	  },
+
+	  instructorModeChange: function instructorModeChange(instructorMode) {
+	    if (instructorMode) {
+	      this.refs.snackbarInstructorMode.show();
+	      this.setState({ instructorToggle: true });
+	    }
+	  },
+
+	  handleControlsClick: function handleControlsClick() {
+	    SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
+	    // call issueautoloads...
+	    this.refs.controlsComponentDialog.show();
+	  },
+
+	  handleExerciseSelectChange: function handleExerciseSelectChange(e, selectedIndex /*, menuItem */) {
+	    this.setState({
+	      instructorToggle: false,
+	      reloadTray: true,
+	      selectedExerciseListIndex: selectedIndex
+	    });
+
+	    this.setBase({ exercise: this.state.exerciseList[selectedIndex].payload });
+	    this.refs.snackbarInstructorMode.dismiss();
+	  },
+
+	  handleInstructorModeToggle: function handleInstructorModeToggle(e, toggle) {
+	    if (!toggle) {
+	      this.saveSolution();
+	    }
+	  },
+
+	  handleServerInputChange: function handleServerInputChange(e) {
+	    var value = e.target.value;
+	    var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
+	    var missingProtocol = value.match(/^(http|https):\/\//) == null;
+	    var serverErrorText = '';
+
+	    if (isNumeric) {
+	      serverErrorText = 'This field must be a string';
+	    } else if (missingProtocol) {
+	      serverErrorText = 'Field example http://<host>:<port>';
+	    }
+
+	    if (isNumeric || missingProtocol) {
+	      this.setState({ serverErrorText: serverErrorText });
+	      return;
+	    }
+
+	    if (value !== this.baseServer) {
+	      this.setState({
+	        exerciseList: [],
+	        instructorToggle: false,
+	        loadedExerciseList: false,
+	        reloadTray: true,
+	        selectedExerciseListIndex: null,
+	        serverErrorText: serverErrorText
+	      });
+	      this.setBase({ host: value, exercise: '' });
+	      this.fetchExercises();
+	    }
+	  },
+
+	  handleToolTrayItemClick: function handleToolTrayItemClick() /* itemIdx */{
+	    this.refs.controlsComponentDialog.dismiss();
+	  },
+
+	  render: function render() {
+	    var canvasColor = _materialUiLibStylesRawThemesLightRawTheme2['default'].palette.canvasColor;
+	    var styles = {
+	      assessment: {
+	        border: 0,
+	        height: 600,
+	        width: '100%'
+	      },
+
+	      paper: {
+	        backgroundColor: canvasColor,
+	        fontFamily: '"Roboto", sans-serif',
+	        marginBottom: 32
+	      },
+
+	      exerciseDropdown: {
+	        float: 'right',
+	        width: 200
+	      },
+
+	      exerciseProgress: {
+	        width: 80
+	      },
+
+	      textfield: {
+	        top: '-15'
+	      },
+
+	      toolbarBlock: {
+	        borderRadius: '0 0 2px 0',
+	        padding: Spacing.desktopGutter,
+	        margin: 0
+	      },
+
+	      toolbarTitle: {
+	        textTransform: 'uppercase'
+	      }
+	    };
+	    var _state2 = this.state;
+	    var exerciseList = _state2.exerciseList;
+	    var instructorToggle = _state2.instructorToggle;
+	    var loadedExerciseList = _state2.loadedExerciseList;
+	    var reloadTray = _state2.reloadTray;
+	    var selectedExerciseListIndex = _state2.selectedExerciseListIndex;
+	    var serverErrorText = _state2.serverErrorText;
+
+	    var controlsProps = {
+	      baseServerAddress: this.baseServerAddress,
+	      forceUpdate: reloadTray,
+	      instructorMode: instructorToggle,
+	      onAssessment: this.showAssessment,
+	      onInstructorModeChange: this.instructorModeChange,
+	      onReset: this.reset,
+	      onSave: this.saveSolution,
+	      onToolTrayItemClick: this.handleToolTrayItemClick,
+	      savePrimaryText: 'Save',
+	      type: 'EUI'
+	    };
+	    var controlsIconButtonProps = {
+	      disabled: !loadedExerciseList,
+	      onClick: this.handleControlsClick,
+	      tooltip: 'Controls'
+	    };
+
+	    return _react2['default'].createElement(
+	      _materialUiLibPaper2['default'],
+	      { style: styles.paper },
+	      _react2['default'].createElement(
+	        'div',
+	        { style: styles.toolbarBlock },
+	        _react2['default'].createElement(
+	          _materialUiLibToolbarToolbar2['default'],
+	          { style: { backgroundColor: canvasColor } },
+	          _react2['default'].createElement(
+	            _materialUiLibToolbarToolbarGroup2['default'],
+	            { float: 'left', key: 0 },
+	            _react2['default'].createElement(_materialUiLibToolbarToolbarTitle2['default'], { style: styles.toolbarTitle, text: 'exercise' }),
+	            _react2['default'].createElement(_materialUiLibTextField2['default'], {
+	              defaultValue: this.props.baseServerHost,
+	              errorStyle: { color: Colors.red600 },
+	              errorText: serverErrorText,
+	              floatingLabelText: 'Exercise Server',
+	              hintText: 'http://<host>:<port>',
+	              onChange: this.handleServerInputChange,
+	              ref: 'exerciseServer',
+	              style: styles.textfield }),
+	            loadedExerciseList ? _react2['default'].createElement(_materialUiLibDropDownMenu2['default'], {
+	              menuItems: exerciseList,
+	              onChange: this.handleExerciseSelectChange,
+	              ref: 'exerciseList',
+	              selectedIndex: selectedExerciseListIndex,
+	              style: styles.exerciseDropdown }) : _react2['default'].createElement(_materialUiLibCircularProgress2['default'], { mode: 'indeterminate', size: .5, style: styles.exerciseProgress })
+	          ),
+	          _react2['default'].createElement(
+	            _materialUiLibToolbarToolbarGroup2['default'],
+	            { float: 'right', key: 1 },
+	            _react2['default'].createElement(_materialUiLibToolbarToolbarSeparator2['default'], null),
+	            _react2['default'].createElement(
+	              'div',
+	              { style: { width: 116 } },
+	              instructorToggle ? _react2['default'].createElement(_materialUiLibToggle2['default'], {
+	                defaultToggled: true,
+	                onToggle: this.handleInstructorModeToggle,
+	                ref: 'instructorToggle',
+	                style: { display: 'inline-block', width: 42 } }) : null,
+	              _react2['default'].createElement(
+	                _materialUiLibIconButton2['default'],
+	                controlsIconButtonProps,
+	                _react2['default'].createElement(_materialUiLibSvgIconsNavigationMenu2['default'], null)
+	              )
+	            )
+	          )
+	        )
+	      ),
+	      _react2['default'].createElement(
+	        _ComponentDialogJsx2['default'],
+	        { onDismiss: this.dialogDismiss, ref: 'controlsComponentDialog', title: 'EUI Controls' },
+	        _react2['default'].createElement(_ControlsJsx2['default'], controlsProps)
+	      ),
+	      _react2['default'].createElement(
+	        _ComponentDialogJsx2['default'],
+	        { ref: 'assessmentComponentDialog', title: 'Assessment' },
+	        _react2['default'].createElement(
+	          'div',
+	          { style: styles.assessment },
+	          _react2['default'].createElement('iframe', {
+	            name: 'assessment',
+	            src: 'data:text/html;base64,PGh0bWw+PGJvZHk+PGRpdiBpZD0iY29udGVudCI+PHA+PGI+WW91IGZvcmdvdCB0aGVzZSBzdGVwczo8L2I+PGJyLz48dWw+PGxpPlB1bGwgYW5kIGhvbGQgY2hhcmdpbmcgaGFuZGxlIDwvbGk+PGxpPlB1c2ggYW5kIGhvbGQgYm90dG9tIG9mIGJvbHQgY2F0Y2ggPC9saT48bGk+UmVsZWFzZSBjaGFyZ2luZyBoYW5kbGUgdG8gY29jayByaWZsZSA8L2xpPGxpPkxldCBnbyBvZiBib2x0IGNhdGNoIGJvdHRvbSA8L2xpPjxsaT5SZXR1cm4gY2hhcmdpbmcgaGFuZGxlIHRvIGZvcndhcmQgcG9zaXRpb24gPC9saT48bGk+Q2hlY2sgY2hhbWJlciBmb3IgYW1tbyA8L2xpPjxsaT5TZWxlY3QgPGk+U2FmZTwvaT4gbW9kZSA8L2xpPjxsaT5SZWxlYXNlIGJvbHQgYnkgcHVzaGluZyBib2x0IGNhdGNoIHRvcCA8L2xpPjxsaT5TZWxlY3QgPGk+U2VtaTwvaT4gbW9kZSA8L2xpPjxsaT5QdWxsIHRyaWdnZXIgdG8gZmlyZSB0aGUgd2VhcG9uIDwvbGk+PGxpPlB1bGwgYW5kIGhvbGQgY2hhcmdpbmcgaGFuZGxlIDwvbGk+PGxpPlJlbGVhc2UgY2hhcmdpbmcgaGFuZGxlIHRvIGNvY2sgcmlmbGUgPC9saT48bGk+U2VsZWN0IDxpPlNhZmU8L2k+IG1vZGUgPC9saT48L3VsPjwvcD48L2Rpdj48L2JvZHk+PC9odG1sPgo=',
+	            style: styles.assessment }),
+	          ' '
+	        )
+	      ),
+	      _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
+	        autoHideDuration: 0,
+	        message: 'Instructor Mode',
+	        ref: 'snackbarInstructorMode' }),
+	      _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
+	        autoHideDuration: 0,
+	        message: 'Student Mode',
+	        ref: 'snackbarStudentMode' }),
+	      !this.state.noSnackbarSimulateBackend ? _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
+	        action: 'Simulate',
+	        autoHideDuration: 0,
+	        message: 'Backend',
+	        onActionTouchTap: this.simulateBackend,
+	        ref: 'snackbarSimulateBackend' }) : null
+	    );
+	  }
+	});
+
+	exports.EUI = EUI;
+	exports['default'] = EUI;
+	/* src={ this.baseServerAddress + '/assessment' } */
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "EUI.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/*global SAVE2*/
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	__webpack_require__(165);
 
-	var _webpackDevServerM4s3dMeta = __webpack_require__(166);
+	var _materialUiLibListsList = __webpack_require__(166);
 
-	var _webpackDevServerM4s3dMeta2 = _interopRequireDefault(_webpackDevServerM4s3dMeta);
+	var _materialUiLibListsList2 = _interopRequireDefault(_materialUiLibListsList);
 
-	var _webpackDevServerRanges3dMeta = __webpack_require__(167);
+	var _materialUiLibListsListItem = __webpack_require__(201);
 
-	var _webpackDevServerRanges3dMeta2 = _interopRequireDefault(_webpackDevServerRanges3dMeta);
+	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
 
-	var restore = undefined;
-	var instructorMode = true;
+	var _materialUiLibLinearProgress = __webpack_require__(221);
 
-	var routeHandler = function routeHandler(route, options) {
-	  switch (route) {
-	    case 'http://localhost:3001/CAT/inventory':
-	      return delayResponse(500, inventoryCATFetch());
-	    case 'http://localhost:3001/inventory':
-	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/inventory':
-	      return delayResponse(1500, inventoryEUIFetch());
-	    case 'http://localhost:3001/CAT/query':
-	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/query':
-	      return queryEUIFetch(options);
-	    case 'http://localhost:3001/CAT/object':
-	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/object':
-	      return objectEUIFetch(options);
-	    case 'http://localhost:3001/generateSolution':
-	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/generateSolution':
-	      return generateSolutionEUIFetch();
-	    case 'http://localhost:3001/listfiles/exercise/json':
-	      return delayResponse(1000, exerciseFetch());
-	    case 'http://localhost:3001/CAT/finishExercise':
-	      return finishExercise(options);
-	    default:
-	      return Promise.reject(new Error('fakeFetch has no handler for: ' + route));
-	  }
-	};
+	var _materialUiLibLinearProgress2 = _interopRequireDefault(_materialUiLibLinearProgress);
 
-	var saveFetch = window.fetch;
-	var httpResponse = { status: 200, headers: { 'Content-type': 'application/json' } };
+	var _materialUiLibSvgIconsActionRestore = __webpack_require__(222);
 
-	var delayResponse = function delayResponse(delay, response) {
-	  var executor = function executor(resolve /*, reject */) {
-	    return setTimeout(function () {
-	      return resolve(response);
-	    }, delay);
-	  };
+	var _materialUiLibSvgIconsActionRestore2 = _interopRequireDefault(_materialUiLibSvgIconsActionRestore);
 
-	  return new Promise(executor);
-	};
+	var _materialUiLibSvgIconsActionBackup = __webpack_require__(223);
 
-	var exerciseFetch = function exerciseFetch() {
-	  var exercises = ['http://localhost:3001/PutExercise', 'http://localhost:3001/exercises/071-100-0032/step01/m4_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear_exer_ese'];
+	var _materialUiLibSvgIconsActionBackup2 = _interopRequireDefault(_materialUiLibSvgIconsActionBackup);
 
-	  return new window.Response(JSON.stringify(exercises), httpResponse);
-	};
+	var _materialUiLibMenusMenuDivider = __webpack_require__(224);
 
-	var inventoryCATFetch = function inventoryCATFetch() {
-	  var fakeData = JSON.stringify([{
-	    name: 'Shooting Range',
-	    ID: 'myRange'
-	  }, {
-	    name: 'M4 Carbine',
-	    ID: 'myM4'
-	  }]);
+	var _materialUiLibMenusMenuDivider2 = _interopRequireDefault(_materialUiLibMenusMenuDivider);
 
-	  return new window.Response('{ "tooltray": ' + fakeData + ' }', httpResponse);
-	};
+	var _TooltrayList = __webpack_require__(226);
 
-	var inventoryEUIFetch = function inventoryEUIFetch() {
-	  var fakeData = JSON.stringify([{
-	    name: 'M4 Carbine',
-	    ID: 'myM4'
-	  }]);
-	  var jsonData = '{ "instructorMode": ' + instructorMode + ', "tooltray": ' + fakeData + ' }';
+	var _TooltrayList2 = _interopRequireDefault(_TooltrayList);
 
-	  return new window.Response(jsonData, httpResponse);
-	};
+	var _ExerciseNameField = __webpack_require__(229);
 
-	var generateSolutionEUIFetch = function generateSolutionEUIFetch() {
-	  instructorMode = false;
-	  return Promise.resolve(new window.Response(null, httpResponse));
-	};
+	var _ExerciseNameField2 = _interopRequireDefault(_ExerciseNameField);
 
-	var queryEUIFetch = function queryEUIFetch(options) {
-	  var body = options.body;
-	  var o = JSON.parse(body.replace('query=', ''));
-	  var jsonData = undefined;
+	var _CheckboxListItems = __webpack_require__(237);
 
-	  console.log(o);
+	var _CheckboxListItems2 = _interopRequireDefault(_CheckboxListItems);
 
-	  switch (o.type) {
-	    case 'Reset':
-	      instructorMode = true;
-	      break;
-	    case 'KbId':
-	      jsonData = [o.query[0] + Date.now()];
-	      break;
-	  }
+	var tooltrayItems = null;
+	var staticItems = [];
 
-	  return Promise.resolve(new window.Response(JSON.stringify({ KbIds: jsonData }), httpResponse));
-	};
+	var Controls = _react2['default'].createClass({
+	  displayName: 'Controls',
 
-	var objectEUIFetch = function objectEUIFetch(options) {
-	  var body = options.body;
-	  var o = JSON.parse(body.replace('object=', ''));
-	  var jsonData = null;
-
-	  if (o.type === 'create') {
-	    if (o.auto) {
-	      jsonData = JSON.stringify([_webpackDevServerRanges3dMeta2['default']]);
-	    } else {
-	      switch (o.ID) {
-	        case 'myM4':
-	          jsonData = JSON.stringify([_webpackDevServerM4s3dMeta2['default']]);
-	          break;
-	        case 'myRange':
-	          jsonData = JSON.stringify([_webpackDevServerRanges3dMeta2['default']]);
-	          break;
-	        default:
-	          return Promise.reject(new Error('Tool tray ID not handled for object create: ' + o.ID));
-	      }
-	    }
-	  }
-
-	  return Promise.resolve(new window.Response(jsonData, httpResponse));
-	};
-
-	var finishExercise = function finishExercise(options) {
-	  var body = options.body;
-	  var o = JSON.parse(body.replace('save=', ''));
-
-	  console.log(o);
-	  return Promise.resolve(new window.Response(null, httpResponse));
-	};
-
-	var fakeFetch = function fakeFetch() {
-	  if (restore == null) {
-	    restore = function () {
-	      window.fetch = saveFetch;
+	  getInitialState: function getInitialState() {
+	    return {
+	      instructorMode: false,
+	      loaded: false,
+	      tooltrayItems: tooltrayItems,
+	      staticItems: staticItems
 	    };
-	  } else {
-	    return;
+	  },
+
+	  propTypes: {
+	    baseServerAddress: _react2['default'].PropTypes.string.isRequired,
+	    forceUpdate: _react2['default'].PropTypes.bool,
+	    height: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.number, _react2['default'].PropTypes.string]),
+	    instructorMode: _react2['default'].PropTypes.bool,
+	    onAssessment: _react2['default'].PropTypes.func,
+	    onInstructorModeChange: _react2['default'].PropTypes.func,
+	    onReset: _react2['default'].PropTypes.func,
+	    onSave: _react2['default'].PropTypes.func,
+	    onToolTrayItemClick: _react2['default'].PropTypes.func,
+	    savePrimaryText: _react2['default'].PropTypes.string,
+	    type: _react2['default'].PropTypes.oneOf(['CAT', 'EUI']),
+	    width: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.number, _react2['default'].PropTypes.string])
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      forceUpdate: false,
+	      height: '100%',
+	      instructorMode: false,
+	      onAssessment: function onAssessment() {},
+	      onInstructorModeChange: function onInstructorModeChange() /* newValue */{},
+	      onReset: function onReset() {},
+	      onSave: function onSave() {},
+	      onToolTrayItemClick: function onToolTrayItemClick() {},
+	      savePrimaryText: 'Save Exercise', // CAT primary-text
+	      type: 'CAT',
+	      width: '100%'
+	    };
+	  },
+
+	  componentWillMount: function componentWillMount() {
+	    if (this.props.forceUpdate) {
+	      this.resetAnd();
+	    } else if (tooltrayItems) {
+	      this.setState({
+	        instructorMode: this.props.instructorMode,
+	        loaded: true
+	      });
+	    }
+	  },
+
+	  componentDidMount: function componentDidMount() {
+	    if (tooltrayItems == null) {
+	      this.fetchTooltray();
+	    }
+	  },
+
+	  fetchTooltray: function fetchTooltray() {
+	    var _this = this;
+
+	    fetch('' + this.props.baseServerAddress + (this.isCAT() ? '/CAT' : '') + '/inventory', { mode: 'cors' }).then(function (response) {
+	      return response.json();
+	    }).then(function (json) {
+	      tooltrayItems = json.tooltray;
+	      _this.props.onInstructorModeChange(json.instructorMode);
+	      _this.setState({
+	        instructorMode: json.instructorMode,
+	        loaded: true,
+	        tooltrayItems: tooltrayItems
+	      });
+	    })['catch'](function (e) {
+	      return console.error(e);
+	    });
+	  },
+
+	  resetAnd: function resetAnd(andFunc) {
+	    tooltrayItems = null;
+	    staticItems = [];
+	    this.setState({ tooltrayItems: tooltrayItems, staticItems: staticItems });
+
+	    if (andFunc) andFunc();
+	  },
+
+	  handleResetClick: function handleResetClick() /* e */{
+	    var _this2 = this;
+
+	    fetch(this.props.baseServerAddress + '/query', {
+	      method: 'post',
+	      mode: 'cors',
+	      body: 'query=' + JSON.stringify({ type: 'Reset' })
+	    }).then(function () {
+	      _this2.resetAnd(_this2.props.onReset);
+	    })['catch'](function (e) {
+	      console.error(e);
+	    });
+	  },
+
+	  handleSaveClick: function handleSaveClick() /* e */{
+	    if (this.isEUI()) this.setState({ instructorMode: false });
+
+	    if (this.isCAT()) {
+	      this.props.onSave(this.refs.exerciseNameField.getValue(), staticItems.map(function (item) {
+	        return item.ID;
+	      }));
+	    } else {
+	      this.props.onSave();
+	    }
+	  },
+
+	  handleToolTrayItemClick: function handleToolTrayItemClick(itemIdx, json) {
+	    var tti = tooltrayItems[itemIdx];
+	    var name = tti.name;
+	    var assetURL = json[0].assetURL;
+	    var KbId = json[0].KbId;
+	    var grouping = json[0].grouping;
+	    var spliced = tooltrayItems.splice(itemIdx, 1);
+
+	    staticItems.push(spliced[0]);
+	    this.setState({
+	      tooltrayItems: tooltrayItems,
+	      staticItems: staticItems
+	    });
+	    SAVE2.lib.view.createSemanticAsset(name, assetURL, KbId, grouping);
+	    this.props.onToolTrayItemClick(itemIdx);
+	  },
+
+	  isCAT: function isCAT() {
+	    return this.props.type === 'CAT';
+	  },
+
+	  isEUI: function isEUI() {
+	    return this.props.type === 'EUI';
+	  },
+
+	  hasEUIAssessmentItemAvailable: function hasEUIAssessmentItemAvailable() {
+	    return this.state.loaded && this.isEUI() && !this.state.instructorMode;
+	  },
+
+	  hasSaveItemAvaialable: function hasSaveItemAvaialable() {
+	    return this.state.loaded && !this.hasEUIAssessmentItemAvailable();
+	  },
+
+	  render: function render() {
+	    var styles = {
+	      container: {
+	        border: 'solid 1px #d9d9d9',
+	        height: this.props.height,
+	        overflowY: 'scroll',
+	        width: this.props.width
+	      }
+	    };
+
+	    return _react2['default'].createElement(
+	      'div',
+	      { style: styles.container },
+	      this.state.loaded ? _react2['default'].createElement(_TooltrayList2['default'], {
+	        baseServerAddress: this.props.baseServerAddress,
+	        container: false,
+	        items: this.state.tooltrayItems,
+	        onItemClick: this.handleToolTrayItemClick }) : _react2['default'].createElement(_materialUiLibLinearProgress2['default'], { mode: 'indeterminate' }),
+	      _react2['default'].createElement(_materialUiLibMenusMenuDivider2['default'], null),
+	      _react2['default'].createElement(
+	        _materialUiLibListsList2['default'],
+	        { subheader: 'Controls' },
+	        _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionRestore2['default'], null), onClick: this.handleResetClick, primaryText: 'Reset' }),
+	        this.isCAT() ? _react2['default'].createElement(
+	          'div',
+	          null,
+	          _react2['default'].createElement(_CheckboxListItems2['default'], { items: this.state.staticItems, onItemClick: this.handleStaticCBClick }),
+	          _react2['default'].createElement(_ExerciseNameField2['default'], { ref: 'exerciseNameField' })
+	        ) : null,
+	        this.hasEUIAssessmentItemAvailable() ? _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionBackup2['default'], null), onClick: this.props.onAssessment, primaryText: 'Assessment' }) : null,
+	        this.hasSaveItemAvaialable() ? _react2['default'].createElement(_materialUiLibListsListItem2['default'], {
+	          leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionBackup2['default'], null),
+	          onClick: this.handleSaveClick,
+	          primaryText: this.props.savePrimaryText }) : null
+	      )
+	    );
 	  }
+	});
 
-	  window.fetch = function (path, options) {
-	    return routeHandler(path, options);
-	  };
-	  window.fetch.restore = restore;
-	};
+	exports.Controls = Controls;
+	exports['default'] = Controls;
 
-	exports.fakeFetch = fakeFetch;
-	var restoreFetch = function restoreFetch() {
-	  if (restore != null) {
-	    restore();
-	  }
-	};
-
-	exports.restoreFetch = restoreFetch;
-	exports['default'] = fakeFetch;
-
-	fakeFetch();
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-fetch.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Controls.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 165 */
@@ -21395,585 +21850,126 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
 	'use strict';
 
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	exports['default'] = {
-	  KbId: 'myM4',
-	  assetURL: '/SAVE/models/weapons/M4/M4_noHierarchy.dae',
-	  grouping: {
-	    name: 'M4 Carbine',
-	    parts: ['Sling', 'Barrel_Assembly', 'Upper_Handguard', 'Lower_Handguard', 'Small_Sling_Swivel', 'Compensator', 'Recessed_Washer__OOCompensator', 'Spring_Pin2', 'Spring_Pin3', 'Rear_Handguard_Clamp', 'Screw', 'Gas_Tube_Spring_Pin', 'Gas_Tube', 'Handguard_Slip_Ring_Spring', 'Handguard_Slip_Ring_Retaining_Ring', 'Handguard_Slip_Ring_LAMA918813252', 'Front_Sight_Post', 'Headless_Shoulder_Pin', 'Spring3', 'Tubular_Rivet', 'Synchro_Clamp', 'Spring_Pin1', 'Spring_Pin', 'Swivel_Mount', 'Flat_Spring', 'Special_Shaped_Spacer'],
-	    groups: [{
-	      name: 'Buttstock Group',
-	      parts: ['Buttstock', 'Swivel_LAMA1259863095', 'Machine_Screw', 'Buttstock_Release_Lever_Nut', 'Buttstock_Release_Lever', 'Buttstock_Release_Lever_Screw_LAMA1417807796', 'Buttstock_Release_Lever_Spring_Pin', 'Buttstock_Release_Lever_Spring']
-	    }, {
-	      name: 'Magazine_g Group',
-	      parts: ['Tube', 'Clip_Spring1', 'Base', 'Clip_Spring', 'Follower'],
-	      groups: [{
-	        name: 'Casing1 Group',
-	        parts: ['Casing1', 'Projectile1']
-	      }, {
-	        name: 'Casing2 Group',
-	        parts: ['Casing2', 'Projectile2']
-	      }, {
-	        name: 'Casing3 Group',
-	        parts: ['Casing3', 'Projectile3']
-	      }]
-	    }, {
-	      name: 'Lower_Receiver Group',
-	      parts: ['Lower_Receiver', 'Trigger', 'Trigger_Spring', 'Disconnector_Spring__OOBurst__CC', 'Disconnector_Spring__OOSemi__CC', 'Trigger_Spring1', 'Trigger_Pin', 'Disconnector__Burst', 'Disconnector__Semi', 'Magazine_Catch', 'Magazine_Catch_Spring', 'Magazine_Catch_Button', 'Pivot_Pin', 'Pivot_Pin_Detent', 'Pivot_Pin_Spring', 'Takedown_Pin', 'Takedown_Pin_Detent', 'Takedown_Pin_Detent_Spring', 'Selector_Lever', 'Safety_Detent__OOSelector_Lever__CC', 'Safety_Spring__OOSelector_Lever__CC', 'Automatic_Sear', 'Automatic_Sear_Spring', 'Sear_Pin', 'Hammer', 'Hammer_Spring1', 'Hammer_Pin', 'Burst_Cam', 'Burst_Cam_Clutch_Spring', 'Hammer_Spring', 'Lower_Receiver_Extension', 'Buffer', 'Action_Spring', 'Plain_Round_Nut', 'Receiver_End_Plate', 'Buffer_Retainer', 'Buffer_Retainer_Spring', 'Trigger_Guard', 'Trigger_Guard_Spring_Pin_Retaining_Pin', 'Trigger_Guard_Detent', 'Trigger_Guard_Detent_Spring', 'Pistol_Grip', 'Pistol_Grip_Screw', 'Pistol_Grip_Lock_Washer'],
-	      groups: [{
-	        name: 'Bolt_Catch Group',
-	        parts: ['Bolt_Catch', 'Bolt_Catch_Spring_Pin', 'Bolt_Catch_Plunger', 'Bolt_Catch_Spring'],
-	        groups: [{
-	          name: 'Bolt_Catch_Bottom Group'
-	        }, {
-	          name: 'Bolt_Catch_Top Group'
-	        }]
-	      }, {
-	        name: 'PivotPinHead Group'
-	      }, {
-	        name: 'PivotPinTail Group'
-	      }, {
-	        name: 'TakedownPinHead Group'
-	      }, {
-	        name: 'TakedownPinTail Group'
-	      }]
-	    }, {
-	      name: 'Upper_Receiver Group',
-	      parts: ['Upper_Receiver', 'Plunger_Assembly', 'Pawl__Forward_Assist', 'Forward_Assist_Spring', 'Forward_Assist_Spring1', 'Pawl_Spring_Pin', 'Pawl_Detent', 'Pawl_Spring', 'Cover_Pin', 'Ejection_Port_Cover', 'Cover_Spring', 'Cover_Retaining_Ring__OOC_Clip__CC'],
-	      groups: [{
-	        name: 'Chamber Group'
-	      }, {
-	        name: 'Charging_Handle Group',
-	        parts: ['Charging_Handle', 'Charging_Handle_Latch', 'Charging_Handle_Spring', 'Charging_Handle_Spring_Pin']
-	      }, {
-	        name: 'Key_and_Bolt_Carrier_Assembly Group',
-	        parts: ['Key_and_Bolt_Carrier_Assembly', 'Firing_Pin_Retaining_Pin', 'Firing_Pin'],
-	        groups: [{
-	          name: 'Bolt Group',
-	          parts: ['Bolt', 'Bolt_Cam_Pin', 'Ejector_Spring_Pin', 'Bolt_Ring', 'Bolt_Ring2', 'Bolt_Ring1', 'Ejector', 'Ejector_Spring', 'Extractor', 'Extractor_Spring', 'Extractor_Pin', 'Casing4', 'Projectile4']
-	        }]
-	      }, {
-	        name: 'Gun_Carrying_Handle Group',
-	        parts: ['Gun_Carrying_Handle', 'Windage_Spring_Pin', 'Rear_Sight_Screw', 'Flat_Rear_Sight_Spring', 'Rear_Sight_Base', 'Sight_Aperture', 'Windage_Knob', 'Spring__Helical__Compression', 'Knob', 'Ball_Bearing1', 'Elevating_Mechanism', 'Spring2', 'Spring1', 'Index_Screw', 'Ball_Bearing', 'Pin_Spring', 'Spring', 'Ball_Bearing2', 'Round_Nut1', 'Washer1', 'Washer', 'Clamping_Bar', 'Round_Nut']
-	      }]
-	    }]
-	  }
-	};
-	module.exports = exports['default'];
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-m4s3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
+	var React = __webpack_require__(167);
+	var PureRenderMixin = React.addons.PureRenderMixin;
+	var PropTypes = __webpack_require__(185);
+	var StylePropable = __webpack_require__(186);
+	var Typography = __webpack_require__(192);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+	var List = React.createClass({
+	  displayName: 'List',
 
-	'use strict';
+	  mixins: [PureRenderMixin, StylePropable],
 
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	exports['default'] = {
-	  KbId: 'myRange',
-	  assetURL: '/SAVE/models/environments/range/ShootingRange.dae',
-	  grouping: {
-	    name: 'ShootingRange',
-	    groups: [{
-	      name: 'environment',
-	      node: 'environment',
-	      parts: ['grass', 'tree_line', 'sky', 'targets', 'ShootingRangeArea1', 'ShootingRangeArea2', 'ShootingRangeArea3', 'ShootingRangeArea4', 'ShootingRangeArea5', 'ShootingRangeArea6', 'ShootingRangeArea7', 'ShootingRangeArea8']
-	    }]
-	  }
-	};
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-ranges3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	/*global SAVE2*/
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(6);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactAddons = __webpack_require__(169);
-
-	var _reactJoyride = __webpack_require__(187);
-
-	var _reactJoyride2 = _interopRequireDefault(_reactJoyride);
-
-	__webpack_require__(194);
-
-	var _ControlsJsx = __webpack_require__(196);
-
-	var _ControlsJsx2 = _interopRequireDefault(_ControlsJsx);
-
-	var _ComponentDialogJsx = __webpack_require__(258);
-
-	var _ComponentDialogJsx2 = _interopRequireDefault(_ComponentDialogJsx);
-
-	var _mixinsMaterialUiTheme = __webpack_require__(264);
-
-	var _mixinsMaterialUiTheme2 = _interopRequireDefault(_mixinsMaterialUiTheme);
-
-	var _materialUiLibCircularProgress = __webpack_require__(269);
-
-	var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircularProgress);
-
-	var _materialUiLibDropDownMenu = __webpack_require__(270);
-
-	var _materialUiLibDropDownMenu2 = _interopRequireDefault(_materialUiLibDropDownMenu);
-
-	var _materialUiLibPaper = __webpack_require__(207);
-
-	var _materialUiLibPaper2 = _interopRequireDefault(_materialUiLibPaper);
-
-	var _materialUiLibIconButton = __webpack_require__(225);
-
-	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
-
-	var _materialUiLibSnackbar = __webpack_require__(278);
-
-	var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
-
-	var _materialUiLibStyles = __webpack_require__(243);
-
-	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
-
-	var _materialUiLibTextField = __webpack_require__(246);
-
-	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
-
-	var _materialUiLibToggle = __webpack_require__(275);
-
-	var _materialUiLibToggle2 = _interopRequireDefault(_materialUiLibToggle);
-
-	var _materialUiLibToolbarToolbar = __webpack_require__(279);
-
-	var _materialUiLibToolbarToolbar2 = _interopRequireDefault(_materialUiLibToolbarToolbar);
-
-	var _materialUiLibToolbarToolbarGroup = __webpack_require__(280);
-
-	var _materialUiLibToolbarToolbarGroup2 = _interopRequireDefault(_materialUiLibToolbarToolbarGroup);
-
-	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(281);
-
-	var _materialUiLibToolbarToolbarSeparator2 = _interopRequireDefault(_materialUiLibToolbarToolbarSeparator);
-
-	var _materialUiLibToolbarToolbarTitle = __webpack_require__(282);
-
-	var _materialUiLibToolbarToolbarTitle2 = _interopRequireDefault(_materialUiLibToolbarToolbarTitle);
-
-	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(283);
-
-	var _materialUiLibSvgIconsNavigationMenu2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationMenu);
-
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(209);
-
-	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
-
-	// import ReactRenderVisualizer from 'react-render-visualizer';
-
-	var Colors = _materialUiLibStyles2['default'].Colors;
-	var Spacing = _materialUiLibStyles2['default'].Spacing;
-	var EUI = _react2['default'].createClass({
-	  displayName: 'EUI',
-
-	  mixins: [
-	  // ReactRenderVisualizer,
-	  _reactJoyride2['default'].Mixin, _mixinsMaterialUiTheme2['default'], _reactAddons.PureRenderMixin],
-
-	  propTypes: {
-	    baseServerHost: _react2['default'].PropTypes.string
+	  contextTypes: {
+	    muiTheme: React.PropTypes.object
 	  },
 
-	  getInitialState: function getInitialState() {
+	  propTypes: {
+	    insetSubheader: React.PropTypes.bool,
+	    subheader: React.PropTypes.string,
+	    subheaderStyle: React.PropTypes.object,
+	    zDepth: PropTypes.zDepth
+	  },
+
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: React.PropTypes.object
+	  },
+
+	  getChildContext: function getChildContext() {
 	    return {
-	      exerciseList: [],
-	      instructorToggle: false,
-	      loadedExerciseList: false,
-	      reloadTray: false,
-	      selectedExerciseListIndex: null,
-	      serverErrorText: ''
+	      muiTheme: this.state.muiTheme
 	    };
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      baseServerHost: 'http://localhost:3001'
+	      zDepth: 0
 	    };
 	  },
 
-	  componentWillMount: function componentWillMount() {
-	    var _state = this.state;
-	    var selectedExerciseListIndex = _state.selectedExerciseListIndex;
-	    var exerciseList = _state.exerciseList;
-
-	    var exercisePathname = exerciseList.length ? exerciseList[selectedExerciseListIndex].payload : '';
-
-	    this.setBase({ host: this.props.baseServerHost, exercise: exercisePathname });
-	    this.steps = [{
-	      text: 'React components.<br/><br/>SAVE Semantic 3D UI for content assembly and exercises',
-	      selector: '.rc-eui-main',
-	      position: 'bottom'
-	    }, {
-	      title: 'EUI Controls',
-	      text: 'Controls and tooltray items',
-	      selector: '.rc-eui-controls',
-	      position: 'bottom'
-	    }];
-	    this.joyrideSetOptions({ type: 'guided' });
+	  getInitialState: function getInitialState() {
+	    return {
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
+	    };
 	  },
 
-	  componentDidMount: function componentDidMount() {
-	    var _this = this;
-
-	    this.fetchExercises()['catch'](function (e) {
-	      console.error(e);
-	      _this.refs.snackbarSimulateBackend.show();
-	    });
-	  },
-
-	  setBase: function setBase(options) {
-	    var host = options.host;
-	    var exercise = options.exercise;
-
-	    this.baseServer = host || this.baseServer;
-	    this.baseServerAddress = '' + this.baseServer + exercise;
-	  },
-
-	  simulateBackend: function simulateBackend() {
-	    this.refs.snackbarSimulateBackend.dismiss();
-	    SAVE2.simulate();
-	    this.fetchExercises()['catch'](function (e) {
-	      return console.error(e);
-	    });
-	  },
-
-	  processFetchedExercises: function processFetchedExercises(json) {
-	    var _this2 = this;
-
-	    var list = this.state.exerciseList;
-
-	    json.forEach(function (e /*, i */) {
-	      var pathName = e.replace(_this2.baseServer, '');
-
-	      list.push({
-	        payload: pathName,
-	        text: pathName
-	      });
-	    });
-	    this.setState({ loadedExerciseList: true }, function () {
-	      _this2.setExerciseListWidth();
-	      _this2.joyrideAddSteps(_this2.steps, true);
-	    });
-	  },
-
-	  saveSolution: function saveSolution() {
-	    var _this3 = this;
-
-	    var _refs = this.refs;
-	    var controlsComponentDialog = _refs.controlsComponentDialog;
-	    var snackbarStudentMode = _refs.snackbarStudentMode;
-	    var snackbarInstructorMode = _refs.snackbarInstructorMode;
-
-	    fetch(this.baseServerAddress + '/generateSolution', { mode: 'cors' }).then(function () {
-	      if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
-
-	      _this3.setState({
-	        reloadTray: true,
-	        instructorToggle: false
-	      });
-	      snackbarStudentMode.show();
-	    })['catch'](function (e) {
-	      snackbarInstructorMode.show();
-	      console.error(e);
-	    });
-	  },
-
-	  fetchExercises: function fetchExercises() {
-	    var _this4 = this;
-
-	    return fetch(this.baseServer + '/listfiles/exercise/json', { mode: 'cors' }).then(function (response) {
-	      return response.json();
-	    }).then(function (json) {
-	      return _this4.processFetchedExercises(json);
-	    });
-	  },
-
-	  setExerciseListWidth: function setExerciseListWidth() {
-	    var el = _react2['default'].findDOMNode(this.refs.exerciseList);
-	    var menuItemsDom = _react2['default'].findDOMNode(this.refs.exerciseList.refs.menuItems);
-
-	    el.style.width = menuItemsDom.offsetWidth + 'px';
-	  },
-
-	  showAssessment: function showAssessment() {
-	    this.refs.controlsComponentDialog.dismiss();
-	    this.refs.assessmentComponentDialog.show();
-	  },
-
-	  reset: function reset() {
-	    this.setState({ instructorToggle: false });
-	    this.refs.controlsComponentDialog.dismiss();
-	  },
-
-	  dialogDismiss: function dialogDismiss() {
-	    if (this.state.reloadTray) this.setState({ reloadTray: false });
-	  },
-
-	  instructorModeChange: function instructorModeChange(instructorMode) {
-	    if (instructorMode) {
-	      this.refs.snackbarInstructorMode.show();
-	      this.setState({ instructorToggle: true });
-	    }
-	  },
-
-	  handleControlsClick: function handleControlsClick() {
-	    SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
-	    // XXX call issueautoloads...
-	    this.refs.controlsComponentDialog.show();
-	  },
-
-	  handleExerciseSelectChange: function handleExerciseSelectChange(e, selectedIndex /*, menuItem */) {
-	    this.setState({
-	      instructorToggle: false,
-	      reloadTray: true,
-	      selectedExerciseListIndex: selectedIndex
-	    });
-
-	    this.setBase({ exercise: this.state.exerciseList[selectedIndex].payload });
-	    this.refs.snackbarInstructorMode.dismiss();
-	  },
-
-	  handleInstructorModeToggle: function handleInstructorModeToggle(e, toggle) {
-	    if (!toggle) {
-	      this.saveSolution();
-	    }
-	  },
-
-	  handleServerInputChange: function handleServerInputChange(e) {
-	    var value = e.target.value;
-	    var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
-	    var missingProtocol = value.match(/^(http|https):\/\//) == null;
-	    var serverErrorText = '';
-
-	    if (isNumeric) {
-	      serverErrorText = 'This field must be a string';
-	    } else if (missingProtocol) {
-	      serverErrorText = 'Field example http://<host>:<port>';
-	    }
-
-	    if (isNumeric || missingProtocol) {
-	      this.setState({ serverErrorText: serverErrorText });
-	      return;
-	    }
-
-	    if (value !== this.baseServer) {
-	      this.setState({
-	        exerciseList: [],
-	        instructorToggle: false,
-	        loadedExerciseList: false,
-	        reloadTray: true,
-	        selectedExerciseListIndex: null,
-	        serverErrorText: serverErrorText
-	      });
-	      this.setBase({ host: value, exercise: '' });
-	      this.fetchExercises();
-	    }
-	  },
-
-	  handleToolTrayItemClick: function handleToolTrayItemClick() /* itemIdx */{
-	    this.refs.controlsComponentDialog.dismiss();
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
 	  },
 
 	  render: function render() {
-	    var canvasColor = _materialUiLibStylesRawThemesLightRawTheme2['default'].palette.canvasColor;
+	    var _props = this.props;
+	    var children = _props.children;
+	    var insetSubheader = _props.insetSubheader;
+	    var style = _props.style;
+	    var subheader = _props.subheader;
+	    var subheaderStyle = _props.subheaderStyle;
+	    var zDepth = _props.zDepth;
+
+	    var other = _objectWithoutProperties(_props, ['children', 'insetSubheader', 'style', 'subheader', 'subheaderStyle', 'zDepth']);
+
 	    var styles = {
-	      assessment: {
-	        border: 0,
-	        height: 600,
-	        width: '100%'
+	      root: {
+	        padding: 0,
+	        paddingBottom: 8,
+	        paddingTop: subheader ? 0 : 8
 	      },
 
-	      paper: {
-	        backgroundColor: canvasColor,
-	        fontFamily: '"Roboto", sans-serif',
-	        marginBottom: 32
-	      },
-
-	      exerciseDropdown: {
-	        float: 'right',
-	        width: 200
-	      },
-
-	      exerciseProgress: {
-	        width: 80
-	      },
-
-	      textfield: {
-	        top: '-15'
-	      },
-
-	      toolbarBlock: {
-	        borderRadius: '0 0 2px 0',
-	        padding: Spacing.desktopGutter,
-	        margin: 0
-	      },
-
-	      toolbarTitle: {
-	        textTransform: 'uppercase'
+	      subheader: {
+	        color: Typography.textLightBlack,
+	        fontSize: 14,
+	        fontWeight: Typography.fontWeightMedium,
+	        lineHeight: '48px',
+	        paddingLeft: insetSubheader ? 72 : 16
 	      }
 	    };
-	    var _state2 = this.state;
-	    var exerciseList = _state2.exerciseList;
-	    var instructorToggle = _state2.instructorToggle;
-	    var loadedExerciseList = _state2.loadedExerciseList;
-	    var reloadTray = _state2.reloadTray;
-	    var selectedExerciseListIndex = _state2.selectedExerciseListIndex;
-	    var serverErrorText = _state2.serverErrorText;
 
-	    var controlsProps = {
-	      baseServerAddress: this.baseServerAddress,
-	      forceUpdate: reloadTray,
-	      instructorMode: instructorToggle,
-	      onAssessment: this.showAssessment,
-	      onInstructorModeChange: this.instructorModeChange,
-	      onReset: this.reset,
-	      onSave: this.saveSolution,
-	      onToolTrayItemClick: this.handleToolTrayItemClick,
-	      savePrimaryText: 'Save',
-	      type: 'EUI'
-	    };
-	    var controlsIconButtonProps = {
-	      className: 'rc-eui-controls',
-	      disabled: !loadedExerciseList,
-	      onClick: this.handleControlsClick,
-	      tooltip: 'Controls'
-	    };
-
-	    return _react2['default'].createElement(
-	      _materialUiLibPaper2['default'],
-	      { style: styles.paper },
-	      _react2['default'].createElement(
+	    var subheaderElement = undefined;
+	    if (subheader) {
+	      var mergedSubheaderStyles = this.prepareStyles(styles.subheader, subheaderStyle);
+	      subheaderElement = React.createElement(
 	        'div',
-	        { style: styles.toolbarBlock },
-	        _react2['default'].createElement(
-	          _materialUiLibToolbarToolbar2['default'],
-	          { className: 'rc-eui-main', style: { backgroundColor: canvasColor } },
-	          _react2['default'].createElement(
-	            _materialUiLibToolbarToolbarGroup2['default'],
-	            { float: 'left', key: 0 },
-	            _react2['default'].createElement(_materialUiLibToolbarToolbarTitle2['default'], { style: styles.toolbarTitle, text: 'exercise' }),
-	            _react2['default'].createElement(_materialUiLibTextField2['default'], {
-	              defaultValue: this.props.baseServerHost,
-	              errorStyle: { color: Colors.red600 },
-	              errorText: serverErrorText,
-	              floatingLabelText: 'Exercise Server',
-	              hintText: 'http://<host>:<port>',
-	              onChange: this.handleServerInputChange,
-	              ref: 'exerciseServer',
-	              style: styles.textfield }),
-	            loadedExerciseList ? _react2['default'].createElement(_materialUiLibDropDownMenu2['default'], {
-	              menuItems: exerciseList,
-	              onChange: this.handleExerciseSelectChange,
-	              ref: 'exerciseList',
-	              selectedIndex: selectedExerciseListIndex,
-	              style: styles.exerciseDropdown }) : _react2['default'].createElement(_materialUiLibCircularProgress2['default'], { mode: 'indeterminate', size: .5, style: styles.exerciseProgress })
-	          ),
-	          _react2['default'].createElement(
-	            _materialUiLibToolbarToolbarGroup2['default'],
-	            { float: 'right', key: 1 },
-	            _react2['default'].createElement(_materialUiLibToolbarToolbarSeparator2['default'], null),
-	            _react2['default'].createElement(
-	              'div',
-	              { style: { width: 116 } },
-	              instructorToggle ? _react2['default'].createElement(_materialUiLibToggle2['default'], {
-	                defaultToggled: true,
-	                onToggle: this.handleInstructorModeToggle,
-	                ref: 'instructorToggle',
-	                style: { display: 'inline-block', width: 42 } }) : null,
-	              _react2['default'].createElement(
-	                _materialUiLibIconButton2['default'],
-	                controlsIconButtonProps,
-	                _react2['default'].createElement(_materialUiLibSvgIconsNavigationMenu2['default'], null)
-	              )
-	            )
-	          )
-	        )
-	      ),
-	      _react2['default'].createElement(
-	        _ComponentDialogJsx2['default'],
-	        { onDismiss: this.dialogDismiss, ref: 'controlsComponentDialog', title: 'EUI Controls' },
-	        _react2['default'].createElement(_ControlsJsx2['default'], controlsProps)
-	      ),
-	      _react2['default'].createElement(
-	        _ComponentDialogJsx2['default'],
-	        { ref: 'assessmentComponentDialog', title: 'Assessment' },
-	        _react2['default'].createElement(
-	          'div',
-	          { style: styles.assessment },
-	          _react2['default'].createElement('iframe', {
-	            name: 'assessment',
-	            src: 'data:text/html;base64,PGh0bWw+PGJvZHk+PGRpdiBpZD0iY29udGVudCI+PHA+PGI+WW91IGZvcmdvdCB0aGVzZSBzdGVwczo8L2I+PGJyLz48dWw+PGxpPlB1bGwgYW5kIGhvbGQgY2hhcmdpbmcgaGFuZGxlIDwvbGk+PGxpPlB1c2ggYW5kIGhvbGQgYm90dG9tIG9mIGJvbHQgY2F0Y2ggPC9saT48bGk+UmVsZWFzZSBjaGFyZ2luZyBoYW5kbGUgdG8gY29jayByaWZsZSA8L2xpPGxpPkxldCBnbyBvZiBib2x0IGNhdGNoIGJvdHRvbSA8L2xpPjxsaT5SZXR1cm4gY2hhcmdpbmcgaGFuZGxlIHRvIGZvcndhcmQgcG9zaXRpb24gPC9saT48bGk+Q2hlY2sgY2hhbWJlciBmb3IgYW1tbyA8L2xpPjxsaT5TZWxlY3QgPGk+U2FmZTwvaT4gbW9kZSA8L2xpPjxsaT5SZWxlYXNlIGJvbHQgYnkgcHVzaGluZyBib2x0IGNhdGNoIHRvcCA8L2xpPjxsaT5TZWxlY3QgPGk+U2VtaTwvaT4gbW9kZSA8L2xpPjxsaT5QdWxsIHRyaWdnZXIgdG8gZmlyZSB0aGUgd2VhcG9uIDwvbGk+PGxpPlB1bGwgYW5kIGhvbGQgY2hhcmdpbmcgaGFuZGxlIDwvbGk+PGxpPlJlbGVhc2UgY2hhcmdpbmcgaGFuZGxlIHRvIGNvY2sgcmlmbGUgPC9saT48bGk+U2VsZWN0IDxpPlNhZmU8L2k+IG1vZGUgPC9saT48L3VsPjwvcD48L2Rpdj48L2JvZHk+PC9odG1sPgo=',
-	            style: styles.assessment }),
-	          ' '
-	        )
-	      ),
-	      _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
-	        autoHideDuration: 0,
-	        message: 'Instructor Mode',
-	        ref: 'snackbarInstructorMode' }),
-	      _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
-	        autoHideDuration: 0,
-	        message: 'Student Mode',
-	        ref: 'snackbarStudentMode' }),
-	      !this.state.noSnackbarSimulateBackend ? _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
-	        action: 'Simulate',
-	        autoHideDuration: 0,
-	        message: 'Backend',
-	        onActionTouchTap: this.simulateBackend,
-	        ref: 'snackbarSimulateBackend' }) : null
+	        { style: mergedSubheaderStyles },
+	        subheader
+	      );
+	    }
+
+	    return React.createElement(
+	      Paper,
+	      _extends({}, other, {
+	        style: this.mergeStyles(styles.root, style),
+	        zDepth: zDepth }),
+	      subheaderElement,
+	      children
 	    );
 	  }
 	});
 
-	exports.EUI = EUI;
-	exports['default'] = EUI;
-	/* src={ this.baseServerAddress + '/assessment' } */
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "EUI.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	module.exports = List;
 
 /***/ },
-/* 169 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(170);
+	module.exports = __webpack_require__(168);
 
 
 /***/ },
-/* 170 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -21996,18 +21992,18 @@
 
 	'use strict';
 
-	var LinkedStateMixin = __webpack_require__(171);
+	var LinkedStateMixin = __webpack_require__(169);
 	var React = __webpack_require__(7);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(174);
-	var ReactCSSTransitionGroup = __webpack_require__(175);
+	  __webpack_require__(172);
+	var ReactCSSTransitionGroup = __webpack_require__(173);
 	var ReactFragment = __webpack_require__(15);
-	var ReactTransitionGroup = __webpack_require__(176);
+	var ReactTransitionGroup = __webpack_require__(174);
 	var ReactUpdates = __webpack_require__(31);
 
-	var cx = __webpack_require__(184);
-	var cloneWithProps = __webpack_require__(178);
-	var update = __webpack_require__(185);
+	var cx = __webpack_require__(182);
+	var cloneWithProps = __webpack_require__(176);
+	var update = __webpack_require__(183);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -22024,7 +22020,7 @@
 
 	if ("production" !== process.env.NODE_ENV) {
 	  React.addons.Perf = __webpack_require__(155);
-	  React.addons.TestUtils = __webpack_require__(186);
+	  React.addons.TestUtils = __webpack_require__(184);
 	}
 
 	module.exports = React;
@@ -22032,7 +22028,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 171 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22049,8 +22045,8 @@
 
 	'use strict';
 
-	var ReactLink = __webpack_require__(172);
-	var ReactStateSetters = __webpack_require__(173);
+	var ReactLink = __webpack_require__(170);
+	var ReactStateSetters = __webpack_require__(171);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -22077,7 +22073,7 @@
 
 
 /***/ },
-/* 172 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22154,7 +22150,7 @@
 
 
 /***/ },
-/* 173 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/**
@@ -22264,7 +22260,7 @@
 
 
 /***/ },
-/* 174 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22317,7 +22313,7 @@
 
 
 /***/ },
-/* 175 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22339,10 +22335,10 @@
 	var assign = __webpack_require__(18);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(176)
+	  __webpack_require__(174)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(181)
+	  __webpack_require__(179)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -22391,7 +22387,7 @@
 
 
 /***/ },
-/* 176 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22408,10 +22404,10 @@
 	'use strict';
 
 	var React = __webpack_require__(7);
-	var ReactTransitionChildMapping = __webpack_require__(177);
+	var ReactTransitionChildMapping = __webpack_require__(175);
 
 	var assign = __webpack_require__(18);
-	var cloneWithProps = __webpack_require__(178);
+	var cloneWithProps = __webpack_require__(176);
 	var emptyFunction = __webpack_require__(21);
 
 	var ReactTransitionGroup = React.createClass({
@@ -22625,7 +22621,7 @@
 
 
 /***/ },
-/* 177 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22734,7 +22730,7 @@
 
 
 /***/ },
-/* 178 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22752,7 +22748,7 @@
 	'use strict';
 
 	var ReactElement = __webpack_require__(16);
-	var ReactPropTransferer = __webpack_require__(179);
+	var ReactPropTransferer = __webpack_require__(177);
 
 	var keyOf = __webpack_require__(44);
 	var warning = __webpack_require__(20);
@@ -22796,7 +22792,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 179 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22814,7 +22810,7 @@
 
 	var assign = __webpack_require__(18);
 	var emptyFunction = __webpack_require__(21);
-	var joinClasses = __webpack_require__(180);
+	var joinClasses = __webpack_require__(178);
 
 	/**
 	 * Creates a transfer strategy that will merge prop values using the supplied
@@ -22910,7 +22906,7 @@
 
 
 /***/ },
-/* 180 */
+/* 178 */
 /***/ function(module, exports) {
 
 	/**
@@ -22955,7 +22951,7 @@
 
 
 /***/ },
-/* 181 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22974,8 +22970,8 @@
 
 	var React = __webpack_require__(7);
 
-	var CSSCore = __webpack_require__(182);
-	var ReactTransitionEvents = __webpack_require__(183);
+	var CSSCore = __webpack_require__(180);
+	var ReactTransitionEvents = __webpack_require__(181);
 
 	var onlyChild = __webpack_require__(161);
 	var warning = __webpack_require__(20);
@@ -23106,7 +23102,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 182 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23221,7 +23217,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 183 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23336,7 +23332,7 @@
 
 
 /***/ },
-/* 184 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23395,7 +23391,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 185 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -23569,7 +23565,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 186 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24087,1552 +24083,7 @@
 
 
 /***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	    Beacon: __webpack_require__(188),
-	    Mixin: __webpack_require__(189),
-	    Tooltip: __webpack_require__(193)
-	};
-
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(169);
-
-	var Beacon = React.createClass({
-	    mixins: [React.addons.PureRenderMixin],
-
-	    propTypes: {
-	        cssPosition: React.PropTypes.string.isRequired,
-	        onClick: React.PropTypes.func.isRequired,
-	        xPos: React.PropTypes.oneOfType([
-	            React.PropTypes.number,
-	            React.PropTypes.string
-	        ]).isRequired,
-	        yPos: React.PropTypes.oneOfType([
-	            React.PropTypes.number,
-	            React.PropTypes.string
-	        ]).isRequired
-	    },
-
-	    getDefaultProps: function () {
-	        return {
-	            cssPosition: 'absolute',
-	            xPos: -1000,
-	            yPos: -1000
-	        };
-	    },
-
-	    render: function () {
-	        var styles = {
-	            left: this.props.xPos,
-	            position: this.props.cssPosition === 'fixed' ? 'fixed' : 'absolute',
-	            top: this.props.yPos
-	        };
-
-	        return (
-	            React.createElement('a', {
-	                    href: '#',
-	                    className: 'joyride-beacon',
-	                    style: styles,
-	                    onClick: this.props.onClick
-	                },
-	                React.createElement('span', { className: 'inner' }),
-	                React.createElement('span', { className: 'outer' })
-	            )
-	        );
-	    }
-
-	});
-
-	module.exports = Beacon;
-
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React   = __webpack_require__(169),
-	    scroll  = __webpack_require__(190),
-	    Beacon  = __webpack_require__(188),
-	    Tooltip = __webpack_require__(193);
-
-	var joyride = {
-	    browser: undefined,
-	    defaultState: {
-	        _joyrideCurrentIndex: 0,
-	        _joyridePlay: false,
-	        _joyrideShowTooltip: false,
-	        _joyrideXPos: -1000,
-	        _joyrideYPos: -1000
-	    },
-	    initialized: false,
-	    listeners: {},
-	    mixin: false,
-	    options: {
-	        debug: false,
-	        keyboardNavigation: true,
-	        locale: {
-	            back: 'Back',
-	            close: 'Close',
-	            last: 'Last',
-	            next: 'Next',
-	            skip: 'Skip'
-	        },
-	        overridePosition: false,
-	        resizeDebounce: false,
-	        resizeDebounceDelay: 200,
-	        scrollToSteps: true,
-	        scrollOffset: 20,
-	        showBackButton: true,
-	        showOverlay: true,
-	        showSkipButton: false,
-	        showStepsProgress: false,
-	        tooltipOffset: 15,
-	        type: 'guided',
-	        completeCallback: undefined,
-	        stepCallback: undefined
-	    },
-	    skipped: false,
-	    steps: [],
-
-	    /**
-	     * Returns the current browser
-	     * @returns {String}
-	     */
-	    getBrowser: function () {
-	        // Return cached result if avalible, else get result then cache it.
-	        if (this.browser) {
-	            return this.browser;
-	        }
-
-	        var isOpera = Boolean(window.opera) || navigator.userAgent.indexOf(' OPR/') >= 0;
-	        // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
-	        var isFirefox = typeof InstallTrigger !== 'undefined';// Firefox 1.0+
-	        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-	        // At least Safari 3+: "[object HTMLElementConstructor]"
-	        var isChrome = Boolean(window.chrome) && !isOpera;// Chrome 1+
-	        var isIE = /*@cc_on!@*/ Boolean(document.documentMode); // At least IE6
-
-	        return (this.browser =
-	            isOpera ? 'opera' :
-	                isFirefox ? 'firefox' :
-	                    isSafari ? 'safari' :
-	                        isChrome ? 'chrome' :
-	                            isIE ? 'ie' :
-	                                '');
-	    },
-
-	    /**
-	     * Get an element actual dimensions with margin
-	     * @param {String|DOMElement} el - Element node or selector
-	     * @returns {{height: number, width: number}}
-	     */
-	    getElementDimensions: function (el) {
-	        // Get the DOM Node if you pass in a string
-	        el = (typeof el === 'string') ? document.querySelector(el) : el;
-
-	        var styles = window.getComputedStyle(el),
-	            height = el.clientHeight + parseInt(styles.marginTop, 10) + parseInt(styles.marginBottom, 10),
-	            width  = el.clientWidth + parseInt(styles.marginLeft, 10) + parseInt(styles.marginRight, 10);
-
-	        return {
-	            height: height,
-	            width: width
-	        };
-	    },
-
-	    /**
-	     * Get the scrollTop position
-	     * @returns {number}
-	     */
-	    getScrollTop: function () {
-	        var state     = this.mixin.state,
-	            step      = joyride.steps[state._joyrideCurrentIndex],
-	            position  = joyride.options.overridePosition || step.position,
-	            target    = document.querySelector(step.selector),
-	            targetTop = target.getBoundingClientRect().top + document.body.scrollTop,
-	            scrollTop = 0;
-
-	        if (/^top/.test(position)) {
-	            scrollTop = Math.floor(state._joyrideYPos - joyride.options.scrollOffset);
-	        }
-	        else if (/^bottom|^left|^right/.test(position)) {
-	            scrollTop = Math.floor(targetTop - joyride.options.scrollOffset);
-	        }
-
-	        return scrollTop;
-	    },
-
-	    /**
-	     * Keydown event listener
-	     * @this Mixin
-	     * @param {Event} e - Keyboard event
-	     */
-	    keyboardNavigation: function (e) {
-	        var intKey = (window.Event) ? e.which : e.keyCode,
-	            hasSteps;
-
-	        if (this.state._joyrideShowTooltip) {
-	            if ([32, 38, 40].indexOf(intKey) > -1) {
-	                e.preventDefault();
-	            }
-
-	            if (intKey === 27) {
-	                joyride.toggleTooltip(false, this.state._joyrideCurrentIndex + 1);
-	            }
-	            else if ([13, 32].indexOf(intKey) > -1) {
-	                hasSteps = Boolean(joyride.steps[this.state._joyrideCurrentIndex + 1]);
-	                joyride.toggleTooltip(hasSteps, this.state._joyrideCurrentIndex + 1);
-	            }
-	        }
-	    },
-
-	    /**
-	     * Beacon click event listener
-	     * @this Mixin
-	     * @param {Event} e - Keyboard event
-	     */
-	    onClickBeacon: function (e) {
-	        e.preventDefault();
-	        joyride.toggleTooltip(true, this.state._joyrideCurrentIndex);
-	    },
-
-	    /**
-	     * Tooltip click event listener
-	     * @this Mixin
-	     * @param {Event} e - Keyboard event
-	     */
-	    onClickTooltip: function (e) {
-	        e.preventDefault();
-	        e.stopPropagation();
-
-	        var state    = this.state,
-	            el       = e.target,
-	            type     = el.dataset.type,
-	            newIndex = state._joyrideCurrentIndex + (type === 'back' ? -1 : 1);
-
-	        if (type === 'skip') {
-	            joyride.skipped = true;
-	            newIndex = joyride.steps.length + 1;
-	        }
-
-	        if (type) {
-	            joyride.toggleTooltip(
-	                joyride.options.type === 'guided'
-	                && ['close', 'skip'].indexOf(type) === -1
-	                && Boolean(joyride.steps[newIndex])
-	                , newIndex);
-	        }
-	    },
-
-	    /**
-	     * Position absolute elements next to its target based on
-	     * the step position and window size
-	     * @this this
-	     * @this Mixin
-	     */
-	    calcPlacement: function () {
-	        var mixin     = this.mixin || this,
-	            state     = mixin.state,
-	            step      = joyride.steps[state._joyrideCurrentIndex],
-	            component = document.querySelector((state._joyrideShowTooltip ? '.joyride-tooltip' : '.joyride-beacon')),
-	            position,
-	            body,
-	            target,
-	            placement = {
-	                x: -1000,
-	                y: -1000
-	            };
-
-	        if (step) {
-	            position = step.position;
-	            body = document.body.getBoundingClientRect();
-	            target = document.querySelector(step.selector).getBoundingClientRect();
-	            component = joyride.getElementDimensions((state._joyrideShowTooltip ? '.joyride-tooltip' : '.joyride-beacon'));
-
-	            // Change the step position in the tooltip won't fit in the window
-	            if (/^left/.test(position) && target.left - (component.width + joyride.options.tooltipOffset) < 0) {
-	                position = 'top';
-	            }
-	            else if (/^right/.test(position) && target.left + target.width + (component.width + joyride.options.tooltipOffset) > body.width) {
-	                position = 'bottom';
-	            }
-
-	            // Calculate x position
-	            if (/^left/.test(position)) {
-	                placement.x = target.left - (state._joyrideShowTooltip ? component.width + joyride.options.tooltipOffset : component.width / 2);
-	            }
-	            else if (/^right/.test(position)) {
-	                placement.x = target.left + target.width - (state._joyrideShowTooltip ? -joyride.options.tooltipOffset : component.width / 2);
-	            }
-	            else {
-	                placement.x = target.left + target.width / 2 - component.width / 2;
-	            }
-
-	            // Calculate y position
-	            if (/^top/.test(position)) {
-	                placement.y = (target.top - body.top) - (state._joyrideShowTooltip ? component.height + joyride.options.tooltipOffset : component.height / 2);
-	            }
-	            else if (/^bottom/.test(position)) {
-	                placement.y = (target.top - body.top) + target.height - (state._joyrideShowTooltip ? -joyride.options.tooltipOffset : component.height / 2);
-	            }
-	            else {
-	                placement.y = (target.top - body.top) + target.height / 2 - component.height / 2 + (state._joyrideShowTooltip ? joyride.options.tooltipOffset : 0);
-	            }
-
-	            if (/^bottom|^top/.test(position)) {
-	                if (/left/.test(position)) {
-	                    placement.x = target.left - (state._joyrideShowTooltip ? joyride.options.tooltipOffset : component.width / 2);
-	                }
-	                else if (/right/.test(position)) {
-	                    placement.x = target.left + target.width - (state._joyrideShowTooltip ? component.width - joyride.options.tooltipOffset : component.width / 2);
-	                }
-	            }
-
-	            mixin.setState({
-	                _joyrideXPos: joyride.preventWindowOverflow(Math.ceil(placement.x), 'x', component.width, component.height),
-	                _joyrideYPos: joyride.preventWindowOverflow(Math.ceil(placement.y), 'y', component.width, component.height)
-	            });
-	        }
-	    },
-
-	    /**
-	     * Prevent tooltip to render outside the window
-	     * @param {Number} value - The axis position
-	     * @param {String} axis - The Axis X or Y
-	     * @param {Number} elWidth - The target element width
-	     * @param {Number} elHeight - The target element height
-	     * @returns {Number}
-	     */
-	    preventWindowOverflow: function (value, axis, elWidth, elHeight) {
-	        var winWidth  = window.innerWidth,
-	            docHeight = document.body.offsetHeight,
-	            newValue  = value;
-
-	        if (axis === 'x') {
-	            if (value + elWidth >= winWidth) {
-	                newValue = winWidth - elWidth - 15;
-	            }
-	            else if (value < 0) {
-	                newValue = 15;
-	            }
-	        }
-	        else if (axis === 'y') {
-	            if (value + elHeight >= docHeight) {
-	                newValue = docHeight - elHeight - 15;
-	            }
-	            else if (value < 0) {
-	                newValue = 15;
-	            }
-	        }
-
-	        return newValue;
-	    },
-
-	    /**
-	     * Toggle Tooltip's visibility
-	     * @param {Boolean} show - Render the tooltip directly or the beacon
-	     * @param {Number} index - The tour's new index
-	     */
-	    toggleTooltip: function (show, index) {
-	        if (typeof joyride.options.stepCallback === 'function') {
-	            joyride.options.stepCallback(joyride.steps[this.mixin.state._joyrideCurrentIndex]);
-	        }
-
-	        this.mixin.setState({
-	            _joyrideShowTooltip: show,
-	            _joyrideCurrentIndex: index,
-	            _joyrideXPos: -1000,
-	            _joyrideYPos: -1000
-	        });
-	    },
-
-	    /**
-	     * Parse the incoming steps
-	     * @param {Array|Object} steps
-	     * @returns {Array}
-	     */
-	    parseSteps: function (steps) {
-	        var tmpSteps = [],
-	            newSteps = [],
-	            el;
-
-	        if (Array.isArray(steps)) {
-	            steps.forEach(function (s) {
-	                if (s instanceof Object) {
-	                    tmpSteps.push(s);
-	                }
-	            });
-	        }
-	        else {
-	            tmpSteps = [steps];
-	        }
-
-	        tmpSteps.forEach(function (s) {
-	            if (s.selector.dataset && s.selector.dataset.reactid) {
-	                s.selector = '[data-reactid="' + s.selector.dataset.reactid + '"]';
-	            }
-	            el = document.querySelector(s.selector);
-	            s.position = s.position || 'top';
-
-	            if (el && el.offsetParent) {
-	                newSteps.push(s);
-	            }
-	            else {
-	                joyride.log(['joyride:parseSteps', 'Element not rendered on the DOM. Skipped..', s], true);
-	            }
-	        });
-
-	        return newSteps;
-	    },
-
-	    log: function (msg, warn) {
-	        var logger = warn ? console.warn || console.error : console.log; //eslint-disable-line no-console
-
-	        if (this.options.debug) {
-	            logger.apply(console, msg); //eslint-disable-line no-console
-	        }
-	    }
-	};
-
-	/**
-	 * @constructor
-	 */
-	var Mixin = {
-	    getInitialState: function () {
-	        return joyride.defaultState;
-	    },
-
-	    componentDidMount: function () {
-	        var state = this.state;
-
-	        joyride.log(['joyride:initialized']);
-
-	        this._target = document.createElement('div');
-	        this._target.className = 'joyride';
-	        document.body.appendChild(this._target);
-
-	        if (state._joyridePlay && joyride.steps[state._joyrideCurrentIndex]) {
-	            this._joyrideRenderLayer();
-	        }
-
-	        joyride.mixin = this;
-
-	        if (joyride.options.resizeDebounce) {
-	            joyride.listeners.resize = (function () {
-	                var timeoutId;
-	                return function () {
-	                    clearTimeout(timeoutId);
-	                    timeoutId = setTimeout(function () {
-	                        timeoutId = null;
-	                        joyride.calcPlacement.call(joyride.mixin);
-	                    }, joyride.options.resizeDebounceDelay);
-	                };
-
-	            }());
-	        }
-	        else {
-	            joyride.listeners.resize = joyride.calcPlacement.bind(this);
-	        }
-	        window.addEventListener('resize', joyride.listeners.resize);
-
-	        if (joyride.options.keyboardNavigation) {
-	            joyride.listeners.keyboard = joyride.keyboardNavigation.bind(this);
-	            document.body.addEventListener('keydown', joyride.listeners.keyboard);
-	        }
-	    },
-
-	    componentWillUnmount: function () {
-	        this._joyrideUnrenderLayer();
-	        document.body.removeChild(this._target);
-
-	        window.removeEventListener('resize', joyride.listeners.resize);
-	        if (joyride.options.keyboardNavigation) {
-	            document.body.removeEventListener('keydown', joyride.listeners.keyboard);
-	        }
-	    },
-
-	    componentDidUpdate: function (prevProps, prevState) {
-	        var state = this.state,
-	            opt   = {
-	                shouldRun: (state._joyridePlay !== prevState._joyridePlay || state._joyrideCurrentIndex !== prevState._joyrideCurrentIndex),
-	                hasStep: Boolean(joyride.steps[state._joyrideCurrentIndex]),
-	                hasSteps: joyride.steps.length > 0,
-	                newX: state._joyrideXPos !== prevState._joyrideXPos,
-	                newY: state._joyrideYPos !== prevState._joyrideYPos,
-	                toggleTooltip: state._joyrideShowTooltip !== prevState._joyrideShowTooltip
-	            };
-
-	        if (state._joyridePlay && (opt.shouldRun || opt.toggleTooltip || opt.newX || opt.newY) && opt.hasStep) {
-	            this._joyrideRenderLayer();
-	        }
-	        else if (opt.shouldRun && opt.hasSteps && !opt.hasStep) {
-	            if (typeof joyride.options.completeCallback === 'function') {
-	                joyride.options.completeCallback(joyride.steps, joyride.skipped);
-	            }
-	            this._joyrideUnrenderLayer();
-	        }
-	    },
-
-	    /**
-	     * Starts the tour
-	     * @param {boolean} [autorun]- Starts with the first tooltip opened
-	     */
-	    joyrideStart: function (autorun) {
-	        autorun = autorun || false;
-
-	        joyride.log(['joyrideStart', 'autorun:', autorun]);
-
-	        this.setState({
-	            _joyrideShowTooltip: autorun,
-	            _joyridePlay: true
-	        });
-	    },
-
-	    /**
-	     * Add Steps
-	     * @param {array|object} steps - Steps to add to the tour
-	     * @param {boolean} [start] - Starts the tour right away
-	     *
-	     * @returns {array} - The steps
-	     */
-	    joyrideAddSteps: function (steps, start) {
-	        start = start || this.state._joyridePlay;
-
-	        joyride.log(['joyrideAddSteps', 'steps:', steps, 'start:', start]);
-
-	        joyride.steps = joyride.steps.concat(joyride.parseSteps(steps));
-
-	        this.setState({
-	            _joyridePlay: start
-	        });
-
-	        return joyride.steps;
-	    },
-
-	    /**
-	     * Replace Steps
-	     * @param {array|object} steps - Steps to replace
-	     * @param {boolean} [restart] - Starts the new tour right away
-	     */
-	    joyrideReplaceSteps: function (steps, restart) {
-	        steps = steps || [];
-	        restart = restart !== false;
-
-	        joyride.log(['joyrideReplaceSteps', 'steps:', steps, 'restart:', restart]);
-
-	        joyride.steps = joyride.parseSteps(steps);
-	        joyride.skipped = false;
-	        this._joyrideUnrenderLayer();
-
-	        // Force a re-render if necessary
-	        if (restart && this.state._joyridePlay === restart && this.state._joyrideCurrentIndex === 0) {
-	            this._joyrideRenderLayer();
-	        }
-
-	        this.setState(joyride.defaultState);
-	    },
-
-	    /**
-	     * Retrieve the current progress of your tour
-	     * @returns {{index: (number|*), percentageComplete: number, step: (object|null)}}
-	     */
-	    joyrideGetProgress: function () {
-	        joyride.log(['joyrideGetProgress', 'steps:', joyride.steps]);
-
-	        return {
-	            index: this.state._joyrideCurrentIndex,
-	            percentageComplete: parseFloat(((this.state._joyrideCurrentIndex / joyride.steps.length) * 100).toFixed(2).replace('.00', '')),
-	            step: joyride.steps[this.state._joyrideCurrentIndex]
-	        };
-	    },
-
-	    /**
-	     * Change the default options
-	     * @param {object} opts - Joyride Options
-	     */
-	    joyrideSetOptions: function (opts) {
-	        var option;
-
-	        joyride.log(['joyrideSetOptions', 'opts:', opts]);
-
-	        Object.keys(joyride.options).forEach(function (o) {
-	            option = opts[o];
-
-	            if (option !== undefined) {
-	                joyride.options[o] = option;
-	            }
-	        });
-	    },
-
-	    _joyrideRenderLayer: function () {
-	        var state = this.state,
-	            component;
-	        if (state._joyrideXPos < 0) {
-	            joyride.log(['joyride:renderLayer', 'step:', joyride.steps[this.state._joyrideCurrentIndex]]);
-	        }
-
-	        component = this._joyrideCreateComponent(state._joyrideXPos < 0);
-
-	        if (!joyride.initialized) {
-	            joyride.initialized = true;
-	            React.renderToString(component);
-	        }
-
-	        React.render(component, this._target, function () {
-	            joyride.calcPlacement();
-	            if (joyride.steps[state._joyrideCurrentIndex] && joyride.options.scrollToSteps) {
-	                scroll.top(joyride.browser === 'firefox' ? document.documentElement : document.body, joyride.getScrollTop());
-	            }
-	        });
-	    },
-
-	    _joyrideUnrenderLayer: function () {
-	        joyride.log(['_joyrideUnrenderLayer']);
-	        React.unmountComponentAtNode(this._target);
-	    },
-
-	    _joyrideCreateComponent: function (update) {
-	        var state       = this.state,
-	            component,
-	            currentStep = joyride.steps[state._joyrideCurrentIndex],
-	            buttons     = {
-	                primary: joyride.options.locale.close
-	            },
-	            target      = currentStep && currentStep.selector ? document.querySelector(currentStep.selector) : null,
-	            cssPosition = target ? target.style.position : null;
-
-	        joyride.log([
-	            'joyride:' + (update ? 'createComponent' : 'updateComponent'),
-	            'component:',
-	            state._joyrideShowTooltip ? 'Tooltip' : 'Beacon',
-	            'target:',
-	            target
-	        ]);
-
-	        if (target) {
-	            if (state._joyrideShowTooltip) {
-	                if (joyride.options.type === 'guided') {
-	                    buttons.primary = joyride.options.locale.last;
-
-	                    if (Boolean(joyride.steps[state._joyrideCurrentIndex + 1])) {
-	                        buttons.primary = joyride.options.locale.next;
-
-	                        if (joyride.options.showStepsProgress) {
-	                            buttons.primary += ' ' + (state._joyrideCurrentIndex + 1) + '/' + joyride.steps.length;
-	                        }
-	                    }
-
-	                    if (joyride.options.showBackButton && state._joyrideCurrentIndex > 0) {
-	                        buttons.secondary = joyride.options.locale.back;
-	                    }
-	                }
-
-	                if (joyride.options.showSkipButton) {
-	                    buttons.skip = joyride.options.locale.skip;
-	                }
-
-	                component = React.createElement(Tooltip, {
-	                    animate: state._joyrideXPos > -1,
-	                    browser: joyride.getBrowser(),
-	                    buttons: buttons,
-	                    cssPosition: cssPosition,
-	                    options: joyride.options,
-	                    step: currentStep,
-	                    xPos: state._joyrideXPos,
-	                    yPos: state._joyrideYPos,
-	                    onClick: joyride.onClickTooltip.bind(this)
-	                });
-	            }
-	            else {
-	                component = React.createElement(Beacon, {
-	                    cssPosition: cssPosition,
-	                    xPos: state._joyrideXPos,
-	                    yPos: state._joyrideYPos,
-	                    onClick: joyride.onClickBeacon.bind(this)
-	                });
-	            }
-	        }
-
-	        return component;
-	    }
-	};
-
-	module.exports = Mixin;
-
-
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var raf = __webpack_require__(191)
-	var ease = __webpack_require__(192)
-
-	function scroll (prop, element, to, options, callback) {
-	  var start = +new Date
-	  var from = element[prop]
-	  var cancelled = false
-	  var type = 'inOutSine'
-	  var duration = 350
-
-	  if (typeof options === 'function') {
-	    callback = options
-	  }
-	  else {
-	    options = options || {}
-	    type = options.ease || type
-	    duration = options.duration || duration
-	    callback = callback || function () {}
-	  }
-
-	  var easing = ease[type]
-
-	  if (from === to) {
-	    return callback(
-	      new Error('Element already at target scroll position'),
-	      element[prop]
-	    )
-	  }
-
-	  function cancel () {
-	    cancelled = true
-	  }
-
-	  function animate (timestamp) {
-	    if (cancelled) {
-	      return callback(
-	        new Error('Scroll cancelled'),
-	        element[prop]
-	      )
-	    }
-
-	    var now = +new Date
-	    var time = Math.min(1, ((now - start) / duration))
-	    var eased = easing(time)
-
-	    element[prop] = (eased * (to - from)) + from
-
-	    time < 1 ?
-	      raf(animate) :
-	      callback(null, element[prop])
-	  }
-
-	  raf(animate)
-
-	  return cancel
-	}
-
-	module.exports = {
-	  top: function (element, to, options, callback) {
-	    return scroll('scrollTop', element, to, options, callback)
-	  },
-	  left: function (element, to, options, callback) {
-	    return scroll('scrollLeft', element, to, options, callback)
-	  }
-	}
-
-
-/***/ },
-/* 191 */
-/***/ function(module, exports) {
-
-	/**
-	 * Expose `requestAnimationFrame()`.
-	 */
-
-	exports = module.exports = window.requestAnimationFrame
-	  || window.webkitRequestAnimationFrame
-	  || window.mozRequestAnimationFrame
-	  || window.oRequestAnimationFrame
-	  || window.msRequestAnimationFrame
-	  || fallback;
-
-	/**
-	 * Fallback implementation.
-	 */
-
-	var prev = new Date().getTime();
-	function fallback(fn) {
-	  var curr = new Date().getTime();
-	  var ms = Math.max(0, 16 - (curr - prev));
-	  var req = setTimeout(fn, ms);
-	  prev = curr;
-	  return req;
-	}
-
-	/**
-	 * Cancel.
-	 */
-
-	var cancel = window.cancelAnimationFrame
-	  || window.webkitCancelAnimationFrame
-	  || window.mozCancelAnimationFrame
-	  || window.oCancelAnimationFrame
-	  || window.msCancelAnimationFrame
-	  || window.clearTimeout;
-
-	exports.cancel = function(id){
-	  cancel.call(window, id);
-	};
-
-
-/***/ },
-/* 192 */
-/***/ function(module, exports) {
-
-	
-	// easing functions from "Tween.js"
-
-	exports.linear = function(n){
-	  return n;
-	};
-
-	exports.inQuad = function(n){
-	  return n * n;
-	};
-
-	exports.outQuad = function(n){
-	  return n * (2 - n);
-	};
-
-	exports.inOutQuad = function(n){
-	  n *= 2;
-	  if (n < 1) return 0.5 * n * n;
-	  return - 0.5 * (--n * (n - 2) - 1);
-	};
-
-	exports.inCube = function(n){
-	  return n * n * n;
-	};
-
-	exports.outCube = function(n){
-	  return --n * n * n + 1;
-	};
-
-	exports.inOutCube = function(n){
-	  n *= 2;
-	  if (n < 1) return 0.5 * n * n * n;
-	  return 0.5 * ((n -= 2 ) * n * n + 2);
-	};
-
-	exports.inQuart = function(n){
-	  return n * n * n * n;
-	};
-
-	exports.outQuart = function(n){
-	  return 1 - (--n * n * n * n);
-	};
-
-	exports.inOutQuart = function(n){
-	  n *= 2;
-	  if (n < 1) return 0.5 * n * n * n * n;
-	  return -0.5 * ((n -= 2) * n * n * n - 2);
-	};
-
-	exports.inQuint = function(n){
-	  return n * n * n * n * n;
-	}
-
-	exports.outQuint = function(n){
-	  return --n * n * n * n * n + 1;
-	}
-
-	exports.inOutQuint = function(n){
-	  n *= 2;
-	  if (n < 1) return 0.5 * n * n * n * n * n;
-	  return 0.5 * ((n -= 2) * n * n * n * n + 2);
-	};
-
-	exports.inSine = function(n){
-	  return 1 - Math.cos(n * Math.PI / 2 );
-	};
-
-	exports.outSine = function(n){
-	  return Math.sin(n * Math.PI / 2);
-	};
-
-	exports.inOutSine = function(n){
-	  return .5 * (1 - Math.cos(Math.PI * n));
-	};
-
-	exports.inExpo = function(n){
-	  return 0 == n ? 0 : Math.pow(1024, n - 1);
-	};
-
-	exports.outExpo = function(n){
-	  return 1 == n ? n : 1 - Math.pow(2, -10 * n);
-	};
-
-	exports.inOutExpo = function(n){
-	  if (0 == n) return 0;
-	  if (1 == n) return 1;
-	  if ((n *= 2) < 1) return .5 * Math.pow(1024, n - 1);
-	  return .5 * (-Math.pow(2, -10 * (n - 1)) + 2);
-	};
-
-	exports.inCirc = function(n){
-	  return 1 - Math.sqrt(1 - n * n);
-	};
-
-	exports.outCirc = function(n){
-	  return Math.sqrt(1 - (--n * n));
-	};
-
-	exports.inOutCirc = function(n){
-	  n *= 2
-	  if (n < 1) return -0.5 * (Math.sqrt(1 - n * n) - 1);
-	  return 0.5 * (Math.sqrt(1 - (n -= 2) * n) + 1);
-	};
-
-	exports.inBack = function(n){
-	  var s = 1.70158;
-	  return n * n * (( s + 1 ) * n - s);
-	};
-
-	exports.outBack = function(n){
-	  var s = 1.70158;
-	  return --n * n * ((s + 1) * n + s) + 1;
-	};
-
-	exports.inOutBack = function(n){
-	  var s = 1.70158 * 1.525;
-	  if ( ( n *= 2 ) < 1 ) return 0.5 * ( n * n * ( ( s + 1 ) * n - s ) );
-	  return 0.5 * ( ( n -= 2 ) * n * ( ( s + 1 ) * n + s ) + 2 );
-	};
-
-	exports.inBounce = function(n){
-	  return 1 - exports.outBounce(1 - n);
-	};
-
-	exports.outBounce = function(n){
-	  if ( n < ( 1 / 2.75 ) ) {
-	    return 7.5625 * n * n;
-	  } else if ( n < ( 2 / 2.75 ) ) {
-	    return 7.5625 * ( n -= ( 1.5 / 2.75 ) ) * n + 0.75;
-	  } else if ( n < ( 2.5 / 2.75 ) ) {
-	    return 7.5625 * ( n -= ( 2.25 / 2.75 ) ) * n + 0.9375;
-	  } else {
-	    return 7.5625 * ( n -= ( 2.625 / 2.75 ) ) * n + 0.984375;
-	  }
-	};
-
-	exports.inOutBounce = function(n){
-	  if (n < .5) return exports.inBounce(n * 2) * .5;
-	  return exports.outBounce(n * 2 - 1) * .5 + .5;
-	};
-
-	// aliases
-
-	exports['in-quad'] = exports.inQuad;
-	exports['out-quad'] = exports.outQuad;
-	exports['in-out-quad'] = exports.inOutQuad;
-	exports['in-cube'] = exports.inCube;
-	exports['out-cube'] = exports.outCube;
-	exports['in-out-cube'] = exports.inOutCube;
-	exports['in-quart'] = exports.inQuart;
-	exports['out-quart'] = exports.outQuart;
-	exports['in-out-quart'] = exports.inOutQuart;
-	exports['in-quint'] = exports.inQuint;
-	exports['out-quint'] = exports.outQuint;
-	exports['in-out-quint'] = exports.inOutQuint;
-	exports['in-sine'] = exports.inSine;
-	exports['out-sine'] = exports.outSine;
-	exports['in-out-sine'] = exports.inOutSine;
-	exports['in-expo'] = exports.inExpo;
-	exports['out-expo'] = exports.outExpo;
-	exports['in-out-expo'] = exports.inOutExpo;
-	exports['in-circ'] = exports.inCirc;
-	exports['out-circ'] = exports.outCirc;
-	exports['in-out-circ'] = exports.inOutCirc;
-	exports['in-back'] = exports.inBack;
-	exports['out-back'] = exports.outBack;
-	exports['in-out-back'] = exports.inOutBack;
-	exports['in-bounce'] = exports.inBounce;
-	exports['out-bounce'] = exports.outBounce;
-	exports['in-out-bounce'] = exports.inOutBounce;
-
-
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(169);
-
-	var Tooltip = React.createClass({
-	    mixins: [React.addons.PureRenderMixin],
-
-	    propTypes: {
-	        animate: React.PropTypes.bool.isRequired,
-	        browser: React.PropTypes.string.isRequired,
-	        buttons: React.PropTypes.object.isRequired,
-	        cssPosition: React.PropTypes.string.isRequired,
-	        onClick: React.PropTypes.func.isRequired,
-	        options: React.PropTypes.object.isRequired,
-	        step: React.PropTypes.object.isRequired,
-	        xPos: React.PropTypes.oneOfType([
-	            React.PropTypes.number,
-	            React.PropTypes.string
-	        ]).isRequired,
-	        yPos: React.PropTypes.oneOfType([
-	            React.PropTypes.number,
-	            React.PropTypes.string
-	        ]).isRequired
-	    },
-
-	    getDefaultProps: function () {
-	        return {
-	            browser: 'chrome',
-	            buttons: {
-	                primary: 'Close'
-	            },
-	            cssPosition: 'absolute',
-	            step: {},
-	            xPos: -1000,
-	            yPos: -1000
-	        };
-	    },
-
-	    _getArrowPosition: function (position) {
-	        var arrowPosition;
-
-	        if (window.innerWidth < 480) {
-	            arrowPosition = (position < 8 ? 8 : (position > 92 ? 92 : position));
-	        }
-	        else if (window.innerWidth < 1024) {
-	            arrowPosition = (position < 6 ? 6 : (position > 94 ? 94 : position));
-	        }
-	        else {
-	            arrowPosition = (position < 5 ? 5 : (position > 95 ? 95 : position));
-	        }
-
-	        return arrowPosition;
-	    },
-
-	    render: function () {
-	        var props = this.props,
-	            opts  = {
-	                target: document.querySelector(props.step.selector).getBoundingClientRect(),
-	                positionClass: props.options.overridePosition || props.step.position,
-	                tooltipStyles: {
-	                    position: this.props.cssPosition === 'fixed' ? 'fixed' : 'absolute',
-	                    top: Math.round(this.props.yPos),
-	                    left: Math.round(this.props.xPos)
-	                }
-	            };
-
-	        opts.holeStyles = {
-	            top: Math.round((opts.target.top - document.body.getBoundingClientRect().top) - 5),
-	            left: Math.round(opts.target.left - 5),
-	            width: Math.round(opts.target.width + 10),
-	            height: Math.round(opts.target.height + 10)
-	        };
-
-	        if (props.step.title) {
-	            opts.header = (
-	                React.createElement('header', null,
-	                    React.createElement('h4', null, props.step.title),
-	                    React.createElement('a', { href: '#', 'data-type': 'close', onClick: props.onClick }, '×')
-	                )
-	            );
-	        }
-
-	        opts.tooltipElement = React.createElement('div', {
-	                className: 'joyride-tooltip ' + opts.positionClass + (props.animate ? ' animate' : ''),
-	                style: opts.tooltipStyles
-	            },
-	            React.createElement('div', {
-	                className: 'triangle triangle-' + opts.positionClass,
-	                style: opts.arrowPosition
-	            }),
-	            opts.header,
-	            React.createElement('main', { dangerouslySetInnerHTML: { __html: props.step.text || '' } }),
-	            React.createElement('footer', null,
-	                (props.buttons.skip ?
-	                    React.createElement('a', {
-	                        href: '#',
-	                        className: 'skip',
-	                        'data-type': 'skip',
-	                        onClick: props.onClick
-	                    }, props.buttons.skip)
-	                    : false),
-	                (props.buttons.secondary ?
-	                    React.createElement('a', {
-	                        href: '#',
-	                        className: 'secondary',
-	                        'data-type': 'back',
-	                        onClick: props.onClick
-	                    }, props.buttons.secondary)
-	                    : false),
-	                React.createElement('a', {
-	                    href: '#',
-	                    className: 'primary',
-	                    'data-type': 'next',
-	                    onClick: props.onClick
-	                }, props.buttons.primary)
-	            )
-	        );
-
-	        if (props.options.showOverlay) {
-	            opts.hole = React.createElement('div', {
-	                className: 'joyride-hole ' + props.browser,
-	                style: opts.holeStyles
-	            });
-	        }
-
-	        if ((/^bottom$/.test(opts.positionClass) || /^top$/.test(opts.positionClass)) && props.xPos > -1) {
-	            opts.tooltip = document.querySelector('.joyride-tooltip').getBoundingClientRect();
-	            opts.targetMiddle = (opts.target.left + opts.target.width / 2);
-	            opts.arrowPosition = (((opts.targetMiddle - props.xPos) / opts.tooltip.width) * 100).toFixed(2);
-	            opts.arrowPosition = this._getArrowPosition(opts.arrowPosition) + '%';
-
-	            opts.arrowPosition = {
-	                left: opts.arrowPosition
-	            };
-	        }
-
-	        if (!props.options.showOverlay) {
-	            return opts.tooltipElement;
-	        }
-
-	        return React.createElement('div', {
-	                className: 'joyride-overlay',
-	                style: {
-	                    height: document.body.clientHeight
-	                },
-	                'data-type': 'close',
-	                onClick: props.onClick
-	            },
-	            opts.hole,
-	            opts.tooltipElement
-	        );
-	    }
-	});
-
-	module.exports = Tooltip;
-
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(195);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(5)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../css-loader/index.js!./react-joyride.css", function() {
-				var newContent = require("!!./../../../css-loader/index.js!./react-joyride.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(4)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".joyride-beacon {\n  display: inline-block;\n  height: 36px;\n  position: relative;\n  width: 36px;\n  z-index: 1500; }\n  .joyride-beacon .inner {\n    -webkit-animation: joyride-beacon-inner 1.2s infinite ease-in-out;\n            animation: joyride-beacon-inner 1.2s infinite ease-in-out;\n    background-color: #f04;\n    border-radius: 50%;\n    display: block;\n    height: 50%;\n    left: 50%;\n    opacity: 0.7;\n    position: relative;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n        -ms-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    width: 50%; }\n  .joyride-beacon .outer {\n    -webkit-animation: joyride-beacon-outer 1.2s infinite ease-in-out;\n            animation: joyride-beacon-outer 1.2s infinite ease-in-out;\n    background-color: rgba(255, 0, 68, 0.2);\n    border: 2px solid #f04;\n    border-radius: 50%;\n    display: block;\n    height: 100%;\n    left: 0;\n    opacity: 0.9;\n    position: absolute;\n    top: 0;\n    -webkit-transform: translateY(-50%);\n        -ms-transform: translateY(-50%);\n            transform: translateY(-50%);\n    -webkit-transform-origin: center;\n        -ms-transform-origin: center;\n            transform-origin: center;\n    width: 100%; }\n\n.joyride-overlay {\n  bottom: 0;\n  cursor: pointer;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  z-index: 1500; }\n\n.joyride-hole {\n  border-radius: 4px;\n  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.5);\n  position: absolute; }\n  .joyride-hole.safari {\n    box-shadow: 0 0 999px 9999px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.5); }\n\n.joyride-tooltip {\n  background-color: #fff;\n  border-radius: 8px;\n  color: #555;\n  cursor: default;\n  -webkit-filter: drop-shadow(-1px -2px 3px rgba(0, 0, 0, 0.3)) drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.3));\n          filter: drop-shadow(-1px -2px 3px rgba(0, 0, 0, 0.3)) drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.3));\n  opacity: 0;\n  padding: 20px;\n  -webkit-transform: translate3d(0, 0, 0);\n          transform: translate3d(0, 0, 0);\n  width: 290px;\n  z-index: 1510; }\n  @media screen and (min-width: 480px) {\n    .joyride-tooltip {\n      width: 360px; } }\n  @media screen and (min-width: 960px) {\n    .joyride-tooltip {\n      width: 450px; } }\n  .joyride-tooltip.animate {\n    -webkit-animation: joyride-tooltip 0.4s forwards;\n            animation: joyride-tooltip 0.4s forwards;\n    -webkit-animation-timing-function: cubic-bezier(0, 1.05, 0.55, 1.18);\n            animation-timing-function: cubic-bezier(0, 1.05, 0.55, 1.18); }\n  .joyride-tooltip header {\n    border-bottom: 1px solid #f04;\n    margin-bottom: 12px;\n    padding-bottom: 6px;\n    position: relative; }\n    .joyride-tooltip header h4 {\n      color: #555;\n      font-size: 20px;\n      margin: 0; }\n    .joyride-tooltip header a {\n      color: #555;\n      font-size: 2.5rem;\n      line-height: 0.7;\n      position: absolute;\n      right: 0;\n      text-decoration: none;\n      top: 0; }\n  .joyride-tooltip main {\n    font-size: 16px;\n    margin-bottom: 18px; }\n  .joyride-tooltip footer {\n    text-align: right; }\n    .joyride-tooltip footer .primary {\n      background-color: #f04;\n      border-radius: 4px;\n      color: #fff;\n      padding: 6px 12px;\n      text-decoration: none;\n      -webkit-transition: background-color 0.2s ease-in-out;\n              transition: background-color 0.2s ease-in-out; }\n      .joyride-tooltip footer .primary:hover {\n        background-color: #ff1f5a; }\n    .joyride-tooltip footer .secondary {\n      color: #f04;\n      margin-right: 10px; }\n    .joyride-tooltip footer .skip {\n      color: #ccc;\n      float: left;\n      margin-right: 10px; }\n  .joyride-tooltip .triangle {\n    background-repeat: no-repeat;\n    overflow: hidden;\n    position: absolute; }\n  .joyride-tooltip.bottom, .joyride-tooltip.bottom-left, .joyride-tooltip.bottom-right {\n    margin-top: 18px; }\n    .joyride-tooltip.bottom .triangle, .joyride-tooltip.bottom-left .triangle, .joyride-tooltip.bottom-right .triangle {\n      background-image: url(\"data:image/svg+xml,%3Csvg%20width%3D%2236px%22%20height%3D%2218px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%28180 8 4%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E\");\n      height: 18px;\n      left: 50%;\n      top: -16px;\n      width: 36px; }\n  .joyride-tooltip.top, .joyride-tooltip.top-left, .joyride-tooltip.top-right {\n    margin-bottom: 18px; }\n    .joyride-tooltip.top .triangle, .joyride-tooltip.top-left .triangle, .joyride-tooltip.top-right .triangle {\n      background-image: url(\"data:image/svg+xml,%3Csvg%20width%3D%2236px%22%20height%3D%2218px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%280%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E\");\n      bottom: -16px;\n      height: 18px;\n      left: 50%;\n      width: 36px; }\n  .joyride-tooltip.bottom .triangle, .joyride-tooltip.top .triangle {\n    -webkit-transform: translateX(-50%);\n        -ms-transform: translateX(-50%);\n            transform: translateX(-50%); }\n  .joyride-tooltip.bottom-left .triangle, .joyride-tooltip.top-left .triangle {\n    left: 3%; }\n    @media screen and (min-width: 480px) {\n      .joyride-tooltip.bottom-left .triangle, .joyride-tooltip.top-left .triangle {\n        left: 2%; } }\n  .joyride-tooltip.bottom-right .triangle, .joyride-tooltip.top-right .triangle {\n    left: 86%; }\n    @media screen and (min-width: 480px) {\n      .joyride-tooltip.bottom-right .triangle, .joyride-tooltip.top-right .triangle {\n        left: 88%; } }\n    @media screen and (min-width: 768px) {\n      .joyride-tooltip.bottom-right .triangle, .joyride-tooltip.top-right .triangle {\n        left: 90%; } }\n  .joyride-tooltip.left {\n    margin-right: 18px; }\n    .joyride-tooltip.left .triangle {\n      background-image: url(\"data:image/svg+xml,%3Csvg%20width%3D%2218px%22%20height%3D%2236px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%28270 8 8%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E\");\n      height: 36px;\n      right: -16px;\n      width: 18px; }\n  .joyride-tooltip.right {\n    margin-left: 18px; }\n    .joyride-tooltip.right .triangle {\n      background-image: url(\"data:image/svg+xml,%3Csvg%20width%3D%2218px%22%20height%3D%2236px%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20points%3D%220%2C%200%208%2C%208%2016%2C0%22%20fill%3D%22%23fff%22%20transform%3D%22scale%282.25%29%20rotate%2890 4 4%29%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E\");\n      height: 36px;\n      left: -16px;\n      width: 18px; }\n\n@-webkit-keyframes joyride-tooltip {\n  0% {\n    -webkit-transform: scale(0.1);\n            transform: scale(0.1); }\n  100% {\n    opacity: 1;\n    -webkit-transform: perspective(1px) scale(1);\n            transform: perspective(1px) scale(1); } }\n\n@keyframes joyride-tooltip {\n  0% {\n    -webkit-transform: scale(0.1);\n            transform: scale(0.1); }\n  100% {\n    opacity: 1;\n    -webkit-transform: perspective(1px) scale(1);\n            transform: perspective(1px) scale(1); } }\n\n@-webkit-keyframes joyride-beacon-inner {\n  20% {\n    opacity: 0.9; }\n  90% {\n    opacity: 0.7; } }\n\n@keyframes joyride-beacon-inner {\n  20% {\n    opacity: 0.9; }\n  90% {\n    opacity: 0.7; } }\n\n@-webkit-keyframes joyride-beacon-outer {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1); }\n  45% {\n    opacity: 0.7;\n    -webkit-transform: scale(0.75);\n            transform: scale(0.75); }\n  100% {\n    opacity: 0.9;\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n\n@keyframes joyride-beacon-outer {\n  0% {\n    -webkit-transform: scale(1);\n            transform: scale(1); }\n  45% {\n    opacity: 0.7;\n    -webkit-transform: scale(0.75);\n            transform: scale(0.75); }\n  100% {\n    opacity: 0.9;\n    -webkit-transform: scale(1);\n            transform: scale(1); } }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	/*global SAVE2*/
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(6);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	__webpack_require__(165);
-
-	var _materialUiLibListsList = __webpack_require__(197);
-
-	var _materialUiLibListsList2 = _interopRequireDefault(_materialUiLibListsList);
-
-	var _materialUiLibListsListItem = __webpack_require__(214);
-
-	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
-
-	var _materialUiLibLinearProgress = __webpack_require__(234);
-
-	var _materialUiLibLinearProgress2 = _interopRequireDefault(_materialUiLibLinearProgress);
-
-	var _materialUiLibSvgIconsActionRestore = __webpack_require__(235);
-
-	var _materialUiLibSvgIconsActionRestore2 = _interopRequireDefault(_materialUiLibSvgIconsActionRestore);
-
-	var _materialUiLibSvgIconsActionBackup = __webpack_require__(236);
-
-	var _materialUiLibSvgIconsActionBackup2 = _interopRequireDefault(_materialUiLibSvgIconsActionBackup);
-
-	var _materialUiLibMenusMenuDivider = __webpack_require__(237);
-
-	var _materialUiLibMenusMenuDivider2 = _interopRequireDefault(_materialUiLibMenusMenuDivider);
-
-	var _TooltrayList = __webpack_require__(239);
-
-	var _TooltrayList2 = _interopRequireDefault(_TooltrayList);
-
-	var _ExerciseNameField = __webpack_require__(242);
-
-	var _ExerciseNameField2 = _interopRequireDefault(_ExerciseNameField);
-
-	var _CheckboxListItems = __webpack_require__(250);
-
-	var _CheckboxListItems2 = _interopRequireDefault(_CheckboxListItems);
-
-	var tooltrayItems = null;
-	var staticItems = [];
-
-	var Controls = _react2['default'].createClass({
-	  displayName: 'Controls',
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      instructorMode: false,
-	      loaded: false,
-	      tooltrayItems: tooltrayItems,
-	      staticItems: staticItems
-	    };
-	  },
-
-	  propTypes: {
-	    baseServerAddress: _react2['default'].PropTypes.string.isRequired,
-	    forceUpdate: _react2['default'].PropTypes.bool,
-	    height: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.number, _react2['default'].PropTypes.string]),
-	    instructorMode: _react2['default'].PropTypes.bool,
-	    onAssessment: _react2['default'].PropTypes.func,
-	    onInstructorModeChange: _react2['default'].PropTypes.func,
-	    onReset: _react2['default'].PropTypes.func,
-	    onSave: _react2['default'].PropTypes.func,
-	    onToolTrayItemClick: _react2['default'].PropTypes.func,
-	    savePrimaryText: _react2['default'].PropTypes.string,
-	    type: _react2['default'].PropTypes.oneOf(['CAT', 'EUI']),
-	    width: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.number, _react2['default'].PropTypes.string])
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      forceUpdate: false,
-	      height: '100%',
-	      instructorMode: false,
-	      onAssessment: function onAssessment() {},
-	      onInstructorModeChange: function onInstructorModeChange() /* newValue */{},
-	      onReset: function onReset() {},
-	      onSave: function onSave() {},
-	      onToolTrayItemClick: function onToolTrayItemClick() {},
-	      savePrimaryText: 'Save Exercise', // CAT primary-text
-	      type: 'CAT',
-	      width: '100%'
-	    };
-	  },
-
-	  componentWillMount: function componentWillMount() {
-	    if (this.props.forceUpdate) {
-	      this.resetAnd();
-	    } else if (tooltrayItems) {
-	      this.setState({
-	        instructorMode: this.props.instructorMode,
-	        loaded: true
-	      });
-	    } else {
-	      // first time
-	      this.sendReset()['catch'](function (e) {
-	        return console.error(e);
-	      });
-	    }
-	  },
-
-	  componentDidMount: function componentDidMount() {
-	    if (tooltrayItems == null) {
-	      this.fetchTooltray();
-	    }
-	  },
-
-	  fetchTooltray: function fetchTooltray() {
-	    var _this = this;
-
-	    fetch(this.props.baseServerAddress + '/inventory', { mode: 'cors' }).then(function (response) {
-	      return response.json();
-	    }).then(function (json) {
-	      tooltrayItems = json.tooltray;
-	      _this.props.onInstructorModeChange(json.instructorMode);
-	      _this.setState({
-	        instructorMode: json.instructorMode,
-	        loaded: true,
-	        tooltrayItems: tooltrayItems
-	      });
-	    })['catch'](function (e) {
-	      return console.error(e);
-	    });
-	  },
-
-	  sendReset: function sendReset() {
-	    return fetch(this.props.baseServerAddress + '/query', {
-	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-	      method: 'post',
-	      mode: 'cors',
-	      body: 'query=' + JSON.stringify({ type: 'Reset' })
-	    });
-	  },
-
-	  resetAnd: function resetAnd(andFunc) {
-	    tooltrayItems = null;
-	    staticItems = [];
-	    this.setState({ tooltrayItems: tooltrayItems, staticItems: staticItems });
-
-	    if (andFunc) andFunc();
-	  },
-
-	  handleResetClick: function handleResetClick() /* e */{
-	    var _this2 = this;
-
-	    this.sendReset().then(function () {
-	      _this2.resetAnd(_this2.props.onReset);
-	    })['catch'](function (e) {
-	      return console.error(e);
-	    });
-	  },
-
-	  handleSaveClick: function handleSaveClick() /* e */{
-	    if (this.isEUI()) this.setState({ instructorMode: false });
-
-	    if (this.isCAT()) {
-	      this.props.onSave(this.refs.exerciseNameField.getValue(), staticItems.map(function (item) {
-	        return item.ID;
-	      }));
-	    } else {
-	      this.props.onSave();
-	    }
-	  },
-
-	  handleToolTrayItemClick: function handleToolTrayItemClick(itemIdx, json) {
-	    var tti = tooltrayItems[itemIdx];
-	    var name = tti.name;
-	    var assetURL = json[0].assetURL;
-	    var KbId = json[0].KbId;
-	    var grouping = json[0].grouping;
-	    var spliced = tooltrayItems.splice(itemIdx, 1);
-
-	    staticItems.push(spliced[0]);
-	    this.setState({
-	      tooltrayItems: tooltrayItems,
-	      staticItems: staticItems
-	    });
-	    SAVE2.lib.view.createSemanticAsset(name, assetURL, KbId, grouping);
-	    this.props.onToolTrayItemClick(itemIdx);
-	  },
-
-	  isCAT: function isCAT() {
-	    return this.props.type === 'CAT';
-	  },
-
-	  isEUI: function isEUI() {
-	    return this.props.type === 'EUI';
-	  },
-
-	  hasEUIAssessmentItemAvailable: function hasEUIAssessmentItemAvailable() {
-	    return this.state.loaded && this.isEUI() && !this.state.instructorMode;
-	  },
-
-	  hasSaveItemAvaialable: function hasSaveItemAvaialable() {
-	    return this.state.loaded && !this.hasEUIAssessmentItemAvailable();
-	  },
-
-	  render: function render() {
-	    var styles = {
-	      container: {
-	        border: 'solid 1px #d9d9d9',
-	        height: this.props.height,
-	        overflowY: 'scroll',
-	        width: this.props.width
-	      }
-	    };
-
-	    return _react2['default'].createElement(
-	      'div',
-	      { style: styles.container },
-	      this.state.loaded ? _react2['default'].createElement(_TooltrayList2['default'], {
-	        baseServerAddress: this.props.baseServerAddress,
-	        container: false,
-	        items: this.state.tooltrayItems,
-	        onItemClick: this.handleToolTrayItemClick }) : _react2['default'].createElement(_materialUiLibLinearProgress2['default'], { mode: 'indeterminate' }),
-	      _react2['default'].createElement(_materialUiLibMenusMenuDivider2['default'], null),
-	      _react2['default'].createElement(
-	        _materialUiLibListsList2['default'],
-	        { subheader: 'Controls' },
-	        _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionRestore2['default'], null), onClick: this.handleResetClick, primaryText: 'Reset' }),
-	        this.isCAT() ? _react2['default'].createElement(
-	          'div',
-	          null,
-	          _react2['default'].createElement(_CheckboxListItems2['default'], { items: this.state.staticItems, onItemClick: this.handleStaticCBClick }),
-	          _react2['default'].createElement(_ExerciseNameField2['default'], { ref: 'exerciseNameField' })
-	        ) : null,
-	        this.hasEUIAssessmentItemAvailable() ? _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionBackup2['default'], null), onClick: this.props.onAssessment, primaryText: 'Assessment' }) : null,
-	        this.hasSaveItemAvaialable() ? _react2['default'].createElement(_materialUiLibListsListItem2['default'], {
-	          leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionBackup2['default'], null),
-	          onClick: this.handleSaveClick,
-	          primaryText: this.props.savePrimaryText }) : null
-	      )
-	    );
-	  }
-	});
-
-	exports.Controls = Controls;
-	exports['default'] = Controls;
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Controls.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	var React = __webpack_require__(169);
-	var PureRenderMixin = React.addons.PureRenderMixin;
-	var PropTypes = __webpack_require__(198);
-	var StylePropable = __webpack_require__(199);
-	var Typography = __webpack_require__(205);
-	var Paper = __webpack_require__(207);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
-
-	var List = React.createClass({
-	  displayName: 'List',
-
-	  mixins: [PureRenderMixin, StylePropable],
-
-	  contextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  propTypes: {
-	    insetSubheader: React.PropTypes.bool,
-	    subheader: React.PropTypes.string,
-	    subheaderStyle: React.PropTypes.object,
-	    zDepth: PropTypes.zDepth
-	  },
-
-	  //for passing default theme context to children
-	  childContextTypes: {
-	    muiTheme: React.PropTypes.object
-	  },
-
-	  getChildContext: function getChildContext() {
-	    return {
-	      muiTheme: this.state.muiTheme
-	    };
-	  },
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      zDepth: 0
-	    };
-	  },
-
-	  getInitialState: function getInitialState() {
-	    return {
-	      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme)
-	    };
-	  },
-
-	  //to update theme inside state whenever a new theme is passed down
-	  //from the parent / owner using context
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({ muiTheme: newMuiTheme });
-	  },
-
-	  render: function render() {
-	    var _props = this.props;
-	    var children = _props.children;
-	    var insetSubheader = _props.insetSubheader;
-	    var style = _props.style;
-	    var subheader = _props.subheader;
-	    var subheaderStyle = _props.subheaderStyle;
-	    var zDepth = _props.zDepth;
-
-	    var other = _objectWithoutProperties(_props, ['children', 'insetSubheader', 'style', 'subheader', 'subheaderStyle', 'zDepth']);
-
-	    var styles = {
-	      root: {
-	        padding: 0,
-	        paddingBottom: 8,
-	        paddingTop: subheader ? 0 : 8
-	      },
-
-	      subheader: {
-	        color: Typography.textLightBlack,
-	        fontSize: 14,
-	        fontWeight: Typography.fontWeightMedium,
-	        lineHeight: '48px',
-	        paddingLeft: insetSubheader ? 72 : 16
-	      }
-	    };
-
-	    var subheaderElement = undefined;
-	    if (subheader) {
-	      var mergedSubheaderStyles = this.prepareStyles(styles.subheader, subheaderStyle);
-	      subheaderElement = React.createElement(
-	        'div',
-	        { style: mergedSubheaderStyles },
-	        subheader
-	      );
-	    }
-
-	    return React.createElement(
-	      Paper,
-	      _extends({}, other, {
-	        style: this.mergeStyles(styles.root, style),
-	        zDepth: zDepth }),
-	      subheaderElement,
-	      children
-	    );
-	  }
-	});
-
-	module.exports = List;
-
-/***/ },
-/* 198 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25652,14 +24103,14 @@
 	};
 
 /***/ },
-/* 199 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var ImmutabilityHelper = __webpack_require__(200);
-	var Styles = __webpack_require__(201);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var Styles = __webpack_require__(188);
 
 	// This mixin isn't necessary and will be removed in v0.11
 
@@ -25697,12 +24148,12 @@
 	};
 
 /***/ },
-/* 200 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var update = React.addons.update;
 
 	function mergeSingle(objA, objB) {
@@ -25743,13 +24194,13 @@
 	};
 
 /***/ },
-/* 201 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var AutoPrefix = __webpack_require__(202);
-	var ImmutabilityHelper = __webpack_require__(200);
+	var AutoPrefix = __webpack_require__(189);
+	var ImmutabilityHelper = __webpack_require__(187);
 
 	var reTranslate = /((^|\s)translate(3d|X)?\()(\-?[\d]+)/;
 
@@ -25852,14 +24303,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 202 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var isBrowser = __webpack_require__(203);
+	var isBrowser = __webpack_require__(190);
 
-	var Modernizr = isBrowser ? __webpack_require__(204) : undefined;
+	var Modernizr = isBrowser ? __webpack_require__(191) : undefined;
 
 	//Keep track of already prefixed keys so we can skip Modernizr prefixing
 	var prefixedKeys = {};
@@ -25910,7 +24361,7 @@
 	};
 
 /***/ },
-/* 203 */
+/* 190 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25918,7 +24369,7 @@
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 204 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/* Modernizr 2.8.3 (Custom Build) | MIT & BSD
@@ -26182,14 +24633,14 @@
 	})(window, window.document);
 
 /***/ },
-/* 205 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var Colors = __webpack_require__(206);
+	var Colors = __webpack_require__(193);
 
 	var Typography = function Typography() {
 	  _classCallCheck(this, Typography);
@@ -26214,7 +24665,7 @@
 	module.exports = new Typography();
 
 /***/ },
-/* 206 */
+/* 193 */
 /***/ function(module, exports) {
 
 	// To include this file in your project:
@@ -26514,7 +24965,7 @@
 	};
 
 /***/ },
-/* 207 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26523,13 +24974,13 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(199);
-	var PropTypes = __webpack_require__(198);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var PropTypes = __webpack_require__(185);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Paper = React.createClass({
 	  displayName: 'Paper',
@@ -26619,12 +25070,12 @@
 	module.exports = Paper;
 
 /***/ },
-/* 208 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var AutoPrefix = __webpack_require__(202);
+	var AutoPrefix = __webpack_require__(189);
 
 	module.exports = {
 
@@ -26659,14 +25110,14 @@
 	};
 
 /***/ },
-/* 209 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(206);
-	var ColorManipulator = __webpack_require__(210);
-	var Spacing = __webpack_require__(211);
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Spacing = __webpack_require__(198);
 
 	/*
 	 *  Light Theme is the default theme used in material-ui. It is guaranteed to
@@ -26693,7 +25144,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26872,7 +25323,7 @@
 	};
 
 /***/ },
-/* 211 */
+/* 198 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -26893,15 +25344,15 @@
 	};
 
 /***/ },
-/* 212 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(206);
-	var ColorManipulator = __webpack_require__(210);
-	var Extend = __webpack_require__(213);
-	var update = __webpack_require__(185);
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Extend = __webpack_require__(200);
+	var update = __webpack_require__(183);
 
 	module.exports = {
 
@@ -27139,7 +25590,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27193,7 +25644,7 @@
 	module.exports = extend;
 
 /***/ },
-/* 214 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27202,20 +25653,20 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var ColorManipulator = __webpack_require__(210);
-	var StylePropable = __webpack_require__(199);
-	var Colors = __webpack_require__(206);
-	var Transitions = __webpack_require__(208);
-	var Typography = __webpack_require__(205);
-	var EnhancedButton = __webpack_require__(215);
-	var IconButton = __webpack_require__(225);
-	var OpenIcon = __webpack_require__(230);
-	var CloseIcon = __webpack_require__(232);
-	var NestedList = __webpack_require__(233);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var ColorManipulator = __webpack_require__(197);
+	var StylePropable = __webpack_require__(186);
+	var Colors = __webpack_require__(193);
+	var Transitions = __webpack_require__(195);
+	var Typography = __webpack_require__(192);
+	var EnhancedButton = __webpack_require__(202);
+	var IconButton = __webpack_require__(212);
+	var OpenIcon = __webpack_require__(217);
+	var CloseIcon = __webpack_require__(219);
+	var NestedList = __webpack_require__(220);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ListItem = React.createClass({
 	  displayName: 'ListItem',
@@ -27677,7 +26128,7 @@
 	module.exports = ListItem;
 
 /***/ },
-/* 215 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27686,17 +26137,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(199);
-	var Colors = __webpack_require__(206);
-	var Children = __webpack_require__(216);
-	var Events = __webpack_require__(217);
-	var KeyCode = __webpack_require__(218);
-	var FocusRipple = __webpack_require__(219);
-	var TouchRipple = __webpack_require__(222);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Colors = __webpack_require__(193);
+	var Children = __webpack_require__(203);
+	var Events = __webpack_require__(204);
+	var KeyCode = __webpack_require__(205);
+	var FocusRipple = __webpack_require__(206);
+	var TouchRipple = __webpack_require__(209);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var styleInjected = false;
 	var listening = false;
@@ -27982,12 +26433,12 @@
 	module.exports = EnhancedButton;
 
 /***/ },
-/* 216 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var createFragment = React.addons.createFragment;
 
 	module.exports = {
@@ -28028,7 +26479,7 @@
 	};
 
 /***/ },
-/* 217 */
+/* 204 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28073,7 +26524,7 @@
 	};
 
 /***/ },
-/* 218 */
+/* 205 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -28090,18 +26541,18 @@
 	};
 
 /***/ },
-/* 219 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(199);
-	var AutoPrefix = __webpack_require__(202);
-	var Colors = __webpack_require__(206);
-	var Transitions = __webpack_require__(208);
-	var ScaleInTransitionGroup = __webpack_require__(220);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Colors = __webpack_require__(193);
+	var Transitions = __webpack_require__(195);
+	var ScaleInTransitionGroup = __webpack_require__(207);
 
 	var pulsateDuration = 750;
 
@@ -28219,7 +26670,7 @@
 	module.exports = FocusRipple;
 
 /***/ },
-/* 220 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28228,13 +26679,13 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
 	var ReactTransitionGroup = React.addons.TransitionGroup;
-	var StylePropable = __webpack_require__(199);
-	var ScaleInChild = __webpack_require__(221);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var ScaleInChild = __webpack_require__(208);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ScaleIn = React.createClass({
 	  displayName: 'ScaleIn',
@@ -28326,7 +26777,7 @@
 	module.exports = ScaleIn;
 
 /***/ },
-/* 221 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28335,13 +26786,13 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(199);
-	var AutoPrefix = __webpack_require__(202);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ScaleInChild = React.createClass({
 	  displayName: 'ScaleInChild',
@@ -28468,18 +26919,18 @@
 	module.exports = ScaleInChild;
 
 /***/ },
-/* 222 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
 	var ReactTransitionGroup = React.addons.TransitionGroup;
-	var StylePropable = __webpack_require__(199);
-	var Dom = __webpack_require__(223);
-	var ImmutabilityHelper = __webpack_require__(200);
-	var CircleRipple = __webpack_require__(224);
+	var StylePropable = __webpack_require__(186);
+	var Dom = __webpack_require__(210);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var CircleRipple = __webpack_require__(211);
 
 	var TouchRipple = React.createClass({
 	  displayName: 'TouchRipple',
@@ -28633,7 +27084,7 @@
 	module.exports = TouchRipple;
 
 /***/ },
-/* 223 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28710,7 +27161,7 @@
 	};
 
 /***/ },
-/* 224 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28719,12 +27170,12 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var StylePropable = __webpack_require__(199);
-	var AutoPrefix = __webpack_require__(202);
-	var Transitions = __webpack_require__(208);
-	var Colors = __webpack_require__(206);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
 
 	var CircleRipple = React.createClass({
 	  displayName: 'CircleRipple',
@@ -28813,7 +27264,7 @@
 	module.exports = CircleRipple;
 
 /***/ },
-/* 225 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28823,16 +27274,16 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var ContextPure = __webpack_require__(226);
-	var Transitions = __webpack_require__(208);
-	var PropTypes = __webpack_require__(198);
-	var EnhancedButton = __webpack_require__(215);
-	var FontIcon = __webpack_require__(228);
-	var Tooltip = __webpack_require__(229);
-	var Children = __webpack_require__(216);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var ContextPure = __webpack_require__(213);
+	var Transitions = __webpack_require__(195);
+	var PropTypes = __webpack_require__(185);
+	var EnhancedButton = __webpack_require__(202);
+	var FontIcon = __webpack_require__(215);
+	var Tooltip = __webpack_require__(216);
+	var Children = __webpack_require__(203);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var IconButton = React.createClass({
 	  displayName: 'IconButton',
@@ -29058,12 +27509,12 @@
 	module.exports = IconButton;
 
 /***/ },
-/* 226 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var shallowEqual = __webpack_require__(227);
+	var shallowEqual = __webpack_require__(214);
 
 	function relevantContextKeysEqual(classObject, currentContext, nextContext) {
 
@@ -29119,7 +27570,7 @@
 	};
 
 /***/ },
-/* 227 */
+/* 214 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29159,7 +27610,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 228 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29169,10 +27620,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var FontIcon = React.createClass({
 	  displayName: 'FontIcon',
@@ -29265,7 +27716,7 @@
 	module.exports = FontIcon;
 
 /***/ },
-/* 229 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29275,11 +27726,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var Colors = __webpack_require__(206);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Tooltip = React.createClass({
 	  displayName: 'Tooltip',
@@ -29440,14 +27891,14 @@
 	module.exports = Tooltip;
 
 /***/ },
-/* 230 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationArrowDropUp = React.createClass({
 	  displayName: 'NavigationArrowDropUp',
@@ -29467,7 +27918,7 @@
 	module.exports = NavigationArrowDropUp;
 
 /***/ },
-/* 231 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29477,10 +27928,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var SvgIcon = React.createClass({
 	  displayName: 'SvgIcon',
@@ -29586,14 +28037,14 @@
 	module.exports = SvgIcon;
 
 /***/ },
-/* 232 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationArrowDropDown = React.createClass({
 	  displayName: 'NavigationArrowDropDown',
@@ -29613,14 +28064,14 @@
 	module.exports = NavigationArrowDropDown;
 
 /***/ },
-/* 233 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var ImmutabilityHelper = __webpack_require__(200);
-	var List = __webpack_require__(197);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var List = __webpack_require__(166);
 
 	var NestedList = React.createClass({
 	  displayName: 'NestedList',
@@ -29666,7 +28117,7 @@
 	module.exports = NestedList;
 
 /***/ },
-/* 234 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29676,10 +28127,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var LinearProgress = React.createClass({
 	  displayName: 'LinearProgress',
@@ -29851,14 +28302,14 @@
 	module.exports = LinearProgress;
 
 /***/ },
-/* 235 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionRestore = React.createClass({
 	  displayName: 'ActionRestore',
@@ -29878,14 +28329,14 @@
 	module.exports = ActionRestore;
 
 /***/ },
-/* 236 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionBackup = React.createClass({
 	  displayName: 'ActionBackup',
@@ -29905,7 +28356,7 @@
 	module.exports = ActionBackup;
 
 /***/ },
-/* 237 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29914,11 +28365,11 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
-	var StylePropable = __webpack_require__(199);
-	var ListDivider = __webpack_require__(238);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var React = __webpack_require__(167);
+	var StylePropable = __webpack_require__(186);
+	var ListDivider = __webpack_require__(225);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var MenuDivider = React.createClass({
 	  displayName: 'MenuDivider',
@@ -29971,7 +28422,7 @@
 	module.exports = MenuDivider;
 
 /***/ },
-/* 238 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29980,10 +28431,10 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var React = __webpack_require__(167);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ListDivider = React.createClass({
 	  displayName: 'ListDivider',
@@ -30045,7 +28496,7 @@
 	module.exports = ListDivider;
 
 /***/ },
-/* 239 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -30062,19 +28513,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibListsList = __webpack_require__(197);
+	var _materialUiLibListsList = __webpack_require__(166);
 
 	var _materialUiLibListsList2 = _interopRequireDefault(_materialUiLibListsList);
 
-	var _materialUiLibListsListItem = __webpack_require__(214);
+	var _materialUiLibListsListItem = __webpack_require__(201);
 
 	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
 
-	var _materialUiLibSvgIconsMapsTerrain = __webpack_require__(240);
+	var _materialUiLibSvgIconsMapsTerrain = __webpack_require__(227);
 
 	var _materialUiLibSvgIconsMapsTerrain2 = _interopRequireDefault(_materialUiLibSvgIconsMapsTerrain);
 
-	var _BottomTear = __webpack_require__(241);
+	var _BottomTear = __webpack_require__(228);
 
 	var _BottomTear2 = _interopRequireDefault(_BottomTear);
 
@@ -30110,7 +28561,6 @@
 	    var _this = this;
 
 	    fetch(this.props.baseServerAddress + '/object', {
-	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
 	      method: 'post',
 	      mode: 'cors',
 	      body: 'object=' + JSON.stringify({ type: 'create', ID: this.props.items[key].ID, auto: false })
@@ -30119,7 +28569,7 @@
 	    }).then(function (json) {
 	      _this.props.onItemClick(key, json);
 	    })['catch'](function (e) {
-	      return console.error(e);
+	      console.error(e);
 	    });
 	  },
 
@@ -30182,14 +28632,14 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "TooltrayList.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 240 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var MapsTerrain = React.createClass({
 	  displayName: 'MapsTerrain',
@@ -30209,7 +28659,7 @@
 	module.exports = MapsTerrain;
 
 /***/ },
-/* 241 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -30265,7 +28715,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "BottomTear.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 242 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -30282,15 +28732,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibStyles = __webpack_require__(243);
+	var _materialUiLibStyles = __webpack_require__(230);
 
 	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
 
-	var _materialUiLibTextField = __webpack_require__(246);
+	var _materialUiLibTextField = __webpack_require__(233);
 
 	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 
-	var _materialUiLibSvgIconsActionInput = __webpack_require__(249);
+	var _materialUiLibSvgIconsActionInput = __webpack_require__(236);
 
 	var _materialUiLibSvgIconsActionInput2 = _interopRequireDefault(_materialUiLibSvgIconsActionInput);
 
@@ -30361,32 +28811,32 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ExerciseNameField.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 243 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	  AutoPrefix: __webpack_require__(202),
-	  Colors: __webpack_require__(206),
-	  Spacing: __webpack_require__(211),
-	  ThemeManager: __webpack_require__(212),
-	  Transitions: __webpack_require__(208),
-	  Typography: __webpack_require__(205),
-	  LightRawTheme: __webpack_require__(209),
-	  DarkRawTheme: __webpack_require__(244),
-	  ThemeDecorator: __webpack_require__(245)
+	  AutoPrefix: __webpack_require__(189),
+	  Colors: __webpack_require__(193),
+	  Spacing: __webpack_require__(198),
+	  ThemeManager: __webpack_require__(199),
+	  Transitions: __webpack_require__(195),
+	  Typography: __webpack_require__(192),
+	  LightRawTheme: __webpack_require__(196),
+	  DarkRawTheme: __webpack_require__(231),
+	  ThemeDecorator: __webpack_require__(232)
 	};
 
 /***/ },
-/* 244 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Colors = __webpack_require__(206);
-	var ColorManipulator = __webpack_require__(210);
-	var Spacing = __webpack_require__(211);
+	var Colors = __webpack_require__(193);
+	var ColorManipulator = __webpack_require__(197);
+	var Spacing = __webpack_require__(198);
 
 	module.exports = {
 	  spacing: Spacing,
@@ -30407,7 +28857,7 @@
 	};
 
 /***/ },
-/* 245 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30438,7 +28888,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -30448,14 +28898,14 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var ColorManipulator = __webpack_require__(210);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var UniqueId = __webpack_require__(247);
-	var EnhancedTextarea = __webpack_require__(248);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
-	var ContextPure = __webpack_require__(226);
+	var ColorManipulator = __webpack_require__(197);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var UniqueId = __webpack_require__(234);
+	var EnhancedTextarea = __webpack_require__(235);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
+	var ContextPure = __webpack_require__(213);
 
 	/**
 	 * Check if a value is valid to be displayed inside an input.
@@ -30884,7 +29334,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 247 */
+/* 234 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30898,7 +29348,7 @@
 	};
 
 /***/ },
-/* 248 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30908,9 +29358,9 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var rowsHeight = 24;
 
@@ -31081,14 +29531,14 @@
 	module.exports = EnhancedTextarea;
 
 /***/ },
-/* 249 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var ActionInput = React.createClass({
 	  displayName: 'ActionInput',
@@ -31108,7 +29558,7 @@
 	module.exports = ActionInput;
 
 /***/ },
-/* 250 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -31125,11 +29575,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibListsListItem = __webpack_require__(214);
+	var _materialUiLibListsListItem = __webpack_require__(201);
 
 	var _materialUiLibListsListItem2 = _interopRequireDefault(_materialUiLibListsListItem);
 
-	var _materialUiLibCheckbox = __webpack_require__(251);
+	var _materialUiLibCheckbox = __webpack_require__(238);
 
 	var _materialUiLibCheckbox2 = _interopRequireDefault(_materialUiLibCheckbox);
 
@@ -31175,7 +29625,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "CheckboxListItems.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 251 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31185,13 +29635,13 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var EnhancedSwitch = __webpack_require__(252);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var CheckboxOutline = __webpack_require__(256);
-	var CheckboxChecked = __webpack_require__(257);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var EnhancedSwitch = __webpack_require__(239);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var CheckboxOutline = __webpack_require__(243);
+	var CheckboxChecked = __webpack_require__(244);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Checkbox = React.createClass({
 	  displayName: 'Checkbox',
@@ -31360,7 +29810,7 @@
 	module.exports = Checkbox;
 
 /***/ },
-/* 252 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -31370,17 +29820,17 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var KeyCode = __webpack_require__(218);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var UniqueId = __webpack_require__(247);
-	var WindowListenable = __webpack_require__(253);
-	var ClearFix = __webpack_require__(254);
-	var FocusRipple = __webpack_require__(219);
-	var TouchRipple = __webpack_require__(222);
-	var Paper = __webpack_require__(207);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var KeyCode = __webpack_require__(205);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var UniqueId = __webpack_require__(234);
+	var WindowListenable = __webpack_require__(240);
+	var ClearFix = __webpack_require__(241);
+	var FocusRipple = __webpack_require__(206);
+	var TouchRipple = __webpack_require__(209);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var EnhancedSwitch = React.createClass({
 	  displayName: 'EnhancedSwitch',
@@ -31793,12 +30243,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 253 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Events = __webpack_require__(217);
+	var Events = __webpack_require__(204);
 
 	module.exports = {
 
@@ -31823,7 +30273,7 @@
 	};
 
 /***/ },
-/* 254 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31833,10 +30283,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var BeforeAfterWrapper = __webpack_require__(255);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var BeforeAfterWrapper = __webpack_require__(242);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ClearFix = React.createClass({
 	  displayName: 'ClearFix',
@@ -31901,7 +30351,7 @@
 	module.exports = ClearFix;
 
 /***/ },
-/* 255 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31909,10 +30359,10 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var AutoPrefix = __webpack_require__(202);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	/**
 	 *  BeforeAfterWrapper
@@ -32035,14 +30485,14 @@
 	module.exports = BeforeAfterWrapper;
 
 /***/ },
-/* 256 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var ToggleCheckBoxOutlineBlank = React.createClass({
 	  displayName: 'ToggleCheckBoxOutlineBlank',
@@ -32062,14 +30512,14 @@
 	module.exports = ToggleCheckBoxOutlineBlank;
 
 /***/ },
-/* 257 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var ToggleCheckBox = React.createClass({
 	  displayName: 'ToggleCheckBox',
@@ -32089,7 +30539,7 @@
 	module.exports = ToggleCheckBox;
 
 /***/ },
-/* 258 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -32106,7 +30556,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibDialog = __webpack_require__(259);
+	var _materialUiLibDialog = __webpack_require__(246);
 
 	var _materialUiLibDialog2 = _interopRequireDefault(_materialUiLibDialog);
 
@@ -32168,7 +30618,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "ComponentDialog.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 259 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32177,17 +30627,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
-	var WindowListenable = __webpack_require__(253);
-	var CssEvent = __webpack_require__(260);
-	var KeyCode = __webpack_require__(218);
-	var Transitions = __webpack_require__(208);
-	var StylePropable = __webpack_require__(199);
-	var FlatButton = __webpack_require__(261);
-	var Overlay = __webpack_require__(263);
-	var Paper = __webpack_require__(207);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var React = __webpack_require__(167);
+	var WindowListenable = __webpack_require__(240);
+	var CssEvent = __webpack_require__(247);
+	var KeyCode = __webpack_require__(205);
+	var Transitions = __webpack_require__(195);
+	var StylePropable = __webpack_require__(186);
+	var FlatButton = __webpack_require__(248);
+	var Overlay = __webpack_require__(250);
+	var Paper = __webpack_require__(194);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ReactTransitionGroup = React.addons.TransitionGroup;
 
@@ -32599,12 +31049,12 @@
 	module.exports = Dialog;
 
 /***/ },
-/* 260 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Events = __webpack_require__(217);
+	var Events = __webpack_require__(204);
 
 	module.exports = {
 
@@ -32656,7 +31106,7 @@
 	};
 
 /***/ },
-/* 261 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32665,17 +31115,17 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	var React = __webpack_require__(169);
-	var ContextPure = __webpack_require__(226);
-	var Transitions = __webpack_require__(208);
-	var Children = __webpack_require__(216);
-	var ColorManipulator = __webpack_require__(210);
-	var ImmutabilityHelper = __webpack_require__(200);
-	var Typography = __webpack_require__(205);
-	var EnhancedButton = __webpack_require__(215);
-	var FlatButtonLabel = __webpack_require__(262);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var React = __webpack_require__(167);
+	var ContextPure = __webpack_require__(213);
+	var Transitions = __webpack_require__(195);
+	var Children = __webpack_require__(203);
+	var ColorManipulator = __webpack_require__(197);
+	var ImmutabilityHelper = __webpack_require__(187);
+	var Typography = __webpack_require__(192);
+	var EnhancedButton = __webpack_require__(202);
+	var FlatButtonLabel = __webpack_require__(249);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	function validateLabel(props, propName, componentName) {
 	  if (!props.children && !props.label) {
@@ -32873,17 +31323,17 @@
 	module.exports = FlatButton;
 
 /***/ },
-/* 262 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
-	var ContextPure = __webpack_require__(226);
-	var StylePropable = __webpack_require__(199);
-	var Styles = __webpack_require__(201);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var React = __webpack_require__(167);
+	var ContextPure = __webpack_require__(213);
+	var StylePropable = __webpack_require__(186);
+	var Styles = __webpack_require__(188);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var FlatButtonLabel = React.createClass({
 	  displayName: 'FlatButtonLabel',
@@ -32955,7 +31405,7 @@
 	module.exports = FlatButtonLabel;
 
 /***/ },
-/* 263 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32965,11 +31415,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var Colors = __webpack_require__(206);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Colors = __webpack_require__(193);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Overlay = React.createClass({
 	  displayName: 'Overlay',
@@ -33105,7 +31555,7 @@
 	module.exports = Overlay;
 
 /***/ },
-/* 264 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -33120,7 +31570,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _reactTapEventPlugin = __webpack_require__(265);
+	var _reactTapEventPlugin = __webpack_require__(252);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -33133,11 +31583,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _materialUiLibStylesThemeManager = __webpack_require__(212);
+	var _materialUiLibStylesThemeManager = __webpack_require__(199);
 
 	var _materialUiLibStylesThemeManager2 = _interopRequireDefault(_materialUiLibStylesThemeManager);
 
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(209);
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
 
 	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
 
@@ -33158,7 +31608,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "material-ui-theme.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 265 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function injectTapEventPlugin () {
@@ -33166,14 +31616,14 @@
 	  React.initializeTouchEvents(true);
 
 	  __webpack_require__(74).injection.injectEventPluginsByName({
-	    "ResponderEventPlugin": __webpack_require__(266),
-	    "TapEventPlugin":       __webpack_require__(267)
+	    "ResponderEventPlugin": __webpack_require__(253),
+	    "TapEventPlugin":       __webpack_require__(254)
 	  });
 	};
 
 
 /***/ },
-/* 266 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33488,7 +31938,7 @@
 
 
 /***/ },
-/* 267 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33516,7 +31966,7 @@
 	var EventPluginUtils = __webpack_require__(9);
 	var EventPropagators = __webpack_require__(98);
 	var SyntheticUIEvent = __webpack_require__(111);
-	var TouchEventUtils = __webpack_require__(268);
+	var TouchEventUtils = __webpack_require__(255);
 	var ViewportMetrics = __webpack_require__(79);
 
 	var keyOf = __webpack_require__(44);
@@ -33660,7 +32110,7 @@
 
 
 /***/ },
-/* 268 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/**
@@ -33708,7 +32158,7 @@
 
 
 /***/ },
-/* 269 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33718,11 +32168,11 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var AutoPrefix = __webpack_require__(202);
-	var Transitions = __webpack_require__(208);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var AutoPrefix = __webpack_require__(189);
+	var Transitions = __webpack_require__(195);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var CircularProgress = React.createClass({
 	  displayName: 'CircularProgress',
@@ -33921,7 +32371,7 @@
 	module.exports = CircularProgress;
 
 /***/ },
-/* 270 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -33931,15 +32381,15 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var KeyCode = __webpack_require__(218);
-	var DropDownArrow = __webpack_require__(232);
-	var Paper = __webpack_require__(207);
-	var Menu = __webpack_require__(271);
-	var ClearFix = __webpack_require__(254);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var KeyCode = __webpack_require__(205);
+	var DropDownArrow = __webpack_require__(219);
+	var Paper = __webpack_require__(194);
+	var Menu = __webpack_require__(258);
+	var ClearFix = __webpack_require__(241);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var DropDownMenu = React.createClass({
 	  displayName: 'DropDownMenu',
@@ -34285,7 +32735,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
-/* 271 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34295,18 +32745,18 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var CssEvent = __webpack_require__(260);
-	var KeyLine = __webpack_require__(272);
-	var KeyCode = __webpack_require__(218);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var ClickAwayable = __webpack_require__(273);
-	var Paper = __webpack_require__(207);
-	var MenuItem = __webpack_require__(274);
-	var LinkMenuItem = __webpack_require__(276);
-	var SubheaderMenuItem = __webpack_require__(277);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var CssEvent = __webpack_require__(247);
+	var KeyLine = __webpack_require__(259);
+	var KeyCode = __webpack_require__(205);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var ClickAwayable = __webpack_require__(260);
+	var Paper = __webpack_require__(194);
+	var MenuItem = __webpack_require__(261);
+	var LinkMenuItem = __webpack_require__(263);
+	var SubheaderMenuItem = __webpack_require__(264);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	/***********************
 	* Nested Menu Component
@@ -34931,7 +33381,7 @@
 	module.exports = Menu;
 
 /***/ },
-/* 272 */
+/* 259 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -34951,14 +33401,14 @@
 	};
 
 /***/ },
-/* 273 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var Events = __webpack_require__(217);
-	var Dom = __webpack_require__(223);
+	var Events = __webpack_require__(204);
+	var Dom = __webpack_require__(210);
 
 	module.exports = {
 
@@ -34997,7 +33447,7 @@
 	};
 
 /***/ },
-/* 274 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35009,11 +33459,11 @@
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var FontIcon = __webpack_require__(228);
-	var Toggle = __webpack_require__(275);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var FontIcon = __webpack_require__(215);
+	var Toggle = __webpack_require__(262);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Types = {
 	  LINK: 'LINK',
@@ -35234,7 +33684,7 @@
 	module.exports = MenuItem;
 
 /***/ },
-/* 275 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35244,12 +33694,12 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var Paper = __webpack_require__(207);
-	var EnhancedSwitch = __webpack_require__(252);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var Paper = __webpack_require__(194);
+	var EnhancedSwitch = __webpack_require__(239);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Toggle = React.createClass({
 	  displayName: 'Toggle',
@@ -35426,7 +33876,7 @@
 	module.exports = Toggle;
 
 /***/ },
-/* 276 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35434,9 +33884,9 @@
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var LinkMenuItem = React.createClass({
 	  displayName: 'LinkMenuItem',
@@ -35561,16 +34011,16 @@
 	module.exports = LinkMenuItem;
 
 /***/ },
-/* 277 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var Typography = __webpack_require__(205);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var Typography = __webpack_require__(192);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var SubheaderMenuItem = React.createClass({
 	  displayName: 'SubheaderMenuItem',
@@ -35664,7 +34114,7 @@
 	module.exports = SubheaderMenuItem;
 
 /***/ },
-/* 278 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35674,13 +34124,13 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var CssEvent = __webpack_require__(260);
-	var StylePropable = __webpack_require__(199);
-	var Transitions = __webpack_require__(208);
-	var ClickAwayable = __webpack_require__(273);
-	var FlatButton = __webpack_require__(261);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var CssEvent = __webpack_require__(247);
+	var StylePropable = __webpack_require__(186);
+	var Transitions = __webpack_require__(195);
+	var ClickAwayable = __webpack_require__(260);
+	var FlatButton = __webpack_require__(248);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Snackbar = React.createClass({
 	  displayName: 'Snackbar',
@@ -35880,15 +34330,15 @@
 	module.exports = Snackbar;
 
 /***/ },
-/* 279 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var Toolbar = React.createClass({
 	  displayName: 'Toolbar',
@@ -35956,16 +34406,16 @@
 	module.exports = Toolbar;
 
 /***/ },
-/* 280 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var Colors = __webpack_require__(206);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var Colors = __webpack_require__(193);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarGroup = React.createClass({
 	  displayName: 'ToolbarGroup',
@@ -36145,15 +34595,15 @@
 	module.exports = ToolbarGroup;
 
 /***/ },
-/* 281 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarSeparator = React.createClass({
 	  displayName: 'ToolbarSeparator',
@@ -36215,7 +34665,7 @@
 	module.exports = ToolbarSeparator;
 
 /***/ },
-/* 282 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36225,9 +34675,9 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(6);
-	var StylePropable = __webpack_require__(199);
-	var DefaultRawTheme = __webpack_require__(209);
-	var ThemeManager = __webpack_require__(212);
+	var StylePropable = __webpack_require__(186);
+	var DefaultRawTheme = __webpack_require__(196);
+	var ThemeManager = __webpack_require__(199);
 
 	var ToolbarTitle = React.createClass({
 	  displayName: 'ToolbarTitle',
@@ -36297,14 +34747,14 @@
 	module.exports = ToolbarTitle;
 
 /***/ },
-/* 283 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var React = __webpack_require__(169);
+	var React = __webpack_require__(167);
 	var PureRenderMixin = React.addons.PureRenderMixin;
-	var SvgIcon = __webpack_require__(231);
+	var SvgIcon = __webpack_require__(218);
 
 	var NavigationMenu = React.createClass({
 	  displayName: 'NavigationMenu',
@@ -36324,7 +34774,295 @@
 	module.exports = NavigationMenu;
 
 /***/ },
-/* 284 */
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+
+	// fetch('/foo').catch((e) => { console.log(e.message); });
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	__webpack_require__(165);
+
+	var _webpackDevServerM4s3dMeta = __webpack_require__(272);
+
+	var _webpackDevServerM4s3dMeta2 = _interopRequireDefault(_webpackDevServerM4s3dMeta);
+
+	var _webpackDevServerRanges3dMeta = __webpack_require__(273);
+
+	var _webpackDevServerRanges3dMeta2 = _interopRequireDefault(_webpackDevServerRanges3dMeta);
+
+	var restore = undefined;
+	var instructorMode = true;
+
+	var routeHandler = function routeHandler(route, options) {
+	  switch (route) {
+	    case 'http://localhost:3001/CAT/inventory':
+	      return delayResponse(500, inventoryCATFetch());
+	    case 'http://localhost:3001/inventory':
+	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/inventory':
+	      return delayResponse(1500, inventoryEUIFetch());
+	    case 'http://localhost:3001/query':
+	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/query':
+	      return queryEUIFetch(options);
+	    case 'http://localhost:3001/object':
+	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/object':
+	      return objectEUIFetch(options);
+	    case 'http://localhost:3001/generateSolution':
+	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/generateSolution':
+	      return generateSolutionEUIFetch();
+	    case 'http://localhost:3001/listfiles/exercise/json':
+	      return delayResponse(1000, exerciseFetch());
+	    case 'http://localhost:3001/CAT/finishExercise':
+	      return finishExercise(options);
+	    default:
+	      return Promise.reject(new Error('fakeFetch has no handler for: ' + route));
+	  }
+	};
+
+	var saveFetch = window.fetch;
+	var httpResponse = { status: 200, headers: { 'Content-type': 'application/json' } };
+
+	var delayResponse = function delayResponse(delay, response) {
+	  var executor = function executor(resolve /*, reject */) {
+	    return setTimeout(function () {
+	      return resolve(response);
+	    }, delay);
+	  };
+
+	  return new Promise(executor);
+	};
+
+	var exerciseFetch = function exerciseFetch() {
+	  var exercises = ['http://localhost:3001/PutExercise', 'http://localhost:3001/exercises/071-100-0032/step01/m4_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear', 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear_exer_ese'];
+
+	  return new window.Response(JSON.stringify(exercises), httpResponse);
+	};
+
+	var inventoryCATFetch = function inventoryCATFetch() {
+	  var fakeData = JSON.stringify([{
+	    name: 'Shooting Range',
+	    ID: 'myRange'
+	  }, {
+	    name: 'M4 Carbine',
+	    ID: 'myM4'
+	  }]);
+
+	  return new window.Response('{ "tooltray": ' + fakeData + ' }', httpResponse);
+	};
+
+	var inventoryEUIFetch = function inventoryEUIFetch() {
+	  var fakeData = JSON.stringify([{
+	    name: 'M4 Carbine',
+	    ID: 'myM4'
+	  }]);
+	  var jsonData = '{ "instructorMode": ' + instructorMode + ', "tooltray": ' + fakeData + ' }';
+
+	  return new window.Response(jsonData, httpResponse);
+	};
+
+	var generateSolutionEUIFetch = function generateSolutionEUIFetch() {
+	  instructorMode = false;
+	  return Promise.resolve(new window.Response(null, httpResponse));
+	};
+
+	var queryEUIFetch = function queryEUIFetch(options) {
+	  var body = options.body;
+	  var o = JSON.parse(body.replace('query=', ''));
+	  var jsonData = undefined;
+
+	  console.log(o);
+
+	  switch (o.type) {
+	    case 'Reset':
+	      instructorMode = true;
+	      break;
+	    case 'KbId':
+	      jsonData = [o.query[0] + Date.now()];
+	      break;
+	  }
+
+	  return Promise.resolve(new window.Response(JSON.stringify({ KbIds: jsonData }), httpResponse));
+	};
+
+	var objectEUIFetch = function objectEUIFetch(options) {
+	  var body = options.body;
+	  var o = JSON.parse(body.replace('object=', ''));
+	  var jsonData = null;
+
+	  if (o.type === 'create') {
+	    if (o.auto) {
+	      jsonData = JSON.stringify([_webpackDevServerRanges3dMeta2['default']]);
+	    } else {
+	      switch (o.ID) {
+	        case 'myM4':
+	          jsonData = JSON.stringify([_webpackDevServerM4s3dMeta2['default']]);
+	          break;
+	        case 'myRange':
+	          jsonData = JSON.stringify([_webpackDevServerRanges3dMeta2['default']]);
+	          break;
+	        default:
+	          return Promise.reject(new Error('Tool tray ID not handled for object create: ' + o.ID));
+	      }
+	    }
+	  }
+
+	  return Promise.resolve(new window.Response(jsonData, httpResponse));
+	};
+
+	var finishExercise = function finishExercise(options) {
+	  var body = options.body;
+	  var o = JSON.parse(body.replace('save=', ''));
+
+	  console.log(o);
+	  return Promise.resolve(new window.Response(null, httpResponse));
+	};
+
+	var fakeFetch = function fakeFetch() {
+	  if (restore == null) {
+	    restore = function () {
+	      window.fetch = saveFetch;
+	    };
+	  } else {
+	    return;
+	  }
+
+	  window.fetch = function (path, options) {
+	    return routeHandler(path, options);
+	  };
+	  window.fetch.restore = restore;
+	};
+
+	exports.fakeFetch = fakeFetch;
+	var restoreFetch = function restoreFetch() {
+	  if (restore != null) {
+	    restore();
+	  }
+	};
+
+	exports.restoreFetch = restoreFetch;
+	exports['default'] = fakeFetch;
+
+	fakeFetch();
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-fetch.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  KbId: 'myM4',
+	  assetURL: '/SAVE/models/weapons/M4/M4_noHierarchy.dae',
+	  grouping: {
+	    name: 'M4 Carbine',
+	    parts: ['Sling', 'Barrel_Assembly', 'Upper_Handguard', 'Lower_Handguard', 'Small_Sling_Swivel', 'Compensator', 'Recessed_Washer__OOCompensator', 'Spring_Pin2', 'Spring_Pin3', 'Rear_Handguard_Clamp', 'Screw', 'Gas_Tube_Spring_Pin', 'Gas_Tube', 'Handguard_Slip_Ring_Spring', 'Handguard_Slip_Ring_Retaining_Ring', 'Handguard_Slip_Ring_LAMA918813252', 'Front_Sight_Post', 'Headless_Shoulder_Pin', 'Spring3', 'Tubular_Rivet', 'Synchro_Clamp', 'Spring_Pin1', 'Spring_Pin', 'Swivel_Mount', 'Flat_Spring', 'Special_Shaped_Spacer'],
+	    groups: [{
+	      name: 'Buttstock Group',
+	      parts: ['Buttstock', 'Swivel_LAMA1259863095', 'Machine_Screw', 'Buttstock_Release_Lever_Nut', 'Buttstock_Release_Lever', 'Buttstock_Release_Lever_Screw_LAMA1417807796', 'Buttstock_Release_Lever_Spring_Pin', 'Buttstock_Release_Lever_Spring']
+	    }, {
+	      name: 'Magazine_g Group',
+	      parts: ['Tube', 'Clip_Spring1', 'Base', 'Clip_Spring', 'Follower'],
+	      groups: [{
+	        name: 'Casing1 Group',
+	        parts: ['Casing1', 'Projectile1']
+	      }, {
+	        name: 'Casing2 Group',
+	        parts: ['Casing2', 'Projectile2']
+	      }, {
+	        name: 'Casing3 Group',
+	        parts: ['Casing3', 'Projectile3']
+	      }]
+	    }, {
+	      name: 'Lower_Receiver Group',
+	      parts: ['Lower_Receiver', 'Trigger', 'Trigger_Spring', 'Disconnector_Spring__OOBurst__CC', 'Disconnector_Spring__OOSemi__CC', 'Trigger_Spring1', 'Trigger_Pin', 'Disconnector__Burst', 'Disconnector__Semi', 'Magazine_Catch', 'Magazine_Catch_Spring', 'Magazine_Catch_Button', 'Pivot_Pin', 'Pivot_Pin_Detent', 'Pivot_Pin_Spring', 'Takedown_Pin', 'Takedown_Pin_Detent', 'Takedown_Pin_Detent_Spring', 'Selector_Lever', 'Safety_Detent__OOSelector_Lever__CC', 'Safety_Spring__OOSelector_Lever__CC', 'Automatic_Sear', 'Automatic_Sear_Spring', 'Sear_Pin', 'Hammer', 'Hammer_Spring1', 'Hammer_Pin', 'Burst_Cam', 'Burst_Cam_Clutch_Spring', 'Hammer_Spring', 'Lower_Receiver_Extension', 'Buffer', 'Action_Spring', 'Plain_Round_Nut', 'Receiver_End_Plate', 'Buffer_Retainer', 'Buffer_Retainer_Spring', 'Trigger_Guard', 'Trigger_Guard_Spring_Pin_Retaining_Pin', 'Trigger_Guard_Detent', 'Trigger_Guard_Detent_Spring', 'Pistol_Grip', 'Pistol_Grip_Screw', 'Pistol_Grip_Lock_Washer'],
+	      groups: [{
+	        name: 'Bolt_Catch Group',
+	        parts: ['Bolt_Catch', 'Bolt_Catch_Spring_Pin', 'Bolt_Catch_Plunger', 'Bolt_Catch_Spring'],
+	        groups: [{
+	          name: 'Bolt_Catch_Bottom Group'
+	        }, {
+	          name: 'Bolt_Catch_Top Group'
+	        }]
+	      }, {
+	        name: 'PivotPinHead Group'
+	      }, {
+	        name: 'PivotPinTail Group'
+	      }, {
+	        name: 'TakedownPinHead Group'
+	      }, {
+	        name: 'TakedownPinTail Group'
+	      }]
+	    }, {
+	      name: 'Upper_Receiver Group',
+	      parts: ['Upper_Receiver', 'Plunger_Assembly', 'Pawl__Forward_Assist', 'Forward_Assist_Spring', 'Forward_Assist_Spring1', 'Pawl_Spring_Pin', 'Pawl_Detent', 'Pawl_Spring', 'Cover_Pin', 'Ejection_Port_Cover', 'Cover_Spring', 'Cover_Retaining_Ring__OOC_Clip__CC'],
+	      groups: [{
+	        name: 'Chamber Group'
+	      }, {
+	        name: 'Charging_Handle Group',
+	        parts: ['Charging_Handle', 'Charging_Handle_Latch', 'Charging_Handle_Spring', 'Charging_Handle_Spring_Pin']
+	      }, {
+	        name: 'Key_and_Bolt_Carrier_Assembly Group',
+	        parts: ['Key_and_Bolt_Carrier_Assembly', 'Firing_Pin_Retaining_Pin', 'Firing_Pin'],
+	        groups: [{
+	          name: 'Bolt Group',
+	          parts: ['Bolt', 'Bolt_Cam_Pin', 'Ejector_Spring_Pin', 'Bolt_Ring', 'Bolt_Ring2', 'Bolt_Ring1', 'Ejector', 'Ejector_Spring', 'Extractor', 'Extractor_Spring', 'Extractor_Pin', 'Casing4', 'Projectile4']
+	        }]
+	      }, {
+	        name: 'Gun_Carrying_Handle Group',
+	        parts: ['Gun_Carrying_Handle', 'Windage_Spring_Pin', 'Rear_Sight_Screw', 'Flat_Rear_Sight_Spring', 'Rear_Sight_Base', 'Sight_Aperture', 'Windage_Knob', 'Spring__Helical__Compression', 'Knob', 'Ball_Bearing1', 'Elevating_Mechanism', 'Spring2', 'Spring1', 'Index_Screw', 'Ball_Bearing', 'Pin_Spring', 'Spring', 'Ball_Bearing2', 'Round_Nut1', 'Washer1', 'Washer', 'Clamping_Bar', 'Round_Nut']
+	      }]
+	    }]
+	  }
+	};
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-m4s3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	exports['default'] = {
+	  KbId: 'myRange',
+	  assetURL: '/SAVE/models/environments/range/ShootingRange.dae',
+	  grouping: {
+	    name: 'ShootingRange',
+	    groups: [{
+	      name: 'environment',
+	      node: 'environment',
+	      parts: ['grass', 'tree_line', 'sky', 'targets', 'ShootingRangeArea1', 'ShootingRangeArea2', 'ShootingRangeArea3', 'ShootingRangeArea4', 'ShootingRangeArea5', 'ShootingRangeArea6', 'ShootingRangeArea7', 'ShootingRangeArea8']
+	    }]
+	  }
+	};
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "webpack-dev-server-ranges3d-meta.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/admin/box/SAVE/react-components/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36343,75 +35081,67 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAddons = __webpack_require__(169);
-
-	var _reactJoyride = __webpack_require__(187);
-
-	var _reactJoyride2 = _interopRequireDefault(_reactJoyride);
-
-	__webpack_require__(194);
-
-	var _ControlsJsx = __webpack_require__(196);
+	var _ControlsJsx = __webpack_require__(164);
 
 	var _ControlsJsx2 = _interopRequireDefault(_ControlsJsx);
 
-	var _ComponentDialogJsx = __webpack_require__(258);
+	var _ComponentDialogJsx = __webpack_require__(245);
 
 	var _ComponentDialogJsx2 = _interopRequireDefault(_ComponentDialogJsx);
 
-	var _mixinsMaterialUiTheme = __webpack_require__(264);
+	var _mixinsMaterialUiTheme = __webpack_require__(251);
 
 	var _mixinsMaterialUiTheme2 = _interopRequireDefault(_mixinsMaterialUiTheme);
 
-	var _materialUiLibCircularProgress = __webpack_require__(269);
+	var _materialUiLibCircularProgress = __webpack_require__(256);
 
 	var _materialUiLibCircularProgress2 = _interopRequireDefault(_materialUiLibCircularProgress);
 
-	var _materialUiLibDropDownMenu = __webpack_require__(270);
+	var _materialUiLibDropDownMenu = __webpack_require__(257);
 
 	var _materialUiLibDropDownMenu2 = _interopRequireDefault(_materialUiLibDropDownMenu);
 
-	var _materialUiLibPaper = __webpack_require__(207);
+	var _materialUiLibPaper = __webpack_require__(194);
 
 	var _materialUiLibPaper2 = _interopRequireDefault(_materialUiLibPaper);
 
-	var _materialUiLibIconButton = __webpack_require__(225);
+	var _materialUiLibIconButton = __webpack_require__(212);
 
 	var _materialUiLibIconButton2 = _interopRequireDefault(_materialUiLibIconButton);
 
-	var _materialUiLibSnackbar = __webpack_require__(278);
+	var _materialUiLibSnackbar = __webpack_require__(265);
 
 	var _materialUiLibSnackbar2 = _interopRequireDefault(_materialUiLibSnackbar);
 
-	var _materialUiLibStyles = __webpack_require__(243);
+	var _materialUiLibStyles = __webpack_require__(230);
 
 	var _materialUiLibStyles2 = _interopRequireDefault(_materialUiLibStyles);
 
-	var _materialUiLibTextField = __webpack_require__(246);
+	var _materialUiLibTextField = __webpack_require__(233);
 
 	var _materialUiLibTextField2 = _interopRequireDefault(_materialUiLibTextField);
 
-	var _materialUiLibToolbarToolbar = __webpack_require__(279);
+	var _materialUiLibToolbarToolbar = __webpack_require__(266);
 
 	var _materialUiLibToolbarToolbar2 = _interopRequireDefault(_materialUiLibToolbarToolbar);
 
-	var _materialUiLibToolbarToolbarGroup = __webpack_require__(280);
+	var _materialUiLibToolbarToolbarGroup = __webpack_require__(267);
 
 	var _materialUiLibToolbarToolbarGroup2 = _interopRequireDefault(_materialUiLibToolbarToolbarGroup);
 
-	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(281);
+	var _materialUiLibToolbarToolbarSeparator = __webpack_require__(268);
 
 	var _materialUiLibToolbarToolbarSeparator2 = _interopRequireDefault(_materialUiLibToolbarToolbarSeparator);
 
-	var _materialUiLibToolbarToolbarTitle = __webpack_require__(282);
+	var _materialUiLibToolbarToolbarTitle = __webpack_require__(269);
 
 	var _materialUiLibToolbarToolbarTitle2 = _interopRequireDefault(_materialUiLibToolbarToolbarTitle);
 
-	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(283);
+	var _materialUiLibSvgIconsNavigationMenu = __webpack_require__(270);
 
 	var _materialUiLibSvgIconsNavigationMenu2 = _interopRequireDefault(_materialUiLibSvgIconsNavigationMenu);
 
-	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(209);
+	var _materialUiLibStylesRawThemesLightRawTheme = __webpack_require__(196);
 
 	var _materialUiLibStylesRawThemesLightRawTheme2 = _interopRequireDefault(_materialUiLibStylesRawThemesLightRawTheme);
 
@@ -36420,7 +35150,7 @@
 	var CAT = _react2['default'].createClass({
 	  displayName: 'CAT',
 
-	  mixins: [_reactJoyride2['default'].Mixin, _mixinsMaterialUiTheme2['default'], _reactAddons.PureRenderMixin],
+	  mixins: [_mixinsMaterialUiTheme2['default']],
 
 	  propTypes: {
 	    baseServerHost: _react2['default'].PropTypes.string
@@ -36447,30 +35177,9 @@
 	    var selectedExerciseListIndex = _state.selectedExerciseListIndex;
 	    var exerciseList = _state.exerciseList;
 
-	    var exercisePathname = exerciseList.length ? exerciseList[selectedExerciseListIndex].payload : '/CAT';
+	    var exercisePathname = exerciseList.length ? exerciseList[selectedExerciseListIndex].payload : '';
 
 	    this.setBase({ host: this.props.baseServerHost, exercise: exercisePathname });
-	    this.steps = [{
-	      text: 'React components.<br/><br/>SAVE Semantic 3D UI for content assembly and exercises',
-	      selector: '.rc-cat-main',
-	      position: 'bottom'
-	    }, {
-	      title: 'CAT Controls',
-	      text: 'Controls and tooltray items',
-	      selector: '.rc-cat-controls',
-	      position: 'bottom'
-	    }];
-	    this.joyrideSetOptions({
-	      debug: true,
-	      completeCallback: function completeCallback(steps, skipped) {
-	        console.log('completeCallback', steps, skipped);
-	      },
-	      showSkipButton: true,
-	      stepCallback: function stepCallback(step) {
-	        console.log('stepCallback', step);
-	      },
-	      type: 'guided'
-	    });
 	  },
 
 	  componentDidMount: function componentDidMount() {
@@ -36487,12 +35196,14 @@
 	    var exercise = options.exercise;
 
 	    this.baseServer = host || this.baseServer;
-	    this.baseServerAddress = '' + this.baseServer + exercise;
+	    this.baseServerAddress = this.baseServer + exercise;
+	    // SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
+	    // call issueautoloads...
 	  },
 
 	  simulateBackend: function simulateBackend() {
 	    this.refs.snackbarSimulateBackend.dismiss();
-	    SAVE2.simulate();
+	    __webpack_require__(271);
 	    this.fetchExercises()['catch'](function (e) {
 	      return console.error(e);
 	    });
@@ -36511,17 +35222,14 @@
 	        text: pathName
 	      });
 	    });
-	    this.setState({ loadedExerciseList: true }, function () {
-	      _this2.setExerciseListWidth();
-	      _this2.joyrideAddSteps(_this2.steps, true);
-	    });
+	    this.setState({ loadedExerciseList: true });
+	    this.setExerciseListWidth();
 	  },
 
 	  saveExercise: function saveExercise(exercise, staticIds) {
 	    var controlsComponentDialog = this.refs.controlsComponentDialog;
 
-	    fetch(this.baseServerAddress + '/finishExercise', {
-	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+	    fetch(this.baseServerAddress + '/CAT/finishExercise', {
 	      method: 'post',
 	      mode: 'cors',
 	      body: 'save=' + JSON.stringify({ exercise: exercise, auto: staticIds })
@@ -36559,7 +35267,7 @@
 
 	  handleControlsClick: function handleControlsClick() {
 	    SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
-	    // XXX call issueautoloads...
+	    // call issueautoloads...
 	    this.refs.controlsComponentDialog.show();
 	  },
 
@@ -36661,7 +35369,6 @@
 	      type: 'CAT'
 	    };
 	    var controlsIconButtonProps = {
-	      className: 'rc-cat-controls',
 	      disabled: !loadedExerciseList,
 	      onClick: this.handleControlsClick,
 	      tooltip: 'Controls'
@@ -36675,7 +35382,7 @@
 	        { style: styles.toolbarBlock },
 	        _react2['default'].createElement(
 	          _materialUiLibToolbarToolbar2['default'],
-	          { className: 'rc-cat-main', style: { backgroundColor: canvasColor } },
+	          { style: { backgroundColor: canvasColor } },
 	          _react2['default'].createElement(
 	            _materialUiLibToolbarToolbarGroup2['default'],
 	            { float: 'left', key: 0 },
@@ -36714,7 +35421,7 @@
 	      ),
 	      _react2['default'].createElement(
 	        _ComponentDialogJsx2['default'],
-	        { onDismiss: this.dialogDismiss, ref: 'controlsComponentDialog', title: 'CAT Controls' },
+	        { onDismiss: this.dialogDismiss, ref: 'controlsComponentDialog', title: 'EUI Controls' },
 	        _react2['default'].createElement(_ControlsJsx2['default'], controlsProps)
 	      ),
 	      !this.state.noSnackbarSimulateBackend ? _react2['default'].createElement(_materialUiLibSnackbar2['default'], {
