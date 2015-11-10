@@ -683,51 +683,49 @@ define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.
                         var COLLADA = null;
                         var assetURL = saveAsset.source;
                         async.series([
-                        //Grab the associated asset file
-                        function getCOLLADAFile(cb)
-                        {
-                            assetLoader.loadCollada(assetURL, function(asset)
+                            //Grab the associated asset file
+                            function getCOLLADAFile(cb)
                             {
-                                COLLADA = asset;
-                                cb();
-                            })
-                        },
-                        //re-parent everything. Note, not currently centering pivots of new groups
-                        function applyMapping(cb)
-                        {
-                            var newRoot = new THREE.Object3D();
-
-                            //recursion
-                            function processGroup(group)
+                                assetLoader.loadCollada(assetURL, function(asset)
+                                {
+                                    COLLADA = asset;
+                                    cb();
+                                })
+                            },
+                            //re-parent everything. Note, not currently centering pivots of new groups
+                            function applyMapping(cb)
                             {
-                                var newGroupRoot = new THREE.Object3D();
-                                newGroupRoot.name = group.name; //this is critical so the VWF node can be bound up later
+                                var newRoot = new THREE.Object3D();
 
-                                for (var i in group.groups)
+                                //recursion
+                                function processGroup(group)
                                 {
-                                    newGroupRoot.add(processGroup(group.groups[i]))
-                                }
-                                for (var j in group.parts)
-                                {
-                                    var oldNode = null;
-                                    var oldNodeWorld = new THREE.Matrix4();
+                                    var newGroupRoot = new THREE.Object3D();
+                                    newGroupRoot.name = group.name; //this is critical so the VWF node can be bound up later
 
-                                    //go pick out the node
-                                    //critical question : does the s3d file contain mapping for all "parts"?
-                                    COLLADA.scene.traverse(function(o)
+                                    for (var i in group.groups)
                                     {
-                                        if (o.name == group.parts[j])
-                                        {
-                                            oldNode = o;
-                                            oldNode.updateMatrixWorld(true);
-                                            oldNodeWorld.copy(oldNode.matrixWorld);
-                                            oldNode.matrix.copy(oldNodeWorld);
-                                        }
-                                      })
-                                      newGroupRoot.add(oldNode);
+                                        newGroupRoot.add(processGroup(group.groups[i]));
+                                    }
+                                    for (var j in group.parts)
+                                    {
+                                        var oldNode = null;
+                                        var oldNodeWorld = new THREE.Matrix4();
 
-                                  }
-                                  return newGroupRoot;
+                                        //go pick out the node
+                                        COLLADA.scene.traverse(function(o)
+                                        {
+                                            if (o.name == group.parts[j])
+                                            {
+                                                oldNode = o;
+                                                oldNode.updateMatrixWorld(true);
+                                                oldNodeWorld.copy(oldNode.matrixWorld);
+                                                oldNode.matrix.copy(oldNodeWorld);
+                                            }
+                                        });
+                                        newGroupRoot.add(oldNode);
+                                    }
+                                    return newGroupRoot;
                                 }
 
                                 //hook up as if this were the original asset
@@ -735,10 +733,12 @@ define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.
                                 COLLADA.scene = newRoot;
                                 cb();
                             }
-                        ], function complete(e)
-                        {
-                            cb2(COLLADA) //here we need to return to Sandbox the
-                        });
+                        ],
+                            function complete(e)
+                            {
+                                cb2(COLLADA); //here we need to return to Sandbox the
+                            }
+                        );
                     }
                     this.loadSubDriver = function(url, cb2)
                     {
