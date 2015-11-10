@@ -3,7 +3,7 @@
 //Note that the sim can go forward before the textures are loaded - the scene manager just fills them with blue 
 //textures and replaces them when loaded. So, we don't have to cache texture here, but we do let the scenemanager know to fire up
 //and start loading, just to give the textures a head start.
-define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.js-0.3.9/src/alertify", "vwf/model/threejs/BufferGeometryUtils", 'vwf/model/threejs/ColladaLoaderOptimized','progressScreen'],
+define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.js-0.3.9/src/alertify", "vwf/model/threejs/BufferGeometryUtils", 'vwf/model/threejs/ColladaLoaderOptimized','progressScreen','vwf/view/SAVE/js/g2js.bundle'],
         function(backgroundLoader,alertify,BufferGeometryUtils,ColladaLoaderOptimized,progressScreen)
         {
             var assetLoader = {};
@@ -625,6 +625,120 @@ define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.
                         {
                             assetLoader.loadImgTerrain(url, cb2);
                         }
+                    }
+                    this.s3dToJson = function(s3dXML)
+                    {
+                        return G2JS.g2js(s3dXML);
+                    }
+                    //turn and S3D file into a VWF node def
+                    this.semanticAssetToVWF = function(rootKbId, assetURL, grouping, cb2)
+                    {
+                        var vwfDef = {};
+                        //Setup root node
+                        vwfDef.source = JSON.stringify({ source: assetURL, grouping: grouping });
+                        vwfDef.type = 'subDriver/threejs/asset/vnd.SAVE+json';
+                        vwfDef.children = {};
+                        vwfDef.properties = {};
+                        vwfDef.extends = "./vwf/model/SAVE/semantic_entity.vwf";
+                        vwfDef.properties.KbId = rootKbId;
+
+                        //recurse and translate
+                        function processGroups(vwfnode, gObj)
+                        {
+                            for (var i in gObj.groups)
+                            {
+                                var newChild = {};
+                                newChild.source = gObj.groups[i].name;
+                                newChild.type = "link_existing/threejs";
+                                newChild.children = {};
+                                newChild.extends = "./vwf/model/SAVE/semantic_entity.vwf";
+                                newChild.properties = {};
+                                if (newChild.properties && newChild.properties.node)
+                                    delete newChild.properties.node;
+                                newChild.properties.DisplayName = newChild.source; //pretty print the name
+                                vwfnode.children[GUID()] = newChild; //We link up nodes differently. Names should be unique. The source value is the node to link to
+                                processGroups(newChild, gObj.groups[i]);
+                            }
+                            for (var j in gObj.parts)
+                            {
+                                var newPart = {};
+                                newPart.source = gObj.parts[j];
+                                newPart.type = "link_existing/threejs";
+                                newPart.extends = "asset.vwf";
+                                newPart.properties = {};
+                                if (newPart.properties && newPart.properties.node)
+                                    delete newPart.properties.node;
+                                newPart.properties.DisplayName = newPart.source;
+                                vwfnode.children[GUID()] = newPart;
+                            }
+                        }
+                        processGroups(vwfDef, grouping);
+                        cb2(vwfDef);
+                    }
+                    //load the SAVE JSON, get the asset file, modify the scenegraph as required, return to engine
+                    this.loadSAVE = function(strObj, cb2)
+                    {
+                        var saveAsset = JSON.parse(strObj);
+                        var JSON_Groups = saveAsset.grouping;
+                        var COLLADA = null;
+                        var assetURL = saveAsset.source;
+                        async.series([
+                        //Grab the associated asset file
+                        function getCOLLADAFile(cb)
+                        {
+                            assetLoader.loadCollada(assetURL, function(asset)
+                            {
+                                COLLADA = asset;
+                                cb();
+                            })
+                        },
+                        //re-parent everything. Note, not currently centering pivots of new groups
+                        function applyMapping(cb)
+                        {
+                            var newRoot = new THREE.Object3D();
+
+                            //recursion
+                            function processGroup(group)
+                            {
+                                var newGroupRoot = new THREE.Object3D();
+                                newGroupRoot.name = group.name; //this is critical so the VWF node can be bound up later
+
+                                for (var i in group.groups)
+                                {
+                                    newGroupRoot.add(processGroup(group.groups[i]))
+                                }
+                                for (var j in group.parts)
+                                {
+                                    var oldNode = null;
+                                    var oldNodeWorld = new THREE.Matrix4();
+
+                                    //go pick out the node
+                                    //critical question : does the s3d file contain mapping for all "parts"?
+                                    COLLADA.scene.traverse(function(o)
+                                    {
+                                        if (o.name == group.parts[j])
+                                        {
+                                            oldNode = o;
+                                            oldNode.updateMatrixWorld(true);
+                                            oldNodeWorld.copy(oldNode.matrixWorld);
+                                            oldNode.matrix.copy(oldNodeWorld);
+                                        }
+                                      })
+                                      newGroupRoot.add(oldNode);
+
+                                  }
+                                  return newGroupRoot;
+                                }
+
+                                //hook up as if this were the original asset
+                                newRoot = processGroup(JSON_Groups);
+                                COLLADA.scene = newRoot;
+                                cb();
+                            }
+                        ], function complete(e)
+                        {
+                            cb2(COLLADA) //here we need to return to Sandbox the
+                        });
                     }
                     this.loadSubDriver = function(url, cb2)
                     {
