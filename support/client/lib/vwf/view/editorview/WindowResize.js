@@ -122,8 +122,8 @@ define({
 				var resolutionScale = _SettingsManager.getKey('resolutionScale');
 				var w = parseInt(viewport.css('width')), h = parseInt(viewport.css('height'));
 
-				canvas.attr('width', w / resolutionScale);
-				canvas.attr('height', h / resolutionScale);
+			    canvas.attr('width', (w / resolutionScale)*_dRenderer.devicePixelRatio);
+                canvas.attr('height', (h / resolutionScale)*_dRenderer.devicePixelRatio);
 				if(window._dRenderer){
 					_dRenderer.setViewport(0, 0, w / resolutionScale, h / resolutionScale);
 				}

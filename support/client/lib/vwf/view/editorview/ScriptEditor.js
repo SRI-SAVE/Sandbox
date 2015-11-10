@@ -219,8 +219,9 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/HierarchyManager
 					else
 						$scope.sessions[item.id].setMode("ace/mode/javascript");
 
-					$scope.sessions[item.id].on('changeAnnotation', function(data){
-						$scope.$emit('codeLinted', data);
+					$scope.sessions[item.id].on('changeAnnotation', function(a, b){
+						// this thing is undocumented, god only knows if it'll keep working
+						$scope.$emit('codeLinted', b.$annotations);
 					});
 				}
 
@@ -513,11 +514,9 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/HierarchyManager
 		// determine if Ace has detected any syntax errors in the current code window
 		var annotations = null, checkerCb = null;
 		$scope.$on('codeChanged', function(evt){
-			console.log('changed');
 			annotations = null;
 		});
 		$scope.$on('codeLinted', function(evt, ann){
-			console.log('linted');
 			annotations = ann;
 			if(checkerCb) checkerCb();
 		});
@@ -584,6 +583,8 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/HierarchyManager
 
 					if( $scope.guiState.openTab === 'methods' )
 					{
+						_UndoManager.pushEvent( new _UndoManager.SetMethodEvent($scope.fields.selectedNode.id, fieldName, {parameters: cleanParams, body: body}) );
+
 						if( $scope.fields.selectedNode.methods && $scope.fields.selectedNode.methods[fieldName] ){
 							vwf_view.kernel.deleteMethod($scope.fields.selectedNode.id, fieldName);
 						}
@@ -592,6 +593,8 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/HierarchyManager
 					}
 					else
 					{
+						_UndoManager.pushEvent( new _UndoManager.SetEventEvent($scope.fields.selectedNode.id, fieldName, {parameters: cleanParams, body: body}) );
+
 						if( $scope.fields.selectedNode.events && $scope.fields.selectedNode.events[fieldName] ){
 							vwf_view.kernel.deleteEvent($scope.fields.selectedNode.id, fieldName);
 						}
@@ -607,6 +610,8 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/HierarchyManager
 					catch(e){
 						val = rawtext;
 					}
+
+					_UndoManager.pushEvent( new _UndoManager.SetPropertyEvent($scope.fields.selectedNode.id, fieldName, val) );
 
 					if( $scope.fields.selectedNode.properties && $scope.fields.selectedNode.properties[fieldName] !== undefined ){
 						vwf_view.kernel.setProperty($scope.fields.selectedNode.id, fieldName, val);

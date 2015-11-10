@@ -214,7 +214,7 @@ var NOT_STARTED = 0;
 var PENDING = 1;
 var FAILED = 2;
 var SUCCEDED = 3;
-var LOAD_FAIL_TIME = 200 * 1000;
+var LOAD_FAIL_TIME = 60 * 1000;
 var assetRegistry = function()
 {
     this.assets = {};
@@ -342,12 +342,21 @@ var assetRegistry = function()
                 if (o.geometry)
                     o.geometry.dynamic = false;
             });
-            for (var i = 0; i < reg.callbacks.length; i++)
-                reg.callbacks[i](reg.node, reg.rawAnimationChannels);
-            //nothing should be waiting on callbacks now.
+            //for (var i = 0; i < reg.callbacks.length; i++)
+            async.eachSeries(reg.callbacks,function(_callback,cb)
+            {
+                _callback(reg.node, reg.rawAnimationChannels);
+                async.nextTick(cb);
+            },function()
+            {
+                 //nothing should be waiting on callbacks now.
             reg.callbacks = [];
             reg.failcallbacks = [];
             _ProgressBar.hide();
+
+            })
+                
+           
         }
         reg.assetLoaded = assetLoaded;
         var assetFailed = function(id)

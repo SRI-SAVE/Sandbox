@@ -1,11 +1,16 @@
 "use strict";
+
+//https://github.com/davidbau/seedrandom
+!function(a,b){function c(c,j,k){var n=[];j=1==j?{entropy:!0}:j||{};var s=g(f(j.entropy?[c,i(a)]:null==c?h():c,3),n),t=new d(n),u=function(){for(var a=t.g(m),b=p,c=0;q>a;)a=(a+c)*l,b*=l,c=t.g(1);for(;a>=r;)a/=2,b/=2,c>>>=1;return(a+c)/b};return u.int32=function(){return 0|t.g(4)},u.quick=function(){return t.g(4)/4294967296},u["double"]=u,g(i(t.S),a),(j.pass||k||function(a,c,d,f){return f&&(f.S&&e(f,t),a.state=function(){return e(t,{})}),d?(b[o]=a,c):a})(u,s,"global"in j?j.global:this==b,j.state)}function d(a){var b,c=a.length,d=this,e=0,f=d.i=d.j=0,g=d.S=[];for(c||(a=[c++]);l>e;)g[e]=e++;for(e=0;l>e;e++)g[e]=g[f=s&f+a[e%c]+(b=g[e])],g[f]=b;(d.g=function(a){for(var b,c=0,e=d.i,f=d.j,g=d.S;a--;)b=g[e=s&e+1],c=c*l+g[s&(g[e]=g[f=s&f+b])+(g[f]=b)];return d.i=e,d.j=f,c})(l)}function e(a,b){return b.i=a.i,b.j=a.j,b.S=a.S.slice(),b}function f(a,b){var c,d=[],e=typeof a;if(b&&"object"==e)for(c in a)try{d.push(f(a[c],b-1))}catch(g){}return d.length?d:"string"==e?a:a+"\0"}function g(a,b){for(var c,d=a+"",e=0;e<d.length;)b[s&e]=s&(c^=19*b[s&e])+d.charCodeAt(e++);return i(b)}function h(){try{if(j)return i(j.randomBytes(l));var b=new Uint8Array(l);return(k.crypto||k.msCrypto).getRandomValues(b),i(b)}catch(c){var d=k.navigator,e=d&&d.plugins;return[+new Date,k,e,k.screen,i(a)]}}function i(a){return String.fromCharCode.apply(0,a)}var j,k=this,l=256,m=6,n=52,o="random",p=b.pow(l,m),q=b.pow(2,n),r=2*q,s=l-1;if(b["seed"+o]=c,g(b.random(),a),"object"==typeof module&&module.exports){module.exports=c;try{j=require("crypto")}catch(t){}}else"function"==typeof define&&define.amd&&define(function(){return c})}([],Math);
+
 (function()
 {
     // n = 6 gives a good enough approximation
+    var seedRandom;
     function rnd2()
     {
-        return Math.random() * 2 - 1;
-        return ((Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()) - 3) / 3;
+        return seedRandom() * 2 - 1;
+      
     }
     //enum to keep track of assets that fail to load
     function ocean(childID, childSource, childName, childType, assetSource, asyncCallback)
@@ -46,14 +51,16 @@
             this.buildMat();
             for (var i = 0; i < this.waveNum; i++)
             {
-                this.timers[i] = (Math.random());
+                this.timers[i] = (rnd2());
             }
         }
+        this.seed = 12312123;
         this.generateWaves = function()
         {
+            seedRandom = new Math.seedrandom(this.seed);
             for (var i = 0; i < this.waveNum; i++)
             {
-                this.timers[i] = (Math.random());
+                this.timers[i] = (rnd2());
             }
             this.uniforms.waves.value.length = 0;
             for (var i = 0; i < this.waveNum; i++)
@@ -62,7 +69,7 @@
             }
             for (var i = 0; i < this.waveNum; i++)
             {
-                var b = Math.random();
+                var b = rnd2();
                 var amp = rnd2() * this.amplitudeVariation + this.amplitude;
                 this.uniforms.waves.value[i].x = amp;
                 this.uniforms.waves.value[i].ox = amp;
@@ -71,7 +78,7 @@
             }
             for (var i = 0; i < this.waveNum; i++)
             {
-                var b = Math.random();
+                var b = rnd2();
                 var amp = rnd2() * this.directionVariation + this.direction;
                 var dir = [1, 0];
                 //amp/= 57;
@@ -120,17 +127,28 @@
                 A[i] = 0.5 / (w * 2.718281828459045); //for ocean on Earth, A is ususally related to L
                 
                 //S[i] =     1.0 * uMag; //for ocean on Earth, S is ususally related to L
-                S[i] = (waves[i].w + 0.5) * Math.sqrt(.98 * (2.0 * PI / w));
+                S[i] = (waves[i].w + 0.5) * Math.sqrt(.98 * (3.0 * PI / w));
                 W[i] = w;
                 Q[i] = Qa / (w * A[i] * this.waveNum);
             }
         }
+        this.nm510C = [3.4,7.3,11.55,13.5,21,33,54,90];
+        this.nm440C = [1.9,6.8,13.5,25,39,56,89,160];
+        this.nm645C = [36,40,44.5,45,46,54,63,76];
+        this.nmB0C = [.037,.037,.037,.219,.56,.78,1.1,1.824];
+        this.waterType = 0;
         this.setupPhysicalShadeConstants = function()
         {
-            var b0 = 0.037;
-            var Kd_r = 36.0; //645nm
-            var Kd_g = 3.4; //510nm
-            var Kd_b = 1.9; //440nm
+            var b0 = this.nmB0C[this.waterType];
+
+            var water = new THREE.Vector3(this.nm645C[this.waterType], //645nm
+            this.nm510C[this.waterType], //510nm
+            this.nm440C[this.waterType]);
+            water.setLength(36.21008146911575);
+
+            var Kd_r = water.x;//this.nm645C[this.waterType]; //645nm
+            var Kd_g = water.y;//this.nm510C[this.waterType]; //510nm
+            var Kd_b = water.z;//this.nm440C[this.waterType]; //440nm
             var wl0 = 514.0;
             var m = -0.00113;
             var i = -1.62517;
@@ -231,6 +249,16 @@
                     type: "t",
                     value: _SceneManager.getTexture("./ocean/oNormal.jpeg")
                 },
+                uNormalPower:
+                {
+                    type: "f",
+                    value: 1
+                },
+                gA:
+                {
+                    type: "f",
+                    value: .5
+                },
                 diffuse:
                 {
                     type: "t",
@@ -291,13 +319,16 @@
             {
                 this.uniforms[i] = THREE.UniformsLib.lights[i];
             }
+            this.setupRenderTargets();
             this.buildMat();
             this.near = new THREE.PlaneGeometry(1, 1, this.resolution, this.resolution);
             this.nearmesh = new THREE.Mesh(this.near, this.mat);
             this.nearmesh.InvisibleToCPUPick = true;
             this.getRoot().add(this.nearmesh);
+            this.nearmesh.renderDepth = 10;
             this.nearmesh.frustumCulled = false;
             _dView.bind('prerender', this.prerender.bind(this));
+            _dView.bind('postprerender', this.renderRefractions.bind(this));
             window._dOcean = this;
             this.waves = this.uniforms.waves.value;
             this.generateWaves();
@@ -313,6 +344,7 @@
             this.nearmesh = new THREE.Mesh(this.near, this.mat);
             this.nearmesh.InvisibleToCPUPick = true;
             this.getRoot().add(this.nearmesh);
+            this.nearmesh.renderDepth = 10;
             this.nearmesh.frustumCulled = false;
             this.uniforms.uHalfGrid.value = this.resolution / 2;
         }
@@ -337,9 +369,14 @@
         this.up = new THREE.Vector3(0, 0, 1);
         this.f = 10;
         this.h = 1;
+        this.b = .05;
         this.prerender = function()
         {
             if (this.disable) return;
+
+
+           
+
             var vp = _dView.getCamera().matrixWorld.elements;
             var root = this.getRoot();
             root.position.set(0, 0, 0);
@@ -368,7 +405,12 @@
             var target = new THREE.Vector3(0, 0, -Math.abs(this.f));
             target.applyMatrix4(_dView.getCamera().matrixWorld);
             target.z = 0.0;
-            var eye = new THREE.Vector3(vp[12], vp[13], vp[14] + Math.abs(this.h))
+            
+            var eye = new THREE.Vector3(0,0,this.amplitude + this.amplitudeVariation);
+            eye.applyMatrix4(_dView.getCamera().matrixWorld);
+            eye.z += Math.abs(this.h);
+
+
             var lookat = (new THREE.Matrix4()).lookAt(eye, target, this.up, 2);
             lookat.setPosition(eye);
             var campos = [vp[12], vp[13], vp[14]];
@@ -391,8 +433,10 @@
             if (hit) intersections.push(hit);
             hit = this.intersectLinePlane(cornerPoints[3], cornerPoints[7]);
             if (hit) intersections.push(hit);
+            var hitFar = false;
             if (intersections.length < 4)
             {
+                hitFar = true;
                 var hit = this.intersectLinePlane(cornerPoints[1], cornerPoints[0]);
                 if (hit) intersections.push(hit);
                 var hit = this.intersectLinePlane(cornerPoints[3], cornerPoints[2]);
@@ -427,14 +471,28 @@
                 if (projSpacePoints[i].y > yMax)
                     yMax = projSpacePoints[i].y;
             }
-            yMin -= 1.0;
+           // xMin -= this.b;
+           // xMax += this.b;
+            yMin -= this.b;
+            
+
+            if (!hitFar)
+            yMax += this.b;
             this.mRange[0] = xMax - xMin;
             this.mRange[5] = yMax - yMin;
             this.mRange[12] = xMin + (xMax - xMin) / 2
             this.mRange[13] = yMin + (yMax - yMin) / 2;
             var mRangeM = (new THREE.Matrix4()).fromArray(this.mRange);
             var posfd = [this.uniforms.mProj.value.elements[3], this.uniforms.mProj.value.elements[7], this.uniforms.mProj.value.elements[14]];
+            
+            var temp = new THREE.Matrix4();
+            this.nearmesh.matrixWorld.elements[12] = vp[12];
+            this.nearmesh.matrixWorld.elements[13] = vp[13];
+            temp.getInverse(this.nearmesh.matrixWorld)
+
+
             this.uniforms.mProj.value.multiplyMatrices(this.uniforms.mProj.value.clone(), mRangeM);
+            this.uniforms.mProj.value.multiplyMatrices(temp, this.uniforms.mProj.value.clone());
             this.uniforms.t.value += (deltaT / 1000.0) || 0;
             this.uniforms.oCamPos.value.set(vp[12] - root.matrixWorld.elements[12], vp[13] - root.matrixWorld.elements[13], vp[14] - root.matrixWorld.elements[14]);
             this.uniforms.wPosition.value.set(0, 0, 0);
@@ -481,6 +539,71 @@
             worldmousepos[2] /= worldmousepos[3];
             return worldmousepos;
         }.bind(this);
+        this.depthOverride;
+        this.setupRenderTargets = function()
+        {
+
+            var depthShader = THREE.ShaderLib[ "depthRGBA" ];
+            var depthUniforms = THREE.UniformsUtils.clone( depthShader.uniforms );
+
+            this.depthOverride = new THREE.ShaderMaterial( { fragmentShader: depthShader.fragmentShader, vertexShader: depthShader.vertexShader, uniforms: depthUniforms } );
+            this.depthOverride.blending = 9;
+
+            var rtt = new THREE.WebGLRenderTarget(256, 256, {
+                format: THREE.RGBAFormat,
+                minFilter: THREE.LinearFilter,
+                magFilter: THREE.LinearFilter
+            });
+            
+            this.refractionColorRtt = rtt;
+
+            rtt = new THREE.WebGLRenderTarget(256, 256, {
+                format: THREE.RGBAFormat,
+                minFilter: THREE.LinearFilter,
+                magFilter: THREE.LinearFilter
+            });
+            
+            this.refractionDepthRtt = rtt;
+            
+            this.uniforms.refractionColorRtt = {
+                type:'t',
+                value:this.refractionColorRtt
+            }
+
+            this.uniforms.refractionDepthRtt = {
+                type:'t',
+                value:this.refractionDepthRtt
+            }
+        }
+        this.renderRefractions = function()
+        {
+             if (this.disable) return;
+            var rttcam = _dView.getCamera();
+            var rtt = this.refractionColorRtt;
+
+            _dRenderer.setRenderTarget(rtt);
+            _dRenderer.clear(_dScene, rttcam, rtt);
+            _dRenderer.setRenderTarget();
+            this.nearmesh.visible = false;
+            _dRenderer.render(_dScene, rttcam, rtt);
+           
+            var _far = _dView.getCamera().far;
+          //      _dView.getCamera().far = 100.0;
+          _dRenderer.setBlending(THREE.CustomBlending,THREE.AddEquation,THREE.OneFactor,THREE.ZeroFactor)
+            rtt = this.refractionDepthRtt;
+            _dRenderer.setRenderTarget(rtt);
+            _dRenderer.setClearColor(new THREE.Color(1,1,1),1);
+            _dRenderer.clear(_dScene, rttcam, rtt);
+            _dRenderer.setRenderTarget();
+            _dScene.overrideMaterial = this.depthOverride;
+
+            _dRenderer.render(_dScene, rttcam, rtt);
+            _dScene.overrideMaterial = null;
+            
+            this.nearmesh.visible = true;
+         //       _dView.getCamera().far = _far;
+
+        }
         this.settingProperty = function(propertyName, propertyValue)
         {
             if (propertyName == "uMag")
@@ -508,12 +631,29 @@
                 this.directionVariation = propertyValue;
                 this.generateWaves();
             }
+            if (propertyName == "seed")
+            {
+                this.seed = propertyValue;
+                this.generateWaves();
+            }
             if (propertyName == "waveEffectDepth")
             {
                 this.waveEffectDepth = propertyValue;
                 this.uniforms.waveEffectDepth.value = propertyValue;
             }
-
+            if (propertyName == "waterType")
+            {
+                this.waterType = propertyValue;
+                this.setupPhysicalShadeConstants();
+            }
+            if (propertyName == "uNormalPower")
+            {
+                this.uniforms.uNormalPower.value = propertyValue;
+            }
+            if (propertyName == "gA")
+            {
+                this.uniforms.gA.value = propertyValue;
+            }
             if (propertyName == "uReflectPow")
             {
                 this.uniforms.uReflectPow.value = propertyValue;
