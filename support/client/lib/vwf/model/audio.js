@@ -192,16 +192,18 @@ define(["module", "vwf/model", "vwf/model/buzz/buzz.min"], function(module, mode
                     }
                     else
                     {
-                        if (Sound.sound.getPercent() == 100)
+                        if (Sound.sound.getPercent() == 100 && !Sound.looping)
                         {
                             Sound.stop();
                             Sound.sound.setPercent(0);
                         }
                         if(restart)
                             Sound.sound.setPercent(0);
+                        if(!Sound.isPlaying())
                         Sound.play();
                         if (loop)
-                            Sound.loop();
+                            if(!Sound.looping)
+                                Sound.loop();
                         else
                             Sound.unloop();
                         Sound.volume = vol;

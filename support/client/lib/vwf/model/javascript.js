@@ -370,9 +370,9 @@ var APIModules = {
     audioAPI: function(id)
     {
         this.id = id;
-        this.playSound=function(soundURL /* the url of the sound */, loop /* loop or not */, volume)
+        this.playSound=function(soundURL /* the url of the sound */, loop /* loop or not */, volume,restart /* restart at 0 if playing */)
         {
-            vwf.callMethod(this.id,'playSound',[soundURL,loop,volume])
+            vwf.callMethod(this.id,'playSound',[soundURL,loop,volume,restart])
             
         }
         this.stopSound=function(soundURL /* the url of the sound */)

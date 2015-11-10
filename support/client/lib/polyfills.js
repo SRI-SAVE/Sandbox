@@ -37,13 +37,20 @@ var fills = {
         }
         window.RunPrefixMethod = RunPrefixMethod;
 
+        //force the developer to opt-in to see console.log messages
         var saveLog = window.console.log;
         fills.enableLog = function(){
             window.console.log = saveLog.bind(window.console);
+            window.console.log.disable = fills.disableLog;
         }
 
         fills.disableLog = function(){
             window.console.log = function(){};
+            window.console.log.enable = function()
+            {
+                fills.enableLog();
+            }
+
         }
 
         fills.disableLog();

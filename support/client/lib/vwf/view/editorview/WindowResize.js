@@ -121,12 +121,16 @@ define({
 				var canvas = $('#index-vwf', viewport);
 				var resolutionScale = _SettingsManager.getKey('resolutionScale');
 				var w = parseInt(viewport.css('width')), h = parseInt(viewport.css('height'));
-
-			    canvas.attr('width', (w / resolutionScale)*_dRenderer.devicePixelRatio);
-                canvas.attr('height', (h / resolutionScale)*_dRenderer.devicePixelRatio);
-				if(window._dRenderer){
+                if(window._dRenderer)
+                {
+			        canvas.attr('width', (w / resolutionScale)*_dRenderer.devicePixelRatio);
+                    canvas.attr('height', (h / resolutionScale)*_dRenderer.devicePixelRatio);
 					_dRenderer.setViewport(0, 0, w / resolutionScale, h / resolutionScale);
-				}
+				}else{
+
+                    canvas.attr('width', (w / resolutionScale));
+                    canvas.attr('height', (h / resolutionScale));
+                }
 	            _dView.getCamera().aspect = w/h;
 	            _dView.getCamera().updateProjectionMatrix()
 	            _dView.windowResized();
