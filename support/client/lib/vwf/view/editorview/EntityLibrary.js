@@ -28,7 +28,7 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/manageAssets'], 
 	{
 		return {
 			restrict: 'E',
-			template: '<img></img>',
+			template: '<img onerror="this.src = \'./img/VWS_Logo.png\' "></img>',
 			scope: {
 				src: '=',
 				loadWhen: '='
@@ -66,7 +66,8 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/manageAssets'], 
 		var libraries = [];
 
 		libraries.addLibrary = function(name, url)
-		{
+		{	
+
 			var newLib = {name: name};
 			$http.get(url).success(function(lib){
 				newLib.content = lib;
@@ -189,7 +190,10 @@ define(['vwf/view/editorview/angular-app', 'vwf/view/editorview/manageAssets'], 
 		{
 			alertify.prompt('Enter the URL for an asset library',function(ok,val){
 				if(ok)
-					staticLibs.addLibrary(val,val);
+				{
+					var name = val.match(/\/[\._a-zA-Z0-9]*?$/) ? val.match(/\/[\._a-zA-Z0-9]*?$/)[0] : val;
+					staticLibs.addLibrary(name,val);
+				}
 			});
 		}
 
