@@ -4,3 +4,6 @@
 {"val":[],"_key":"146168a1-6928-4d03-94d9-ce64bfae2655","_id":"GHiiuD8FETH9ZcUA"}
 {"val":{"inventoryKey":"146168a1-6928-4d03-94d9-ce64bfae2655"},"_key":"___Global___","_id":"r93U1bcjzcYSbqY3"}
 {"val":["___Global___"],"_key":"UserIndex","_id":"3droTkBjnW1ebJfy"}
+{"val":[],"_key":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c","_id":"vgcqWWm0ovhaB7vA"}
+{"val":{"Username":"johnnyp","Email":"john.pywtorak@sri.com","Password":"0a158e76b42d69d299805867d2a66cf3caf6d6e21aad47a885558e8404e3248c","Avatar":"usmale.dae","Salt":"3a8038b3-5f02-6e75-8e69-581ca9cb88b","inventoryKey":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c"},"_key":"johnnyp","_id":"3lwEXnqCzjNU2Zox"}
+{"val":["___Global___","johnnyp"],"_key":"UserIndex","_id":"3droTkBjnW1ebJfy"}
