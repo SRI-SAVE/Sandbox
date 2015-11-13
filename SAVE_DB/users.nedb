@@ -1,9 +1,12 @@
-{"$$indexCreated":{"fieldName":"_key","unique":true}}
-{"val":[],"_key":"UserIndex","_id":"3droTkBjnW1ebJfy"}
-{"val":[],"_key":"StateIndex","_id":"ICpuhDJmQmj7N2xV"}
-{"val":[],"_key":"146168a1-6928-4d03-94d9-ce64bfae2655","_id":"GHiiuD8FETH9ZcUA"}
-{"val":{"inventoryKey":"146168a1-6928-4d03-94d9-ce64bfae2655"},"_key":"___Global___","_id":"r93U1bcjzcYSbqY3"}
-{"val":["___Global___"],"_key":"UserIndex","_id":"3droTkBjnW1ebJfy"}
-{"val":[],"_key":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c","_id":"vgcqWWm0ovhaB7vA"}
-{"val":{"Username":"johnnyp","Email":"john.pywtorak@sri.com","Password":"0a158e76b42d69d299805867d2a66cf3caf6d6e21aad47a885558e8404e3248c","Avatar":"usmale.dae","Salt":"3a8038b3-5f02-6e75-8e69-581ca9cb88b","inventoryKey":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c"},"_key":"johnnyp","_id":"3lwEXnqCzjNU2Zox"}
 {"val":["___Global___","johnnyp"],"_key":"UserIndex","_id":"3droTkBjnW1ebJfy"}
+{"val":{"Username":"johnnyp","Email":"john.pywtorak@sri.com","Password":"0a158e76b42d69d299805867d2a66cf3caf6d6e21aad47a885558e8404e3248c","Avatar":"usmale.dae","Salt":"3a8038b3-5f02-6e75-8e69-581ca9cb88b","inventoryKey":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c"},"_key":"johnnyp","_id":"3lwEXnqCzjNU2Zox"}
+{"val":[],"_key":"146168a1-6928-4d03-94d9-ce64bfae2655","_id":"GHiiuD8FETH9ZcUA"}
+{"val":["_adl_sandbox_fmuzy86Mk84ZRaew_"],"_key":"StateIndex","_id":"ICpuhDJmQmj7N2xV"}
+{"val":{"inventoryKey":"146168a1-6928-4d03-94d9-ce64bfae2655"},"_key":"___Global___","_id":"r93U1bcjzcYSbqY3"}
+{"val":{"objects":0,"owner":"johnnyp","title":"test","description":"","lastUpdate":"2015-11-13T00:09:10.493Z","created":"2015-11-13T00:09:10.495Z","publishSettings":{"singlePlayer":false,"camera":"","allowAnonymous":false,"createAvatar":false,"allowTools":true,"persistence":true,"SinglePlayer":false}},"_key":"_adl_sandbox_fmuzy86Mk84ZRaew_","_id":"trUaqs5myUL3PXPq"}
+{"val":[],"_key":"379781e9-2258-4e58-bf9b-f9a68e4e0e6c","_id":"vgcqWWm0ovhaB7vA"}
+{"$$indexCreated":{"fieldName":"_key","unique":true,"sparse":false}}
+{"$$deleted":true,"_id":"trUaqs5myUL3PXPq"}
+{"val":{"objects":0,"owner":"johnnyp","title":"Soldier movement","description":"","lastUpdate":"2015-11-13T00:16:22.158Z","created":"2015-11-13T00:09:10.495Z","publishSettings":{"singlePlayer":false,"camera":"","allowAnonymous":false,"createAvatar":false,"allowTools":true,"persistence":true,"SinglePlayer":false}},"_key":"_adl_sandbox_fmuzy86Mk84ZRaew_","_id":"a73BEMZTsNl3ksqp"}
+{"$$deleted":true,"_id":"a73BEMZTsNl3ksqp"}
+{"val":{"objects":3,"owner":"johnnyp","title":"Soldier movement","description":"","lastUpdate":"2015-11-13T00:17:53.945Z","created":"2015-11-13T00:09:10.495Z","publishSettings":{"singlePlayer":false,"camera":"","allowAnonymous":false,"createAvatar":false,"allowTools":true,"persistence":true,"SinglePlayer":false},"updates":null},"_key":"_adl_sandbox_fmuzy86Mk84ZRaew_","_id":"xb4AmW69jAKG3gM0"}
