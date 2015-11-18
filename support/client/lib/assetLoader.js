@@ -753,6 +753,7 @@ define(["vwf/model/threejs/backgroundLoader", "vwf/view/editorview/lib/alertify.
                     this.addType('subDriver/threejs/asset/vnd.raw-animation', this.loadglTFAnimation);
                     this.addType('subDriver/threejs/asset/vnd.osgjs+json+compressed+optimized', this.loadUTf8JsonOptimized);
                     this.addType('subDriver/threejs/asset/vnd.raw-morphttarget', this.loadMorph);
+                    this.addType('subDriver/threejs/asset/vnd.SAVE+json', this.loadSAVE);
                     this.addType('terrain', this.loadTerrain);
                     this.addType('texture', this.loadTexture);
                     this.addType('subDriver/threejs', this.loadSubDriver);
