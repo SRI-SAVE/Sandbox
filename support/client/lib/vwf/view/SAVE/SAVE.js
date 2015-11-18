@@ -13,7 +13,7 @@
 var SAVE_GROUP_DEF = "./vwf/model/SAVE/semantic_entity.vwf";
 var SAVE_GROUP_DEF_Extends = "-vwf-model-SAVE-semantic_entity-vwf";
 
-define([ "module", "vwf/view", "vwf/view/SAVE/api" ], function(module, view, SAVEAPI) {
+define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], function(module, view, SAVEAPI) {
 	return view.load(module, {
 		// == Module Definition ====================================================
 		autoLoadedNodes: [ ],
@@ -122,7 +122,7 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api" ], function(module, view, SAV
 		// -- initialize -----------------------------------------------------------
 		initialize: function() {
 			window._dSAVE = this;
-			//window.SAVE2.lib.view = this; // SAVE2 is for react components access to this module
+			window.SAVE2.lib.view = this; // SAVE2 is for react components access to this module
 			this.nodes = { };
 
 			var self = this;

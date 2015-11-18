@@ -332,7 +332,9 @@ define(['progressScreen'],function(){
                 { library: "vwf/view/WebRTC", active: true },
                 { library: "vwf/model/audio", active: true },
                 { library: "messageCompress", active: true },
-                { library: "vwf/view/xapi", active: true }
+                { library: "vwf/view/xapi", active: true },
+                { library: "vwf/view/SAVE/SAVE", active: true },
+                { library: "vwf/model/SAVE/SAVE", active: true }
 
             ];
 
@@ -347,6 +349,7 @@ define(['progressScreen'],function(){
                     { library: "vwf/model/wires", active: true },
                     { library: "vwf/model/jqueryui", active: true },
                     { library: "vwf/model/audio", active: true },
+                    { library: "vwf/model/SAVE/SAVE", active: true }
                 ],
                 view: [
                     { library: "vwf/view/glge", parameters: {"application-root":"#vwf-root"}, active: false },
@@ -361,7 +364,7 @@ define(['progressScreen'],function(){
                     { library: "vwf/view/WebRTC", active: true },
                     { library: "vwf/view/xapi", active: true },
                     { library: "vwf/view/jqueryui", active: true },
-
+                    { library: "vwf/view/SAVE/SAVE", active: true }
 
 
                 ]
@@ -482,6 +485,7 @@ define(['progressScreen'],function(){
                         "vwf/model/threejs",
                         "vwf/model/jqueryui",
                         "vwf/model/audio",
+                        "vwf/model/SAVE/SAVE",
                         "vwf/model/object",
                     ];
 
@@ -497,6 +501,7 @@ define(['progressScreen'],function(){
                             
                             "vwf/view/xapi",
                             "vwf/view/jqueryui",
+                            "vwf/view/SAVE/SAVE",
                         ];
 
                         Engine.initialize(application, models, views, callback);

@@ -1,0 +1,404 @@
+# Copyright 2014, SRI International
+--- 
+properties:
+  __slingDetach: 0
+  actionNames: [ 'Point','Attach', 'Close', 'Detach', 'Extract', 'Insert', 'Inspect', 'Lift', 'Open', 'Point', 'Press', 'Pull', 'PullAndHold', 'Push', 'PushAndHold', 'Release' ]
+  animations: {}
+methods:
+  setup:
+  detach:
+  Point:
+  SelectSwitchPosition:
+  PushMagazineReleaseButton:
+  PullAndHoldChargingHandle:
+  PushAndHoldBoltCatchBottom:
+  ReleaseChargingHandle:
+  ReleaseBoltCatchBottom:
+  PushChargingHandle:
+  InspectChamberGroup:
+  PushBoltCatchTop:
+  PullTrigger:
+  DetachSmallSlingSwivel:
+  DetachSwivel:
+  PressHandguardSlipRing:
+  DetachUpperHandguard:
+  DetachLowerHandguard:
+  PushTakedownPin:
+  PullTakedownPin:
+  getContext:
+  tick:
+  addAnimation:
+scripts:
+- |
+  function keyframe(goal,time)
+  {
+     return {
+      
+      rel_goal:goal,
+      time:time
+     }
+  }
+  this.action = function(action,childID,childName)
+  {
+     if(action[0] == "Point")
+     {
+        this.addAnimation(this.id,'rotation',[keyframe([0,0,-90],1)]);
+     }
+     if(action[0] == "Push" && childName == 'Magazine_Catch_Button')
+     {
+        this.addAnimation(this.Scene.findNode("Magazine_g Group").id,'position',[keyframe([0,0,-.15],1)]);
+        this.addAnimation(this.Scene.findNode("Magazine_Catch_Button").id,'position',[keyframe([0,.02,0],1)]);
+     }
+     if(action[0] == "Push" && childName == 'Charging_Handle')
+     {
+        this.addAnimation(this.Scene.findNode("Charging_Handle").id,'position',[keyframe([.02,0,0],1),keyframe([-.02,0,0],1)]);
+     }
+     if(action[0] == "Release" && childName == 'Charging_Handle')
+     {
+        this.addAnimation(this.Scene.findNode("Charging_Handle").id,'position',[keyframe([-.02,0,0],1)]);
+     }
+     if(action[0] == "PushAndHold" && childName == 'Charging_Handle')
+     {
+        this.addAnimation(this.Scene.findNode("Charging_Handle").id,'position',[keyframe([.02,0,0],1)]);
+     }
+     if(action[0] == "Pull" && childName == 'Trigger')
+     {
+        this.addAnimation(this.Scene.findNode("Trigger").id,'position',[keyframe([-.01,0,0],.5),keyframe([.01,0,0],.5)]);
+     }
+     if(action[0] == "SelectSwitchPosition" && action[1] == "Semi" && childName == 'Selector_Lever')
+     {
+        this.addAnimation(this.Scene.findNode("Selector_Lever").id,'rotation',[keyframe([0,90,0],.5)]);
+     }
+     if(action[0] == "SelectSwitchPosition" && action[1] == "Safe" && childName == 'Selector_Lever')
+     {
+        this.addAnimation(this.Scene.findNode("Selector_Lever").id,'rotation',[keyframe([0,180,0],.5)]);
+     }
+     if(action[0] == "SelectSwitchPosition" && action[1] == "Burst" && childName == 'Selector_Lever')
+     {
+        this.addAnimation(this.Scene.findNode("Selector_Lever").id,'rotation',[keyframe([0,0,0],.5)]);
+     }
+     if(action[0] == "Open" && childName == 'Ejection_Port_Cover')
+     {
+        this.addAnimation(this.Scene.findNode("Ejection_Port_Cover").id,'rotation',[keyframe([-90,0,0],.5)]);
+     }
+     if(action[0] == "Close" && childName == 'Ejection_Port_Cover')
+     {
+        this.addAnimation(this.Scene.findNode("Ejection_Port_Cover").id,'rotation',[keyframe([90,0,0],.5)]);
+     }
+
+  }
+  this.addAnimation = function(nodeID,type,keyframes)
+  {
+     var node = this.Scene.findNodeByID(nodeID);
+     var animation = {nodeID:nodeID,type:type,keys:[]}
+     this.animations[nodeID] = animation;
+    
+     for(var i in keyframes)
+     {
+         var rel_goal = keyframes[i].rel_goal;
+         var time = keyframes[i].time;
+         var lasttime = 0;
+         
+         if(i > 0)
+         {
+            lasttime = keyframes[i-1].time*20;
+         }
+         if(type == 'position')
+         {
+             var current = node.transformAPI.getPosition();
+              if(i > 0)
+                current = Vec3.add(keyframes[i-1].rel_goal,current,[]);
+             for(var i = 0; i <= time*20; i++)
+             {
+                var pos = [current[0] + (rel_goal[0]/(time*20) * i) ,
+                current[1] + (rel_goal[1]/(time*20)* i) ,
+                current[2] + (rel_goal[2]/(time*20)* i) ]
+                
+                animation.keys.push(pos);
+             }
+         }
+         if(type == 'rotation')
+         {
+             var current = node.transformAPI.getRotation();
+             if(i > 0)
+                current = Vec3.add(keyframes[i-1].rel_goal,current,[]);
+             for(var i = 0; i <= time*20; i++)
+             {
+                var pos = [current[0] + (rel_goal[0]/(time*20) * i) ,
+                current[1] + (rel_goal[1]/(time*20)* i) ,
+                current[2] + (rel_goal[2]/(time*20)* i) ]
+                
+                animation.keys.push(pos);
+             }
+         }
+      }
+  }
+  this.tick = function()
+  {
+      for(var i in this.animations)
+      {
+        if(this.animations[i].type == 'position')
+         this.Scene.findNodeByID(i).transformAPI.setPosition(this.animations[i].keys.shift());
+        if(this.animations[i].type == 'rotation')
+         this.Scene.findNodeByID(i).transformAPI.setRotation(this.animations[i].keys.shift());
+         
+        if(this.animations[i].keys.length == 0)
+           delete this.animations[i];
+      }
+  }
+  this.getContext = function(action, name)
+  {
+      if(action.length == 0)
+      {
+         if(name == "Trigger")
+            return ["Pull"]
+         if(name == "M4 Carbine")
+            return ["Point"]   
+         if(name == "Bolt_Catch")
+            return ["Push","PushAndHold","Release"]  
+         if(name == "Selector_Lever")
+            return ["SelectSwitchPosition"]
+         if(name == "Charging_Handle")
+            return ["Push","PushAndHold","Release"]
+         if(name == "Magazine_Catch_Button")
+            return ["Push"]
+         if(name == "Ejection_Port_Cover")
+            return ["Open","Close"]                     
+      }
+      if(action[action.length -1] == 'Point' && name == "M4 Carbine")
+      {
+          return ["target","left","right"]
+      }
+      if(action[action.length -1] == 'SelectSwitchPosition' && name == "Selector_Lever")
+      {
+          return ["Semi","Safe","Burst"]
+      }
+
+  }
+  this.setup = function() {
+    console.info(this.id + ' ' + this.DisplayName + ' setup');
+    console.info(this.id + ' point behavior depends on shooting range targets KbId:' + this.parent.ShootingRange_dae.targets_KbId);
+    this.transformAPI.setPosition([ 0, 0, 0.25 ]);
+    this.transformAPI.setRotation([0,0,0]);
+  };
+
+  
+
+  this.SelectSwitchPosition = function(position) {
+    console.info(this.id + ' SelectSwitchPosition ' + position);
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 18 ].DisplayName != 'Selector_Lever') {
+        console.warn(this.id + ' Lower_Receiver Group child 18 is not the Selector_Lever');
+        return;
+    }
+
+    switch (position) {
+    case 'Safe':
+        this.children_by_name[ 'Lower_Receiver Group' ].children[ 18 ].transformAPI.setRotation( 0, 0, 90 );
+        break;
+    case 'Semi':
+        this.children_by_name[ 'Lower_Receiver Group' ].children[ 18 ].transformAPI.setRotation( 0, 0, 1 );
+        break;
+    case 'Burst':
+        this.children_by_name[ 'Lower_Receiver Group' ].children[ 18 ].transformAPI.setRotation( 0, 0, -90 );
+        break;
+    }
+
+    //this.activity({ action: 'SelectSwitchPosition', arguments: [ this.Selector_Lever_KbId, position ], names: [ 'Selector_Lever', position ] });
+  };
+
+  this.PushMagazineReleaseButton = function() {
+    console.info(this.id + ' Push MagazineReleaseButton');
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 9 ].DisplayName != 'Magazine_Catch') {
+        console.warn(this.id + ' Lower_Receiver Group child 9 is not the Magazine_Catch');
+        return;
+    }
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 11 ].DisplayName != 'Magazine_Catch_Button') {
+        console.warn(this.id + ' Lower_Receiver Group child 9 is not the Magazine_Catch_Button');
+        return;
+    }
+
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 9 ].transformAPI.setPosition([ 0, 0, 0.0026 ]);
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 11 ].transformAPI.setPosition([ 0, 0, 0.0026]);
+    this.children_by_name[ 'Magazine_g Group' ].transformAPI.setPosition([ 0, 0.125, 0 ]);
+    //this.activity({ action: 'Push', arguments: [ this.Magazine_Catch_Button_KbId ], names: [ 'Magazine_Catch_Button' ] });
+  };
+
+  this.PullAndHoldChargingHandle = function() {
+    console.info(this.id + ' PullAndHold ChargingHandle');
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Charging_Handle Group' ].transformAPI.setPosition([ -0.005, 0, 0 ]);
+    //this.activity({ action: 'PullAndHold', arguments: [ this[ 'Charging_Handle Group_KbId' ] ], names: [ 'Charging_Handle Group' ] });
+  };
+
+  this.PushAndHoldBoltCatchBottom = function() {
+    console.info(this.id + ' PushAndHold BoltCatchBottom');
+    this.children_by_name[ 'Lower_Receiver Group' ].children_by_name[ 'Bolt_Catch Group' ].transformAPI.setRotation( -12, 0, 0);
+    //this.activity({ action: 'PushAndHold', arguments: [ this[ 'Bolt_Catch_Bottom Group_KbId' ] ], names: [ 'Bolt_Catch_Bottom Group' ] });
+  };
+
+  this.ReleaseChargingHandle = function() {
+    console.info(this.id + ' Release ChargingHandle');
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Charging_Handle Group' ].transformAPI.setPosition([ 0., 0, 0 ]);
+    //this.activity({ action: 'Release', arguments: [ this[ 'Charging_Handle Group_KbId' ] ], names: [ 'Charging_Handle Group' ] });
+  };
+
+  this.ReleaseBoltCatchBottom = function() {
+    console.info(this.id + ' Release BoltCatchBottom');
+    this.children_by_name[ 'Lower_Receiver Group' ].children_by_name[ 'Bolt_Catch Group' ].transformAPI.setRotation( 1, 0, 0 );
+    //this.activity({ action: 'Release', arguments: [ this[ 'Bolt_Catch_Bottom Group_KbId' ] ], names: [ 'Bolt_Catch_Bottom Group' ] });
+  };
+
+  this.PushChargingHandle = function() {
+    console.info(this.id + ' Push ChargingHandle');
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Charging_Handle Group' ].transformAPI.setPosition([ 0.005, 0, 0 ]);
+    //this.activity({ action: 'Push', arguments: [ this[ 'Charging_Handle Group_KbId' ] ], names: [ 'Charging_Handle Group' ] });
+  };
+
+  this.InspectChamberGroup = function() {
+    console.info(this.id + ' Inspect Chamber');
+
+    if (this.children_by_name[ 'Upper_Receiver Group' ].children[ 9 ].DisplayName != 'Ejection_Port_Cover') {
+        console.warn(this.id + ' Upper_Receiver Group child 9 is not the Ejection_Port_Cover');
+        return;
+    }
+
+    if (this.children_by_name[ 'Upper_Receiver Group' ].children[ 10 ].DisplayName != 'Cover_Spring') {
+        console.warn(this.id + ' Upper_Receiver Group child 10 is not the Cover_Spring');
+        return;
+    }
+
+    if (this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Key_and_Bolt_Carrier_Assembly Group' ].children_by_name[ 'Bolt Group' ].children[ 11 ].DisplayName != 'Casing4') {
+        console.warn(this.id + ' Upper_Receiver Group->Key_and_Bolt_Carrier_Assembly Group->Bolt Group child 11 is not the Casing4');
+        return;
+    }
+
+    if (this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Key_and_Bolt_Carrier_Assembly Group' ].children_by_name[ 'Bolt Group' ].children[ 12 ].DisplayName != 'Projectile4') {
+        console.warn(this.id + ' Upper_Receiver Group->Key_and_Bolt_Carrier_Assembly Group->Bolt Group child 12 is not the Projectile4');
+        return;
+    }
+
+    this.children_by_name[ 'Upper_Receiver Group' ].children[ 10 ].visible = false; // We have to hide it, beceause it does not have a proper rotation pivot point
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Key_and_Bolt_Carrier_Assembly Group' ].children_by_name[ 'Bolt Group' ].children[ 11 ].visible = false;
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Key_and_Bolt_Carrier_Assembly Group' ].children_by_name[ 'Bolt Group' ].children[ 12 ].visible = false;
+    this.children_by_name[ 'Upper_Receiver Group' ].children_by_name[ 'Key_and_Bolt_Carrier_Assembly Group' ].transformAPI.setPosition([ -0.075, 0, 0 ]);
+    this.children_by_name[ 'Upper_Receiver Group' ].children[ 9 ].rotateTo([ 130, 0, 0 ]);
+    //this.activity({ action: 'Inspect', arguments: [ this[ 'Chamber Group_KbId' ] ], names: [ 'Chamber Group' ] });
+  };
+
+  this.PushBoltCatchTop = function() {
+    console.info(this.id + ' Push BoltCatchTop');
+
+    this.children_by_name[ 'Lower_Receiver Group' ].children_by_name[ 'Bolt_Catch Group' ].transformAPI.setRotation( 12, 0, 0 );
+    //this.activity({ action: 'Push', arguments: [ this[ 'Bolt_Catch_Top Group_KbId' ] ], names: [ 'Bolt_Catch_Top Group' ] });
+  };
+
+  this.PullTrigger = function() {
+    console.info(this.id + ' Pull Trigger');
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 1 ].DisplayName != 'Trigger') {
+      console.warn(this.id + ' Lower_Receiver Group child 9 is not the Trigger');
+      return;
+    }
+
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 1 ].rotateTo([ 0, 0, 15 ]);
+    //this.activity({ action: 'Pull', arguments: [ this.Trigger_KbId ], names: [ 'Trigger' ] });
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 1 ].future(1).rotateTo([ 0, 0, 1]);
+  };
+
+  this.detach = function(detached) {
+    console.info(this.id + 'DetachSling 2 detach actions detaching:' + detached);
+
+    var detachSling = false;
+
+    switch (detached) {
+    case 'Small_Sling_Swivel':
+      if (this.__slingDetach == 2) detachSling = true;
+      else this.__slingDetach = 1;
+      break;
+    case 'Swivel_LAMA1259863095':
+      if (this.__slingDetach == 1) detachSling = true;
+      else this.__slingDetach = 2;
+      break;
+    }
+
+    if (detachSling) {
+      this.Sling.transformAPI.setPosition([ 0, 0.2, 0 ]);
+      this.Small_Sling_Swivel.transformAPI.setPosition([ 0, 0.2, 0 ]);
+
+      if (this.children_by_name[ 'Buttstock Group' ].children[ 1 ].DisplayName != 'Swivel_LAMA1259863095') {
+          console.warn(this.id + ' Buttstock Group child 1 is not the Swivel_LAMA1259863095');
+          return;
+      }
+
+      this.children_by_name[ 'Buttstock Group' ].children[ 1 ].transformAPI.setPosition([ 0, 0.2, 0 ]);
+    }
+  };
+
+  this.DetachSmallSlingSwivel = function() {
+    console.info(this.id + ' Detach SmallSlingSwivel');
+
+    this.detach('Small_Sling_Swivel');
+    // arguments: detached from, thing detached
+    //this.activity({ action: 'Detach', arguments: [ this.Small_Sling_Swivel_KbId, this.Sling_KbId ], names: [ 'Small_Sling_Swivel' ] });
+  };
+
+  this.DetachSwivel = function() {
+    console.info(this.id + ' Detach Swivel');
+
+    this.detach('Swivel_LAMA1259863095');
+    // arguments: detached from, thing detached
+    //this.activity({ action: 'Detach', arguments: [ this.Swivel_LAMA1259863095_KbId, this.Sling_KbId ], names: [ 'Swivel_LAMA1259863095' ] });
+  };
+
+  this.PressHandguardSlipRing = function() {
+    console.info(this.id + ' Press HandguardSlipRing');
+
+    this.Handguard_Slip_Ring_LAMA918813252.transformAPI.setPosition([ -0.0034912, 0, 0 ], 0.125);
+    // arguments: thingPressed
+    //this.activity({ action: 'Press', arguments: [ this.Handguard_Slip_Ring_LAMA918813252_KbId ], names: [ 'Handguard_Slip_Ring_LAMA918813252' ] });
+  };
+
+  this.DetachUpperHandguard = function() {
+    console.info(this.id + ' Detach UpperHandguard');
+
+    this.Upper_Handguard.transformAPI.setPosition([ 0, -0.15, 0 ]);
+    // arguments: detached from, thing detached
+    //this.activity({ action: 'Detach', arguments: [ this.M4_Carbine_dae_KbId, this.Upper_Handguard_KbId ], names: [ 'Upper_Handguard' ] });
+  };
+
+  this.DetachLowerHandguard = function() {
+    console.info(this.id + ' Detach LowerHandguard');
+
+    this.Lower_Handguard.transformAPI.setPosition([ 0, 0.15, 0 ]);
+    // arguments: detached from, thing detached
+    //this.activity({ action: 'Detach', arguments: [ this.M4_Carbine_dae_KbId, this.Lower_Handguard_KbId ], names: [ 'Lower_Handguard' ] });
+  };
+
+  this.PushTakedownPin = function() {
+    console.info(this.id + ' Push TakedownPin');
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 15 ].DisplayName != 'Takedown_Pin') {
+        console.warn(this.id + ' Lower_Receiver Group child 15 is not the Takedown_Pin');
+        return;
+    }
+
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 15 ].transformAPI.setPosition([ 0, 0, -0.003344 ]);
+    // arguments: thingPushed
+    //this.activity({ action: 'Push', arguments: [ this.Takedown_Pin_KbId ], names: [ 'Takedown_Pin' ] });
+  };
+
+  this.PullTakedownPin = function() {
+    console.info(this.id + ' Pull TakedownPin');
+
+    if (this.children_by_name[ 'Lower_Receiver Group' ].children[ 15 ].DisplayName != 'Takedown_Pin') {
+        console.warn(this.id + ' Lower_Receiver Group child 15 is not the Takedown_Pin');
+        return;
+    }
+
+    this.children_by_name[ 'Lower_Receiver Group' ].children[ 15 ].transformAPI.setPosition([ 0, 0, -0.018927 ]);
+    // arguments: thingPulled
+    //this.activity({ action: 'Pull', arguments: [ this.Takedown_Pin_KbId ], names: [ 'Takedown_Pin' ] });
+  };
+  //# sourceURL=M4_Carbine_dae.eui
