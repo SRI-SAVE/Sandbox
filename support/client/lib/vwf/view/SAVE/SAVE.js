@@ -99,7 +99,6 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], fu
 
 			this.rezzedIDs = [ ];
 			this.rezzedNames = [ ];
-			autoLoadedNodes = [ ];
 			actionStack = [ ];
 		},
 		setBaseServerAddress: function(value) {

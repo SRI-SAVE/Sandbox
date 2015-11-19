@@ -20912,21 +20912,21 @@
 	  switch (route) {
 	    case 'http://localhost:3001/CAT/inventory':
 	      return delayResponse(500, inventoryCATFetch());
-	    case 'http://localhost:3001/inventory':
+	    // case 'http://localhost:3001/inventory':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/inventory':
 	      return delayResponse(1500, inventoryEUIFetch());
-	    case 'http://localhost:3001/query':
+	    // case 'http://localhost:3001/query':
 	    case 'http://localhost:3001/CAT/query':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/query':
 	      return queryFetch(options);
-	    case 'http://localhost:3001/object':
+	    // case 'http://localhost:3001/object':
 	    case 'http://localhost:3001/CAT/object':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/object':
 	      return objectFetch(options);
-	    case 'http://localhost:3001/action':
+	    // case 'http://localhost:3001/action':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/action':
 	      return actionFetch(options);
-	    case 'http://localhost:3001/generateSolution':
+	    // case 'http://localhost:3001/generateSolution':
 	    case 'http://localhost:3001/exercises/071-100-0032/step01/m4_flora_clear/generateSolution':
 	      return generateSolutionEUIFetch();
 	    case 'http://localhost:3001/CAT/finishExercise':
@@ -21005,14 +21005,11 @@
 
 	  switch (o.type) {
 	    case 'Reset':
-	      instructorMode = true;
-	      break;
+	      return Promise.resolve(new window.Response(null, httpResponse));
 	    case 'KbId':
 	      jsonData = [o.query[0] + Date.now()];
-	      break;
+	      return Promise.resolve(new window.Response(JSON.stringify({ KbIds: jsonData }), httpResponse));
 	  }
-
-	  return Promise.resolve(new window.Response(JSON.stringify({ KbIds: jsonData }), httpResponse));
 	};
 
 	var objectFetch = function objectFetch(options) {
@@ -21724,7 +21721,6 @@
 	    this.setState({ loadedExerciseList: true }, function () {
 	      _this2.setExerciseListWidth();
 	      _this2.joyrideAddSteps(_this2.steps, true);
-	      _this2.requestStaticLoadedSemanticAssets();
 	    });
 	  },
 
@@ -21736,14 +21732,14 @@
 	    var snackbarStudentMode = _refs.snackbarStudentMode;
 	    var snackbarInstructorMode = _refs.snackbarInstructorMode;
 
-	    fetch(this.baseServerAddress + '/generateSolution', { mode: 'cors' }).then(function () {
-	      if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
+	    if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
 
-	      _this3.setState({
-	        reloadTray: true,
-	        instructorToggle: false
+	    fetch(this.baseServerAddress + '/generateSolution', { mode: 'cors' }).then(function () {
+	      snackbarInstructorMode.dismiss();
+	      _this3.setState({ reloadTray: true, instructorToggle: false }, function () {
+	        snackbarStudentMode.show();
+	        _this3.resetEUI();
 	      });
-	      snackbarStudentMode.show();
 	    })['catch'](function (e) {
 	      snackbarInstructorMode.show();
 	      console.error(e);
@@ -21768,15 +21764,43 @@
 	  },
 
 	  showAssessment: function showAssessment() {
-	    this.refs.controlsComponentDialog.dismiss();
+	    this.refs.controlsComponentDialog.dismiss(); // setState!
 	    this.refs.assessmentComponentDialog.show();
 	  },
 
+	  sendReset: function sendReset() {
+	    return fetch(this.baseServerAddress + '/query', {
+	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+	      method: 'post',
+	      mode: 'cors',
+	      body: 'query=' + JSON.stringify({ type: 'Reset' })
+	    });
+	  },
+
 	  reset: function reset() {
-	    this.setState({ instructorToggle: false });
-	    this.refs.controlsComponentDialog.dismiss();
-	    this.requestStaticLoadedSemanticAssets();
-	    SAVE2.lib.view.reset();
+	    var _this5 = this;
+
+	    this.refs.controlsComponentDialog.dismiss(); // setState!
+	    this.refs.snackbarInstructorMode.dismiss();
+	    this.setState({
+	      instructorToggle: false,
+	      reloadTray: true
+	    }, function () {
+	      _this5.resetEUI();
+	    });
+	  },
+
+	  resetEUI: function resetEUI() {
+	    var _this6 = this;
+
+	    if (this.state.selectedExerciseListIndex != null) {
+	      this.sendReset().then(function () {
+	        _this6.requestStaticLoadedSemanticAssets();
+	        SAVE2.lib.view.reset();
+	      })['catch'](function (e) {
+	        return console.error(e);
+	      });
+	    }
 	  },
 
 	  dialogDismiss: function dialogDismiss() {
@@ -21796,14 +21820,16 @@
 	  },
 
 	  handleExerciseSelectChange: function handleExerciseSelectChange(e, selectedIndex /*, menuItem */) {
+	    var _this7 = this;
+
+	    this.setBase({ exercise: this.state.exerciseList[selectedIndex].payload });
 	    this.setState({
 	      instructorToggle: false,
 	      reloadTray: true,
 	      selectedExerciseListIndex: selectedIndex
+	    }, function () {
+	      _this7.resetEUI();
 	    });
-
-	    this.setBase({ exercise: this.state.exerciseList[selectedIndex].payload });
-	    this.refs.snackbarInstructorMode.dismiss();
 	  },
 
 	  handleInstructorModeToggle: function handleInstructorModeToggle(e, toggle) {
@@ -21813,6 +21839,8 @@
 	  },
 
 	  handleServerInputChange: function handleServerInputChange(e) {
+	    var _this8 = this;
+
 	    var value = e.target.value;
 	    var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
 	    var missingProtocol = value.match(/^(http|https):\/\//) == null;
@@ -21830,6 +21858,7 @@
 	    }
 
 	    if (value !== this.baseServer) {
+	      this.setBase({ host: value, exercise: '' });
 	      this.setState({
 	        exerciseList: [],
 	        instructorToggle: false,
@@ -21837,9 +21866,9 @@
 	        reloadTray: true,
 	        selectedExerciseListIndex: null,
 	        serverErrorText: serverErrorText
+	      }, function () {
+	        _this8.fetchExercises();
 	      });
-	      this.setBase({ host: value, exercise: '' });
-	      this.fetchExercises();
 	    }
 	  },
 
@@ -25401,16 +25430,11 @@
 
 	  componentWillMount: function componentWillMount() {
 	    if (this.props.forceUpdate) {
-	      this.resetAnd();
+	      this.handleResetClick();
 	    } else if (tooltrayItems) {
 	      this.setState({
 	        instructorMode: this.props.instructorMode,
 	        loaded: true
-	      });
-	    } else {
-	      // first time
-	      this.sendReset()['catch'](function (e) {
-	        return console.error(e);
 	      });
 	    }
 	  },
@@ -25439,30 +25463,11 @@
 	    });
 	  },
 
-	  sendReset: function sendReset() {
-	    return fetch(this.props.baseServerAddress + '/query', {
-	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-	      method: 'post',
-	      mode: 'cors',
-	      body: 'query=' + JSON.stringify({ type: 'Reset' })
-	    });
-	  },
-
-	  resetAnd: function resetAnd(andFunc) {
+	  handleResetClick: function handleResetClick(andFunc) {
 	    tooltrayItems = null;
 	    staticItems = [];
-	    this.setState({ tooltrayItems: tooltrayItems, staticItems: staticItems });
-
-	    if (andFunc) andFunc();
-	  },
-
-	  handleResetClick: function handleResetClick() /* e */{
-	    var _this2 = this;
-
-	    this.sendReset().then(function () {
-	      _this2.resetAnd(_this2.props.onReset);
-	    })['catch'](function (e) {
-	      return console.error(e);
+	    this.setState({ tooltrayItems: tooltrayItems, staticItems: staticItems }, function () {
+	      if (andFunc) andFunc();
 	    });
 	  },
 
@@ -25533,7 +25538,7 @@
 	      _react2['default'].createElement(
 	        _materialUiLibListsList2['default'],
 	        { subheader: 'Controls' },
-	        _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionRestore2['default'], null), onClick: this.handleResetClick, primaryText: 'Reset' }),
+	        _react2['default'].createElement(_materialUiLibListsListItem2['default'], { leftIcon: _react2['default'].createElement(_materialUiLibSvgIconsActionRestore2['default'], null), onClick: this.handleResetClick.bind(this, this.props.onReset), primaryText: 'Reset' }),
 	        this.isCAT() ? _react2['default'].createElement(
 	          'div',
 	          null,
@@ -36559,13 +36564,13 @@
 	  saveExercise: function saveExercise(exercise, staticIds) {
 	    var controlsComponentDialog = this.refs.controlsComponentDialog;
 
+	    if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
+
 	    fetch(this.baseServerAddress + '/finishExercise', {
 	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
 	      method: 'post',
 	      mode: 'cors',
 	      body: 'save=' + JSON.stringify({ exercise: exercise, auto: staticIds })
-	    }).then(function () {
-	      if (controlsComponentDialog.isOpen()) controlsComponentDialog.dismiss(); // do this first since it does a setState!
 	    })['catch'](function (e) {
 	      return console.error(e);
 	    });
