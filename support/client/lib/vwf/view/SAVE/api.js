@@ -1,29 +1,5 @@
 define([ ], function() {
   return {
-    create: function(ID, auto, done, fail) {
-      var data = JSON.stringify({
-        type: 'create',
-        auto: auto,
-        ID: ID,
-      });
-
-      fetch(this.baseServerAddress + "/object", {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-        method: 'post',
-        mode: 'cors',
-        body: 'object=' + data,
-      })
-      .then(function(response) { return response.json(); })
-      .then(function(json) {
-        if (done) done(json);
-      })
-      .catch(function(e) {
-        console.error(e);
-
-        if (fail) fail();
-      });
-    },
-
     action: function(action, arguments, names, done, fail) {
       var data = JSON.stringify({
         action: action,

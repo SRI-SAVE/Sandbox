@@ -20852,19 +20852,25 @@
 	  createSemanticAsset: function createSemanticAsset() {
 	    console.group('SAVE2.lib.view.createSemanticAsset()');
 	    console.table([arguments]);
-	    // console.dir(arguments);
 	    console.groupEnd();
 	  },
 
-	  installAutoLoads: function installAutoLoads() {
-	    console.group('SAVE2.lib.view.installAutoLoads()');
-	    console.table([arguments]);
+	  loadStaticAutoAssets: function loadStaticAutoAssets(list) {
+	    console.group('SAVE2.lib.view.loadStaticAutoAssets()');
+	    list.forEach(function (auto) {
+	      console.dir(auto);
+	    });
 	    console.groupEnd();
 	  },
 
-	  setBaseServerAddress: function setBaseServerAddress() {
+	  reset: function reset() {
+	    console.group('SAVE2.lib.view.reset()');
+	    console.groupEnd();
+	  },
+
+	  setBaseServerAddress: function setBaseServerAddress(baseServerAddress) {
 	    console.group('SAVE2.lib.view.setBaseServerAddress()');
-	    console.table([arguments]);
+	    console.dir(baseServerAddress);
 	    console.groupEnd();
 	  }
 	};
@@ -20983,8 +20989,7 @@
 	  var o = JSON.parse(body.replace('activity=', ''));
 
 	  console.group('actionFetch()');
-	  console.table([o.arguments]);
-	  console.table([o.names]);
+	  console.table([[o.arguments], [o.names]]);
 	  console.groupEnd();
 	  return Promise.resolve(new window.Response(null, httpResponse));
 	};
@@ -21680,6 +21685,21 @@
 	    this.baseServerAddress = '' + this.baseServer + exercise;
 	  },
 
+	  requestStaticLoadedSemanticAssets: function requestStaticLoadedSemanticAssets() {
+	    fetch(this.baseServerAddress + '/object', {
+	      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+	      method: 'post',
+	      mode: 'cors',
+	      body: 'object=' + JSON.stringify({ type: 'create', ID: null, auto: true })
+	    }).then(function (response) {
+	      return response.json();
+	    }).then(function (list) {
+	      SAVE2.lib.view.loadStaticAutoAssets(list);
+	    })['catch'](function (e) {
+	      return console.error(e);
+	    });
+	  },
+
 	  simulateBackend: function simulateBackend() {
 	    this.refs.snackbarSimulateBackend.dismiss();
 	    SAVE2.simulate();
@@ -21704,6 +21724,7 @@
 	    this.setState({ loadedExerciseList: true }, function () {
 	      _this2.setExerciseListWidth();
 	      _this2.joyrideAddSteps(_this2.steps, true);
+	      _this2.requestStaticLoadedSemanticAssets();
 	    });
 	  },
 
@@ -21754,6 +21775,8 @@
 	  reset: function reset() {
 	    this.setState({ instructorToggle: false });
 	    this.refs.controlsComponentDialog.dismiss();
+	    this.requestStaticLoadedSemanticAssets();
+	    SAVE2.lib.view.reset();
 	  },
 
 	  dialogDismiss: function dialogDismiss() {
@@ -21769,7 +21792,6 @@
 
 	  handleControlsClick: function handleControlsClick() {
 	    SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
-	    // XXX call issueautoloads...
 	    this.refs.controlsComponentDialog.show();
 	  },
 
@@ -36576,7 +36598,6 @@
 
 	  handleControlsClick: function handleControlsClick() {
 	    SAVE2.lib.view.setBaseServerAddress(this.baseServerAddress);
-	    // XXX call issueautoloads...
 	    this.refs.controlsComponentDialog.show();
 	  },
 

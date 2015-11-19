@@ -99,7 +99,8 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], fu
 
 			this.rezzedIDs = [ ];
 			this.rezzedNames = [ ];
-			this.issueAutoLoads();
+			autoLoadedNodes = [ ];
+			actionStack = [ ];
 		},
 		setBaseServerAddress: function(value) {
 			return vwf.setProperty(vwf.application(), "baseServerAddress", [ value ]);
@@ -107,17 +108,15 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], fu
 		getBaseServerAddress: function() {
 			return vwf.getProperty(vwf.application(), "baseServerAddress");
 		},
-		issueAutoLoads: function() {
-			for (var i = 0; i < this.autoLoadedNodes.length; i++) {
-				var node = this.nodes[this.autoLoadedNodes[i]]
-				var ID = node.properties.DisplayName;
+		loadStaticAutoAssets: function(list) {
+			var _KbId = list[ 0 ].KbId;
+			var node = this.nodes[ this.autoLoadedNodes[ 0 ] ];
 
-				SAVEAPI.create(ID, true, function(data) {
-					var _KbId = data[0].KbIds;
-					vwf_view.kernel.setProperty(node.id, "KbId", _KbId)
-					console.info("got " + _KbId);
-				});
-			}
+			SAVEAPI.KbId('targets', _KbId, function(data) {
+				var _KbId = data.KbIds[ 0 ];
+				vwf_view.kernel.setProperty(node.id, "KbId", _KbId);
+				console.info("static auto asset " + _KbId);
+			}, function() { });
 		},
 		// -- initialize -----------------------------------------------------------
 		initialize: function() {
@@ -302,9 +301,9 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], fu
 
 					SAVEAPI.KbId(ID, parentID, function(data) {
 						var _KbId = data.KbIds[ 0 ];
-						vwf_view.kernel.setProperty(node.id, "KbId", _KbId)
+						vwf_view.kernel.setProperty(node.id, "KbId", _KbId);
 						console.log("got " + _KbId);
-					}, function() { })
+					}, function() { });
 				}
 			} else if (node && node.properties.SAVE_AUTO_LOAD) {
 				this.autoLoadedNodes.push(childID);
