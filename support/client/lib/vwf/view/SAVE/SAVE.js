@@ -126,7 +126,8 @@ define([ "module", "vwf/view", "vwf/view/SAVE/api", "vwf/view/SAVE/bundle" ], fu
 			var self = this;
 
 			$(document).on('setstatecomplete', function() {
-				if (!window._EntityLibrary)
+				if (!window._EntityLibrary) { }
+
 				self.mouseDown = false;
 				self.lastMouse = {
 					x: 0,
