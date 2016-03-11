@@ -1,4 +1,16 @@
-# Copyright 2014, SRI International
+# Copyright 2016 SRI International
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+# http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 --- 
 properties:
   __slingDetach: 0
@@ -33,7 +45,7 @@ scripts:
   function keyframe(goal,time)
   {
      return {
-      
+
       rel_goal:goal,
       time:time
      }
@@ -92,13 +104,13 @@ scripts:
      var node = this.Scene.findNodeByID(nodeID);
      var animation = {nodeID:nodeID,type:type,keys:[]}
      this.animations[nodeID] = animation;
-    
+
      for(var i in keyframes)
      {
          var rel_goal = keyframes[i].rel_goal;
          var time = keyframes[i].time;
          var lasttime = 0;
-         
+
          if(i > 0)
          {
             lasttime = keyframes[i-1].time*20;
@@ -113,7 +125,7 @@ scripts:
                 var pos = [current[0] + (rel_goal[0]/(time*20) * i) ,
                 current[1] + (rel_goal[1]/(time*20)* i) ,
                 current[2] + (rel_goal[2]/(time*20)* i) ]
-                
+
                 animation.keys.push(pos);
              }
          }
@@ -127,7 +139,7 @@ scripts:
                 var pos = [current[0] + (rel_goal[0]/(time*20) * i) ,
                 current[1] + (rel_goal[1]/(time*20)* i) ,
                 current[2] + (rel_goal[2]/(time*20)* i) ]
-                
+
                 animation.keys.push(pos);
              }
          }
@@ -141,7 +153,7 @@ scripts:
          this.Scene.findNodeByID(i).transformAPI.setPosition(this.animations[i].keys.shift());
         if(this.animations[i].type == 'rotation')
          this.Scene.findNodeByID(i).transformAPI.setRotation(this.animations[i].keys.shift());
-         
+
         if(this.animations[i].keys.length == 0)
            delete this.animations[i];
       }
@@ -153,9 +165,9 @@ scripts:
          if(name == "Trigger")
             return ["Pull"]
          if(name == "M4 Carbine")
-            return ["Point"]   
+            return ["Point"]
          if(name == "Bolt_Catch")
-            return ["Push","PushAndHold","Release"]  
+            return ["Push","PushAndHold","Release"]
          if(name == "Selector_Lever")
             return ["SelectSwitchPosition"]
          if(name == "Charging_Handle")
@@ -163,7 +175,7 @@ scripts:
          if(name == "Magazine_Catch_Button")
             return ["Push"]
          if(name == "Ejection_Port_Cover")
-            return ["Open","Close"]                     
+            return ["Open","Close"]
       }
       if(action[action.length -1] == 'Point' && name == "M4 Carbine")
       {
@@ -182,7 +194,7 @@ scripts:
     this.transformAPI.setRotation([0,0,0]);
   };
 
-  
+
 
   this.SelectSwitchPosition = function(position) {
     console.info(this.id + ' SelectSwitchPosition ' + position);
